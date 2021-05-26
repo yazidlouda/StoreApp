@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'StoreAppProject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for StoreAppProject
+
+  target 'StoreAppProjectTests' do
+    inherit! :search_paths
+    # Pods for testing
+pod 'SideMenu'
+pod 'FBSDKLoginKit'
+  end
+
+  target 'StoreAppProjectUITests' do
+    # Pods for testing
+  end
+
+end
