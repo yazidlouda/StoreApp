@@ -9,7 +9,7 @@ import UIKit
 
 
 class LoginPageViewController: UIViewController , UITextFieldDelegate{
-
+    @IBOutlet weak var logo: UIImageView!
 
     var ud = UserDefaults.standard
     
@@ -25,7 +25,22 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
-        // Do any additional setup after loading the view.
+        animateRight()
+        func animateRight() {
+            UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
+                self.logo.transform = CGAffineTransform(rotationAngle: 170)
+            }, completion: {_ in animateLeft()})
+        }
+        func animateLeft() {
+            UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
+                self.logo.transform = CGAffineTransform(rotationAngle: 320)
+            }, completion: {_ in animateCenter()})
+        }
+        func animateCenter() {
+            UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
+                self.logo.transform = CGAffineTransform(rotationAngle: 0)
+            }, completion: {_ in animateRight()})
+        }
     }
     
     @IBAction func login(_ sender: Any) {
