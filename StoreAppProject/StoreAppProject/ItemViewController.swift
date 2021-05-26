@@ -10,6 +10,7 @@ import UIKit
 class ItemViewController: UIViewController {
 
     
+    @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemname: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
@@ -17,6 +18,7 @@ class ItemViewController: UIViewController {
     var name: String?
     var itemInfo: String?
     var index: Int?
+    var price: Double?
     var cartInstance = Cart.sharedInstance
     var WishListInst = WishList.sharedInstance
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ class ItemViewController: UIViewController {
         itemname.text = name
         itemImage.image = image
         itemDescription.text = itemInfo
+        itemPrice.text = String(price!)
         // Do any additional setup after loading the view.
     }
     
@@ -49,7 +52,7 @@ class ItemViewController: UIViewController {
             WishListInst.wishListItems.append(product)
             haptic.notificationOccurred(.success)
         } else {
-            print("Product is already added to Cart")
+            print("Product is already added to wishlist")
             haptic.notificationOccurred(.error)
         }
     }
