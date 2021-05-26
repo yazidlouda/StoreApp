@@ -39,6 +39,7 @@ class ItemCollectionViewController: UICollectionViewController {
         viewController?.image = inventory[indexPath.item].image
         viewController?.name = inventory[indexPath.item].name
         viewController?.itemInfo = inventory[indexPath.item].description
+        viewController?.price = inventory[indexPath.item].price
         viewController?.index  = indexPath.item
         
         let haptic = UIImpactFeedbackGenerator(style: .soft)

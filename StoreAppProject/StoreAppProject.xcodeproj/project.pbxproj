@@ -29,6 +29,9 @@
 		5E60BDCE2659959100874292 /* OrderSubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60BDCD2659959100874292 /* OrderSubmittedViewController.swift */; };
 		5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60BDCF265995C400874292 /* RefundSuccessfulViewController.swift */; };
 		5E60BDD2265998A700874292 /* OrderStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60BDD1265998A700874292 /* OrderStatusViewController.swift */; };
+		8483F1B3265EA47700A5ABB9 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483F1B2265EA47700A5ABB9 /* PaymentMethod.swift */; };
+		8483F1C1265EB2BE00A5ABB9 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483F1C0265EB2BE00A5ABB9 /* CardViewController.swift */; };
+		8483F1CC265EB59D00A5ABB9 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483F1BB265EB20A00A5ABB9 /* BankViewController.swift */; };
 		84E328FE26582B2500AEE9A7 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E328FD26582B2500AEE9A7 /* DBHelper.swift */; };
 		84E329D32658591000AEE9A7 /* Customer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E329D12658591000AEE9A7 /* Customer+CoreDataClass.swift */; };
 		84E329D42658591000AEE9A7 /* Customer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E329D22658591000AEE9A7 /* Customer+CoreDataProperties.swift */; };
@@ -40,6 +43,7 @@
 		F4371359265DF26B00F17811 /* KitchenCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4371357265DF26B00F17811 /* KitchenCollectionViewCell.xib */; };
 		F437135F265DF27F00F17811 /* OutdoorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437135D265DF27F00F17811 /* OutdoorCollectionViewCell.swift */; };
 		F4371360265DF27F00F17811 /* OutdoorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F437135E265DF27F00F17811 /* OutdoorCollectionViewCell.xib */; };
+		F4371368265ECF0F00F17811 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371367265ECF0F00F17811 /* TableViewController.swift */; };
 		F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B36265C34BE0051D5D6 /* ItemCollectionViewController.swift */; };
 		F4583B3C265C35F50051D5D6 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B3B265C35F50051D5D6 /* ItemCollectionViewCell.swift */; };
 		F4583B62265C78BF0051D5D6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B61265C78BF0051D5D6 /* Item.swift */; };
@@ -96,6 +100,9 @@
 		5E60BDCD2659959100874292 /* OrderSubmittedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSubmittedViewController.swift; sourceTree = "<group>"; };
 		5E60BDCF265995C400874292 /* RefundSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundSuccessfulViewController.swift; sourceTree = "<group>"; };
 		5E60BDD1265998A700874292 /* OrderStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewController.swift; sourceTree = "<group>"; };
+		8483F1B2265EA47700A5ABB9 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		8483F1BB265EB20A00A5ABB9 /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
+		8483F1C0265EB2BE00A5ABB9 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		84E328FD26582B2500AEE9A7 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		84E329D12658591000AEE9A7 /* Customer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Customer+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		84E329D22658591000AEE9A7 /* Customer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Customer+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -111,6 +118,7 @@
 		F4371357265DF26B00F17811 /* KitchenCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KitchenCollectionViewCell.xib; sourceTree = "<group>"; };
 		F437135D265DF27F00F17811 /* OutdoorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorCollectionViewCell.swift; sourceTree = "<group>"; };
 		F437135E265DF27F00F17811 /* OutdoorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutdoorCollectionViewCell.xib; sourceTree = "<group>"; };
+		F4371367265ECF0F00F17811 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F4583B36265C34BE0051D5D6 /* ItemCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewController.swift; sourceTree = "<group>"; };
 		F4583B3B265C35F50051D5D6 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4583B61265C78BF0051D5D6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -162,7 +170,6 @@
 		5E03943E265801C5009639B7 = {
 			isa = PBXGroup;
 			children = (
-				84E3290226582C0F00AEE9A7 /* Model */,
 				5E039449265801C5009639B7 /* StoreAppProject */,
 				5E039463265801C7009639B7 /* StoreAppProjectTests */,
 				5E03946E265801C7009639B7 /* StoreAppProjectUITests */,
@@ -218,6 +225,13 @@
 				F4583B6B265C84B40051D5D6 /* CartTableViewCell.swift */,
 				F4583B6C265C84B40051D5D6 /* CartTableViewCell.xib */,
 				F4371351265DE21200F17811 /* UserDashboardViewController+Extension.swift */,
+
+				8483F1B2265EA47700A5ABB9 /* PaymentMethod.swift */,
+				8483F1C0265EB2BE00A5ABB9 /* CardViewController.swift */,
+				8483F1BB265EB20A00A5ABB9 /* BankViewController.swift */,
+
+				F4371367265ECF0F00F17811 /* TableViewController.swift */,
+
 			);
 			path = StoreAppProject;
 			sourceTree = "<group>";
@@ -245,13 +259,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		84E3290226582C0F00AEE9A7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		84E329A926583F5100AEE9A7 /* Recovered References */ = {
@@ -516,11 +523,14 @@
 				F4E6596A26582E8E0086BA6E /* ForgotPasswordViewController.swift in Sources */,
 				5E039455265801C5009639B7 /* StoreAppProject.xcdatamodeld in Sources */,
 				F4583B6D265C84B40051D5D6 /* CartTableViewCell.swift in Sources */,
+				8483F1C1265EB2BE00A5ABB9 /* CardViewController.swift in Sources */,
 				5E039486265816DC009639B7 /* LandingPageViewController.swift in Sources */,
 				F4371339265DD0FB00F17811 /* WishList.swift in Sources */,
 				5E03944B265801C5009639B7 /* AppDelegate.swift in Sources */,
+				8483F1CC265EB59D00A5ABB9 /* BankViewController.swift in Sources */,
 				F4371352265DE21200F17811 /* UserDashboardViewController+Extension.swift in Sources */,
 				5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */,
+				8483F1B3265EA47700A5ABB9 /* PaymentMethod.swift in Sources */,
 				5E60BDCA26587F3400874292 /* WishlistDetailsViewController.swift in Sources */,
 				5E0394882658177F009639B7 /* CartViewController.swift in Sources */,
 				F4583B67265C82710051D5D6 /* Cart.swift in Sources */,
@@ -535,6 +545,7 @@
 				5E03944D265801C5009639B7 /* SceneDelegate.swift in Sources */,
 				84E329D42658591000AEE9A7 /* Customer+CoreDataProperties.swift in Sources */,
 				5E03948326580F0A009639B7 /* SignUpViewController.swift in Sources */,
+				F4371368265ECF0F00F17811 /* TableViewController.swift in Sources */,
 				5E03948A2658184A009639B7 /* ItemViewController.swift in Sources */,
 				F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */,
 				5E60BDC826587ED500874292 /* AddPaymentOptionViewController.swift in Sources */,

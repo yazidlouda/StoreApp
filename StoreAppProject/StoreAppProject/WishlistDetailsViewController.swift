@@ -21,6 +21,7 @@ class WishlistDetailsViewController: UIViewController {
         print(wishListInstance.wishListItems as Any)
         tableView.rowHeight = 150
         // Do any additional setup after loading the view.
+        //CartTableViewCell().removeFromCart.isHidden = true
     }
     
 
