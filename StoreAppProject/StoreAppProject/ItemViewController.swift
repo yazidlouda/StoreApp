@@ -18,6 +18,7 @@ class ItemViewController: UIViewController {
     var name: String?
     var itemInfo: String?
     var index: Int?
+    
     var price: Double?
     var cartInstance = Cart.sharedInstance
     var WishListInst = WishList.sharedInstance

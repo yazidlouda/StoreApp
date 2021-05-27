@@ -42,6 +42,7 @@ class ItemCollectionViewController: UICollectionViewController {
         viewController?.price = inventory[indexPath.item].price
         viewController?.index  = indexPath.item
         
+        
         let haptic = UIImpactFeedbackGenerator(style: .soft)
         haptic.impactOccurred()
         
