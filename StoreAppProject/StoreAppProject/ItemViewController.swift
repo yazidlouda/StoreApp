@@ -18,17 +18,17 @@ class ItemViewController: UIViewController {
     var name: String?
     var itemInfo: String?
     var index: Int?
-    
     var price: Double?
     var cartInstance = Cart.sharedInstance
     var WishListInst = WishList.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         itemname.text = name
         itemImage.image = image
         itemDescription.text = itemInfo
-        itemPrice.text = String(price!)
-        // Do any additional setup after loading the view.
+        itemPrice.text = price?.description
+        
     }
     
     @IBAction func addToCart(_ sender: Any) {
