@@ -10,27 +10,32 @@ import UIKit
 class ForgotPasswordViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var warningLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func submit(_ sender: Any) {
-        let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
-        username.text = ""
-        // create the alert
-        let alert = UIAlertController(title: "Password Request", message: "Your password is \(data.password!)! Thank you for signing up with us.", preferredStyle: UIAlertController.Style.alert)
+        let data: Customer
+        let alert: UIAlertController
+        if DBHelper.found == 0 {
+            warningLabel.text = "Username not found"
+            username.text = ""
+            return
+        } else {
+            warningLabel.text = ""
+            data = DBHelper.inst.getCustomer(withEmailID: username.text!)
+            // create the alert
+            alert = UIAlertController(title: "Password Request", message: "Your password is \(data.password!)! Thank you for signing up with us.", preferredStyle: UIAlertController.Style.alert)
         
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            username.text = ""
+        }
     }
-    
- 
 
 }
