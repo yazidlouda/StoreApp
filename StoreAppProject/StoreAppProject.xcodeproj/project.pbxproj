@@ -56,6 +56,12 @@
 		F4583B67265C82710051D5D6 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B66265C82710051D5D6 /* Cart.swift */; };
 		F4583B6D265C84B40051D5D6 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B6B265C84B40051D5D6 /* CartTableViewCell.swift */; };
 		F4583B6E265C84B40051D5D6 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4583B6C265C84B40051D5D6 /* CartTableViewCell.xib */; };
+		F4B66F0E26601C1F0096BE05 /* ToysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F0D26601C1F0096BE05 /* ToysViewController.swift */; };
+		F4B66F1326601C700096BE05 /* ToysViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F1226601C700096BE05 /* ToysViewController+Extension.swift */; };
+		F4B66F18266021260096BE05 /* OutdoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F17266021260096BE05 /* OutdoorViewController.swift */; };
+		F4B66F1D2660217D0096BE05 /* OutdoorViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F1C2660217D0096BE05 /* OutdoorViewController+Extension.swift */; };
+		F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F21266023340096BE05 /* HomeGoodViewController.swift */; };
+		F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */; };
 		F4E6596A26582E8E0086BA6E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */; };
 		F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEFEC3265FEE05001EEF32 /* ClothingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -138,6 +144,12 @@
 		F4583B66265C82710051D5D6 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		F4583B6B265C84B40051D5D6 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		F4583B6C265C84B40051D5D6 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		F4B66F0D26601C1F0096BE05 /* ToysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToysViewController.swift; sourceTree = "<group>"; };
+		F4B66F1226601C700096BE05 /* ToysViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToysViewController+Extension.swift"; sourceTree = "<group>"; };
+		F4B66F17266021260096BE05 /* OutdoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorViewController.swift; sourceTree = "<group>"; };
+		F4B66F1C2660217D0096BE05 /* OutdoorViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OutdoorViewController+Extension.swift"; sourceTree = "<group>"; };
+		F4B66F21266023340096BE05 /* HomeGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoodViewController.swift; sourceTree = "<group>"; };
+		F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeGoodViewController+Extension.swift"; sourceTree = "<group>"; };
 		F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F4EEFEC3265FEE05001EEF32 /* ClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewController.swift; sourceTree = "<group>"; };
 		FB9AF62BA1B55AC28D88E16B /* Pods-StoreAppProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppProject.release.xcconfig"; path = "Target Support Files/Pods-StoreAppProject/Pods-StoreAppProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -316,6 +328,12 @@
 				F457FE05265FF2E40080AFFC /* ClothingViewController+Extension.swift */,
 				F457FE0A265FFCC80080AFFC /* KitchenViewController.swift */,
 				F457FE0F265FFD4C0080AFFC /* KitchenViewController+Extension.swift */,
+				F4B66F0D26601C1F0096BE05 /* ToysViewController.swift */,
+				F4B66F1226601C700096BE05 /* ToysViewController+Extension.swift */,
+				F4B66F17266021260096BE05 /* OutdoorViewController.swift */,
+				F4B66F1C2660217D0096BE05 /* OutdoorViewController+Extension.swift */,
+				F4B66F21266023340096BE05 /* HomeGoodViewController.swift */,
+				F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -545,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4583B62265C78BF0051D5D6 /* Item.swift in Sources */,
+				F4B66F1D2660217D0096BE05 /* OutdoorViewController+Extension.swift in Sources */,
 				5E60BDCC2659956B00874292 /* RefundSubmitViewController.swift in Sources */,
 				F4371343265DDB0F00F17811 /* ClothingCollectionViewCell.swift in Sources */,
 				F437135F265DF27F00F17811 /* OutdoorCollectionViewCell.swift in Sources */,
@@ -560,7 +579,9 @@
 				5E03944B265801C5009639B7 /* AppDelegate.swift in Sources */,
 				8483F1CC265EB59D00A5ABB9 /* BankViewController.swift in Sources */,
 				F4371352265DE21200F17811 /* UserDashboardViewController+Extension.swift in Sources */,
+				F4B66F1326601C700096BE05 /* ToysViewController+Extension.swift in Sources */,
 				F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */,
+				F4B66F0E26601C1F0096BE05 /* ToysViewController.swift in Sources */,
 				5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */,
 				8483F1B3265EA47700A5ABB9 /* PaymentMethod.swift in Sources */,
 				5E60BDCA26587F3400874292 /* WishlistDetailsViewController.swift in Sources */,
@@ -571,7 +592,10 @@
 				F4583B3C265C35F50051D5D6 /* ItemCollectionViewCell.swift in Sources */,
 				84E328FE26582B2500AEE9A7 /* DBHelper.swift in Sources */,
 				F4371358265DF26B00F17811 /* KitchenCollectionViewCell.swift in Sources */,
+				F4B66F18266021260096BE05 /* OutdoorViewController.swift in Sources */,
 				5E60BDD2265998A700874292 /* OrderStatusViewController.swift in Sources */,
+				F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */,
+				F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */,
 				5E60BDCE2659959100874292 /* OrderSubmittedViewController.swift in Sources */,
 				5E03948C265818AF009639B7 /* UserDashboardViewController.swift in Sources */,
 				5E03944D265801C5009639B7 /* SceneDelegate.swift in Sources */,
