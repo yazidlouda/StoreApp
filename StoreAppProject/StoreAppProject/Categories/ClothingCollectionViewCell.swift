@@ -9,6 +9,7 @@ import UIKit
 
 class ClothingCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var price: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     static let cellName =  String(describing: ClothingCollectionViewCell.self)
@@ -19,6 +20,6 @@ class ClothingCollectionViewCell: UICollectionViewCell {
     func setupClothingCell(item:Item)  {
         name.text = item.name
         image.image = item.image
-       
+        price.text = item.price.description
     }
 }

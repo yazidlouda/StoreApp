@@ -20,7 +20,7 @@ class CartViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "CartTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        print(cartInstance.cartItems as Any)
+        
         tableView.rowHeight = 150
         
         // Do any additional setup after loading the view.
