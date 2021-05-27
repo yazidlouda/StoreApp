@@ -48,9 +48,9 @@ class DBHelper {
         } catch(let exception) {
             print(exception.localizedDescription)
         }
-        
-        
     }
+    
+    static var found = 0
     
     //Returns the Customer object from the model with the specified username
     func getCustomer(withEmailID username: String) -> Customer {
@@ -63,8 +63,10 @@ class DBHelper {
             let res = try context?.fetch(fetchReq) as! [Customer]
             if (res.count != 0){
                 customer = res.first!
+                DBHelper.found = 0
             } else {
                 print("data not found")
+                DBHelper.found = 1
             }
         } catch (let exception) {
             print(exception.localizedDescription)
@@ -84,8 +86,10 @@ class DBHelper {
             let res = try context?.fetch(fetchReq) as! [Customer]
             if (res.count != 0){
                 customer = res.first!
+                DBHelper.found = 0
             } else {
                 print("data not found")
+                DBHelper.found = 1
             }
         } catch (let exception) {
             print(exception.localizedDescription)

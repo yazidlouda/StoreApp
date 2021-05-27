@@ -483,7 +483,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCm-Re-Gkj">
                                 <rect key="frame" x="114" y="552" width="186" height="45"/>
@@ -577,6 +577,13 @@
                                     <segue destination="7ne-fx-pDR" kind="presentation" modalPresentationStyle="fullScreen" id="zi7-nL-pxJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="           " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pC8-sr-WjJ">
+                                <rect key="frame" x="114" y="349" width="186" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.307249147" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xcb-DT-2m6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -625,6 +632,7 @@
                         <outlet property="password" destination="40w-CQ-z27" id="4fQ-yQ-F6b"/>
                         <outlet property="sw" destination="TaY-SR-Xzc" id="qxu-N6-Zp0"/>
                         <outlet property="username" destination="onM-qt-oYH" id="C1e-gu-nHF"/>
+                        <outlet property="warningLabel" destination="pC8-sr-WjJ" id="sMI-o1-X9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNn-hw-4Rd" sceneMemberID="firstResponder"/>
