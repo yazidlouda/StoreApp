@@ -43,6 +43,7 @@ extension WishlistDetailsViewController: UITableViewDataSource {
         cell.itemName.text = wishListInstance.wishListItems[indexPath.row].name
         cell.itemDescription.text = wishListInstance.wishListItems[indexPath.row].description
         cell.itemPrice.text = "$" + wishListInstance.wishListItems[indexPath.row].price.description
+        cell.index = indexPath.row
         return cell
     }
     

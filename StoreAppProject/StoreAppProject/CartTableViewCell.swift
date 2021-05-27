@@ -37,7 +37,7 @@ class CartTableViewCell: UITableViewCell {
         if !cartInstance.cartItems.contains(where: {$0.name == product.name}) {
             cartInstance.cartItems.remove(at: index!)
             haptic.notificationOccurred(.success)
-            CartViewController()
+            
            
         } else {
             print("Product can not be deleted from Cart")
