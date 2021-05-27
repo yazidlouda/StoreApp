@@ -1720,7 +1720,7 @@
         <!--Clothing-->
         <scene sceneID="A4m-D7-8fz">
             <objects>
-                <viewController id="CqK-Sw-wxm" sceneMemberID="viewController">
+                <viewController title="Clothing" id="CqK-Sw-wxm" customClass="ClothingViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ycZ-AO-oVU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1751,20 +1751,21 @@
                                 <rect key="frame" x="0.0" y="156" width="414" height="572"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xta-MW-eVk">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xta-MW-eVk">
+                                    <size key="itemSize" width="414" height="358"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Mlo-Yz-7S7">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="358"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vsg-53-hjO">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="358"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="358"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1775,6 +1776,9 @@
                     <navigationItem key="navigationItem" title="Clothing" id="Xyl-di-jCK">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ZLK-MU-R2C"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="clothingCollectionView" destination="ZJT-iA-QiJ" id="atL-s3-YKI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSE-I8-hlR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1802,7 +1806,7 @@
         <!--Kitchen-->
         <scene sceneID="j5k-nN-uIB">
             <objects>
-                <viewController id="07h-WS-h8g" sceneMemberID="viewController">
+                <viewController id="07h-WS-h8g" customClass="KitchenViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n3T-iE-mZy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1833,20 +1837,21 @@
                                 <rect key="frame" x="0.0" y="156" width="414" height="572"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="34g-fd-nOI">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="34g-fd-nOI">
+                                    <size key="itemSize" width="406" height="460"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="o3c-Iv-fPb">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="4" y="0.0" width="406" height="460"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="onb-uJ-wNw">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="460"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="406" height="460"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1857,17 +1862,20 @@
                     <navigationItem key="navigationItem" title="Kitchen" id="VUO-Bi-SLq">
                         <barButtonItem key="backBarButtonItem" title="Back" id="8dj-Ak-eJc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="kitchenCollectionView" destination="eD8-gI-ptx" id="THG-Sh-d14"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQN-F9-pOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2200" y="-1392"/>
+            <point key="canvasLocation" x="-2204.3478260869565" y="-1392.1875"/>
         </scene>
         <!--Toys-->
         <scene sceneID="xkT-6v-ADz">
             <objects>
                 <viewController id="f06-tC-HBF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ugn-IG-2NL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N7-56-ZM0">
@@ -2089,7 +2097,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TNC-p0-Zue"/>
-        <segue reference="TjK-Ub-UOf"/>
+        <segue reference="nfK-8E-XeV"/>
         <segue reference="3VI-bR-B62"/>
         <segue reference="Dkx-yk-mNZ"/>
         <segue reference="vTS-Il-9v6"/>

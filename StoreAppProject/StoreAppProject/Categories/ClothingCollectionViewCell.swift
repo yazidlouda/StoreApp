@@ -20,6 +20,6 @@ class ClothingCollectionViewCell: UICollectionViewCell {
     func setupClothingCell(item:Item)  {
         name.text = item.name
         image.image = item.image
-        price.text = item.price.description
+        price.text = "$" + item.price.description
     }
 }
