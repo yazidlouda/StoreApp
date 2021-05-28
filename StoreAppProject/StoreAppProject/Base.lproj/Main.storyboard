@@ -1092,7 +1092,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-yi-Qta">
-                                <rect key="frame" x="102" y="796" width="211" height="42"/>
+                                <rect key="frame" x="102" y="744" width="211" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -1283,7 +1283,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="0.0" y="26" width="426" height="348"/>
+                                                                                        <rect key="frame" x="0.0" y="25.5" width="426" height="348"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="348"/>
@@ -2425,6 +2425,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="TNC-p0-Zue"/>
         <segue reference="Dkx-yk-mNZ"/>
         <segue reference="zgX-O9-Xmj"/>
         <segue reference="HUI-Og-Nv9"/>
