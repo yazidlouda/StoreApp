@@ -14,7 +14,7 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return outdoor.count
+        return filteredData.count
         
     }
     
@@ -23,7 +23,7 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: outdoor[indexPath.item])
+            cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -32,7 +32,20 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
             
         }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        if searchText == "" {
+            filteredData = outdoor
+        }else{
+            for db in outdoor {
+                if (db.name.lowercased().contains(searchText.lowercased())){
+                    filteredData.append(db)
+                }
+            }
+        }
+        self.outdoorCollectionView.reloadData()
+        
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         

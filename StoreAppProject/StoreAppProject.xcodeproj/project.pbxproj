@@ -59,6 +59,7 @@
 		F4B66F1D2660217D0096BE05 /* OutdoorViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F1C2660217D0096BE05 /* OutdoorViewController+Extension.swift */; };
 		F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F21266023340096BE05 /* HomeGoodViewController.swift */; };
 		F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */; };
+		F4B66F2C2661450C0096BE05 /* WishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F2B2661450C0096BE05 /* WishListTableViewCell.swift */; };
 		F4E6596A26582E8E0086BA6E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */; };
 		F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEFEC3265FEE05001EEF32 /* ClothingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		F4B66F1C2660217D0096BE05 /* OutdoorViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OutdoorViewController+Extension.swift"; sourceTree = "<group>"; };
 		F4B66F21266023340096BE05 /* HomeGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoodViewController.swift; sourceTree = "<group>"; };
 		F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeGoodViewController+Extension.swift"; sourceTree = "<group>"; };
+		F4B66F2B2661450C0096BE05 /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
 		F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F4EEFEC3265FEE05001EEF32 /* ClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewController.swift; sourceTree = "<group>"; };
 		FB9AF62BA1B55AC28D88E16B /* Pods-StoreAppProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppProject.release.xcconfig"; path = "Target Support Files/Pods-StoreAppProject/Pods-StoreAppProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				F4371338265DD0FB00F17811 /* WishList.swift */,
+				F4B66F2B2661450C0096BE05 /* WishListTableViewCell.swift */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */,
 				5E60BDCE2659959100874292 /* OrderSubmittedViewController.swift in Sources */,
 				5E03948C265818AF009639B7 /* UserDashboardViewController.swift in Sources */,
+				F4B66F2C2661450C0096BE05 /* WishListTableViewCell.swift in Sources */,
 				5E03944D265801C5009639B7 /* SceneDelegate.swift in Sources */,
 				84E329D42658591000AEE9A7 /* Customer+CoreDataProperties.swift in Sources */,
 				5E03948326580F0A009639B7 /* SignUpViewController.swift in Sources */,

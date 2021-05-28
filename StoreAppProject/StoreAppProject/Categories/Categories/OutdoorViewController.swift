@@ -7,12 +7,15 @@
 
 import UIKit
 
-class OutdoorViewController: UIViewController {
-
+class OutdoorViewController: UIViewController ,UISearchBarDelegate{
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
+    var filteredData:[Item]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        searchBar.delegate = self
+        filteredData = outdoor
         // Do any additional setup after loading the view.
     }
     

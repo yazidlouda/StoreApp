@@ -7,12 +7,15 @@
 
 import UIKit
 
-class KitchenViewController: UIViewController {
-
+class KitchenViewController: UIViewController ,UISearchBarDelegate{
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var kitchenCollectionView: UICollectionView!
+    var filteredData:[Item]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        searchBar.delegate = self
+        filteredData = kitchen
         // Do any additional setup after loading the view.
     }
     
