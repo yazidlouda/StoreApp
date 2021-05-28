@@ -122,12 +122,12 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let rotationtransForm = CATransform3DTranslate(CATransform3DIdentity, -800, 100, 0)
-        cell.layer.transform = rotationtransForm
-        UIView.animate(withDuration: 0.3) {cell.layer.transform = CATransform3DIdentity}
-        cell.alpha = 0
-        UIView.animate(withDuration: 0.5) {
-            cell.alpha = 1
-        }
+//        let rotationtransForm = CATransform3DTranslate(CATransform3DIdentity, -800, 100, 0)
+//        cell.layer.transform = rotationtransForm
+//        UIView.animate(withDuration: 0.3) {cell.layer.transform = CATransform3DIdentity}
+//        cell.alpha = 0
+//        UIView.animate(withDuration: 0.5) {
+//            cell.alpha = 1
+//        }
     }
 }
