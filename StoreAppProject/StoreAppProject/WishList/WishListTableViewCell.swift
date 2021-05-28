@@ -1,27 +1,21 @@
 //
-//  CartTableViewCell.swift
+//  WishListTableViewCell.swift
 //  StoreAppProject
 //
-//  Created by Home on 5/24/21.
+//  Created by Home on 5/28/21.
 //
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
+class WishListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var name: UILabel!
     
-    @IBOutlet weak var itemImage1: UIImageView!
-    @IBOutlet weak var itemName1: UILabel!
-    
-    
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
-    var index: Int?
     
-    var cartInstance = Cart.sharedInstance
-    var WishListInst = WishList.sharedInstance
+    @IBOutlet weak var itemImage: UIImageView!
+    var index: Int?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,5 +26,5 @@ class CartTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

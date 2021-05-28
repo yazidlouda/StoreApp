@@ -14,7 +14,7 @@ extension HomeGoodViewController : UICollectionViewDelegate , UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeGood.count
+        return filteredData.count
         
     }
     
@@ -23,7 +23,7 @@ extension HomeGoodViewController : UICollectionViewDelegate , UICollectionViewDa
        
             let cell = homeGoodCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: homeGood[indexPath.item])
+            cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -32,7 +32,20 @@ extension HomeGoodViewController : UICollectionViewDelegate , UICollectionViewDa
             
         }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        if searchText == "" {
+            filteredData = homeGood
+        }else{
+            for db in homeGood {
+                if (db.name.lowercased().contains(searchText.lowercased())){
+                    filteredData.append(db)
+                }
+            }
+        }
+        self.homeGoodCollectionView.reloadData()
+        
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         

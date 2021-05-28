@@ -14,8 +14,7 @@ class WishlistDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "CartTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "CartTableViewCell")
+       
         tableView.delegate = self
         tableView.dataSource = self
         print(wishListInstance.wishListItems as Any)
@@ -38,15 +37,27 @@ extension WishlistDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
         cell.itemImage.image = wishListInstance.wishListItems[indexPath.row].image
-        cell.itemName.text = wishListInstance.wishListItems[indexPath.row].name
+        cell.name.text = wishListInstance.wishListItems[indexPath.row].name
         cell.itemDescription.text = wishListInstance.wishListItems[indexPath.row].description
         cell.itemPrice.text = "$" + wishListInstance.wishListItems[indexPath.row].price.description
         cell.index = indexPath.row
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            tableView.beginUpdates()
+            wishListInstance.wishListItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            tableView.endUpdates()
+           
+        }
+    }
     
 }
 

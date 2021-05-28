@@ -38,17 +38,11 @@
                         <rect key="frame" x="189" y="7" width="55" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Remove"/>
-                        <connections>
-                            <action selector="removeFromCart:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="x8K-iN-l5x"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Hq-E5-ReQ">
                         <rect key="frame" x="252" y="7" width="58" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Remove"/>
-                        <connections>
-                            <action selector="removeFromWishList:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HWC-cn-Cjw"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGC-Hs-fSk">
                         <rect key="frame" x="193" y="45" width="196" height="21"/>
@@ -60,12 +54,6 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="itemDescription" destination="eXi-g9-n64" id="dMe-EB-xUp"/>
-                <outlet property="itemImage" destination="QXy-xX-YLp" id="mES-sY-QWW"/>
-                <outlet property="itemName" destination="YGC-Hs-fSk" id="yV0-Qi-RNk"/>
-                <outlet property="itemPrice" destination="RYw-mu-HP5" id="rWY-VC-D4L"/>
-            </connections>
             <point key="canvasLocation" x="76.08695652173914" y="176.78571428571428"/>
         </tableViewCell>
     </objects>

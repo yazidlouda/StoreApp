@@ -14,7 +14,7 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return clothing.count
+        return filteredData.count
         
     }
     
@@ -23,7 +23,7 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
        
             let cell = clothingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: clothing[indexPath.item])
+            cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -31,7 +31,20 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
       
             
         }
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        if searchText == "" {
+            filteredData = clothing
+        }else{
+            for db in clothing {
+                if (db.name.lowercased().contains(searchText.lowercased())){
+                    filteredData.append(db)
+                }
+            }
+        }
+        self.clothingCollectionView.reloadData()
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -64,7 +77,7 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
         })
     }
 }
-    
+  
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         let rotationtransForm = CATransform3DTranslate(CATransform3DIdentity, -800, 100, 0)
