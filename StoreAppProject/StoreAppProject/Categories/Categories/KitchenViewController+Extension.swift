@@ -15,7 +15,7 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return kitchen.count
+        return filteredData.count
         
     }
     
@@ -24,7 +24,7 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: kitchen[indexPath.item])
+            cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -32,7 +32,20 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
       
             
         }
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        if searchText == "" {
+            filteredData = kitchen
+        }else{
+            for db in kitchen {
+                if (db.name.lowercased().contains(searchText.lowercased())){
+                    filteredData.append(db)
+                }
+            }
+        }
+        self.kitchenCollectionView.reloadData()
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

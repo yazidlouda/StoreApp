@@ -14,7 +14,7 @@ extension ToysViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return toys.count
+        return filteredData.count
         
     }
     
@@ -23,7 +23,7 @@ extension ToysViewController : UICollectionViewDelegate , UICollectionViewDataSo
        
             let cell = toysCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: toys[indexPath.item])
+            cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -31,7 +31,20 @@ extension ToysViewController : UICollectionViewDelegate , UICollectionViewDataSo
       
             
         }
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        if searchText == "" {
+            filteredData = toys
+        }else{
+            for db in toys {
+                if (db.name.lowercased().contains(searchText.lowercased())){
+                    filteredData.append(db)
+                }
+            }
+        }
+        self.toysCollectionView.reloadData()
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

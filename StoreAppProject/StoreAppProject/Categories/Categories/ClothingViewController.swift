@@ -7,12 +7,16 @@
 
 import UIKit
 
-class ClothingViewController: UIViewController {
+class ClothingViewController: UIViewController ,UISearchBarDelegate{
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var clothingCollectionView: UICollectionView!
+    var filteredData:[Item]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        searchBar.delegate = self
+        filteredData = clothing
         // Do any additional setup after loading the view.
     }
     
@@ -37,4 +41,6 @@ class ClothingViewController: UIViewController {
         clothingCollectionView.register(UINib(nibName: "ClothingCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
       
     }
+    
+   
 }

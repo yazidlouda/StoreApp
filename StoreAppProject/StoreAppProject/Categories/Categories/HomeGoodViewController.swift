@@ -7,12 +7,15 @@
 
 import UIKit
 
-class HomeGoodViewController: UIViewController {
-
+class HomeGoodViewController: UIViewController ,UISearchBarDelegate{
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var homeGoodCollectionView: UICollectionView!
+    var filteredData:[Item]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        searchBar.delegate = self
+        filteredData = homeGood
         // Do any additional setup after loading the view.
     }
     

@@ -7,12 +7,15 @@
 
 import UIKit
 
-class ToysViewController: UIViewController {
-
+class ToysViewController: UIViewController ,UISearchBarDelegate{
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var toysCollectionView: UICollectionView!
+    var filteredData:[Item]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        searchBar.delegate = self
+        filteredData = toys
         // Do any additional setup after loading the view.
     }
     
