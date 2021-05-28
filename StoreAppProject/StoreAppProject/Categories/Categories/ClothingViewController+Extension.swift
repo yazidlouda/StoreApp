@@ -23,7 +23,7 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
        
             let cell = clothingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: filteredData[indexPath.item])
+            //cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -61,12 +61,12 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
          
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+            /*
                 viewController?.image = self.clothing[indexPath.item].image
                 viewController?.name = self.clothing[indexPath.item].name
                 viewController?.itemInfo = self.clothing[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+              */
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 

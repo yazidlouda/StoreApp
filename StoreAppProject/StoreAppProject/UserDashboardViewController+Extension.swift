@@ -33,8 +33,8 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
         switch collectionView {
         case clothingCollectionView:
             let cell = clothingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
-            
-            cell.setupClothingCell(item: clothing[indexPath.item])
+            cell.setupClothingCell(product: (products?[indexPath.item])!)
+            //cell.setupClothingCell(item: clothing[indexPath.item])
             return cell
         case kitchenCollectionView:
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! KitchenCollectionViewCell
@@ -70,10 +70,13 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
             
-                viewController?.image = self.clothing[indexPath.item].image
+                /*viewController?.image = self.clothing[indexPath.item].image
                 viewController?.name = self.clothing[indexPath.item].name
                 viewController?.itemInfo = self.clothing[indexPath.item].description
-                viewController?.index  = indexPath.item
+                viewController?.index  = indexPath.item*/
+                viewController?.username = self.username
+                viewController?.phone = self.phone
+                viewController?.product = self.products?[indexPath.item]
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
@@ -84,14 +87,14 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
             if collectionView == self.kitchenCollectionView {
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+                /*
                 viewController?.image = self.kitchen[indexPath.item].image
                 viewController?.name = self.kitchen[indexPath.item].name
                 viewController?.itemInfo = self.kitchen[indexPath.item].description
                 viewController?.index  = indexPath.item
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
-                haptic.impactOccurred()
+                haptic.impactOccurred()*/
                 
                 self.present(viewController!, animated: true, completion: nil)
                 
@@ -99,7 +102,7 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
             if collectionView == self.outdoorCollectionView {
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+            /*
                 viewController?.image = self.outdoor[indexPath.item].image
                 viewController?.name = self.outdoor[indexPath.item].name
                 viewController?.itemInfo = self.outdoor[indexPath.item].description
@@ -107,7 +110,7 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
-                
+                */
                 self.present(viewController!, animated: true, completion: nil)
                 
             }

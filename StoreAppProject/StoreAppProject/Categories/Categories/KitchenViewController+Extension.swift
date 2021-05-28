@@ -24,7 +24,7 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: filteredData[indexPath.item])
+            //cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -62,12 +62,12 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
          
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+            /*
                 viewController?.image = self.kitchen[indexPath.item].image
                 viewController?.name = self.kitchen[indexPath.item].name
                 viewController?.itemInfo = self.kitchen[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+                */
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
