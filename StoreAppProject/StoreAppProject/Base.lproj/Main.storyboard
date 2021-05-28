@@ -133,7 +133,7 @@
                                     <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="8Jx-Sc-Zps"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yID-fd-cLs">
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yID-fd-cLs">
                                 <rect key="frame" x="0.0" y="-4" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
@@ -160,21 +160,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UvP-on-5Nb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Outdoor" id="9R1-na-P7G">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="G92-n5-l0g">
-                                            <connections>
-                                                <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="TKj-O5-6yX"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXQ-Nu-y3h">
-                                <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -367,7 +354,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="176" id="tsR-6B-eUu" customClass="CartTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="176"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="176"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tsR-6B-eUu" id="PnV-up-5Vb">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
@@ -1104,6 +1091,20 @@
                                     <segue destination="FRA-tu-qh4" kind="presentation" modalPresentationStyle="fullScreen" id="TNC-p0-Zue"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-yi-Qta">
+                                <rect key="frame" x="102" y="796" width="211" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Return">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A6R-GH-iSz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1750,7 +1751,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishListTableViewCell" rowHeight="137" id="94C-Ct-Hc7" customClass="WishListTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="137"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="94C-Ct-Hc7" id="qad-nm-Sy8">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="137"/>
@@ -1984,7 +1985,7 @@
                                     <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="ywi-cv-NyX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-rU-hFc">
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-rU-hFc">
                                 <rect key="frame" x="0.0" y="-4" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -2011,21 +2012,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGJ-We-eT5">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Clothing" id="kOz-3p-zOT">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="B4p-C4-g1u">
-                                            <connections>
-                                                <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="guh-Vb-Bdb"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eua-Zr-bbF">
-                                <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -2048,6 +2036,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QxT-aO-2F0">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qb7-lJ-bqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="ygG-hh-23N" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iPB-Ok-hrG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2060,7 +2049,6 @@
                         <segue destination="CqK-Sw-wxm" kind="relationship" relationship="rootViewController" id="SDC-O5-a3j"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qb7-lJ-bqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3764" y="-1392"/>
         </scene>
@@ -2089,7 +2077,7 @@
                                     <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="Lpg-vb-VEY"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W01-mT-hb1">
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W01-mT-hb1">
                                 <rect key="frame" x="0.0" y="-4" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
@@ -2116,21 +2104,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWR-bU-B6I">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Kitchen" id="zmQ-DY-lid">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="GWV-Dj-oOP">
-                                            <connections>
-                                                <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="npx-4x-QQW"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P3u-Yf-oHR">
-                                <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -2175,7 +2150,7 @@
                                     <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="BjE-r4-pEQ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81p-rY-4bK">
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81p-rY-4bK">
                                 <rect key="frame" x="0.0" y="-4" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
@@ -2202,21 +2177,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-uv-miX">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Toys" id="saR-4H-58u">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="H4p-kr-nJE">
-                                            <connections>
-                                                <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="b2M-jI-U2W"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLM-V5-6Ma">
-                                <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -2261,7 +2223,7 @@
                                     <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="eUK-dA-jAR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ok-9g-L67">
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ok-9g-L67">
                                 <rect key="frame" x="0.0" y="-4" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -2288,21 +2250,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-l7-Aim">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Home Good" id="ND5-cb-Yne">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="vQG-Gb-lD6">
-                                            <connections>
-                                                <segue destination="Z9a-IG-BP1" kind="presentation" modalPresentationStyle="fullScreen" id="HFE-7B-LpU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4K-zr-8lW">
-                                <rect key="frame" x="0.0" y="131" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -2476,11 +2425,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TNC-p0-Zue"/>
         <segue reference="Dkx-yk-mNZ"/>
-        <segue reference="vTS-Il-9v6"/>
-        <segue reference="npx-4x-QQW"/>
-        <segue reference="JYb-IY-jaZ"/>
+        <segue reference="zgX-O9-Xmj"/>
+        <segue reference="HUI-Og-Nv9"/>
+        <segue reference="eUK-dA-jAR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
