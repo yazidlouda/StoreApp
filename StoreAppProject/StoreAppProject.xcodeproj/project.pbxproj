@@ -63,6 +63,10 @@
 		F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F21266023340096BE05 /* HomeGoodViewController.swift */; };
 		F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */; };
 		F4B66F2C2661450C0096BE05 /* WishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F2B2661450C0096BE05 /* WishListTableViewCell.swift */; };
+		F4B66F3A266193FD0096BE05 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F38266193FD0096BE05 /* ProductViewController.swift */; };
+		F4B66F40266194870096BE05 /* ProductViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F3F266194870096BE05 /* ProductViewController+Extension.swift */; };
+		F4B66F46266195250096BE05 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F44266195250096BE05 /* ProductCollectionViewCell.swift */; };
+		F4B66F47266195250096BE05 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B66F45266195250096BE05 /* ProductCollectionViewCell.xib */; };
 		F4E6596A26582E8E0086BA6E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */; };
 		F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEFEC3265FEE05001EEF32 /* ClothingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -152,6 +156,10 @@
 		F4B66F21266023340096BE05 /* HomeGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoodViewController.swift; sourceTree = "<group>"; };
 		F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeGoodViewController+Extension.swift"; sourceTree = "<group>"; };
 		F4B66F2B2661450C0096BE05 /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
+		F4B66F38266193FD0096BE05 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		F4B66F3F266194870096BE05 /* ProductViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductViewController+Extension.swift"; sourceTree = "<group>"; };
+		F4B66F44266195250096BE05 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4B66F45266195250096BE05 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F4EEFEC3265FEE05001EEF32 /* ClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewController.swift; sourceTree = "<group>"; };
 		FB9AF62BA1B55AC28D88E16B /* Pods-StoreAppProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppProject.release.xcconfig"; path = "Target Support Files/Pods-StoreAppProject/Pods-StoreAppProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -337,6 +345,10 @@
 				F4B66F1C2660217D0096BE05 /* OutdoorViewController+Extension.swift */,
 				F4B66F21266023340096BE05 /* HomeGoodViewController.swift */,
 				F4B66F26266023810096BE05 /* HomeGoodViewController+Extension.swift */,
+				F4B66F38266193FD0096BE05 /* ProductViewController.swift */,
+				F4B66F3F266194870096BE05 /* ProductViewController+Extension.swift */,
+				F4B66F44266195250096BE05 /* ProductCollectionViewCell.swift */,
+				F4B66F45266195250096BE05 /* ProductCollectionViewCell.xib */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -450,6 +462,7 @@
 			files = (
 				5E03945A265801C7009639B7 /* LaunchScreen.storyboard in Resources */,
 				F4371359265DF26B00F17811 /* KitchenCollectionViewCell.xib in Resources */,
+				F4B66F47266195250096BE05 /* ProductCollectionViewCell.xib in Resources */,
 				5E039457265801C7009639B7 /* Assets.xcassets in Resources */,
 				5E039452265801C5009639B7 /* Main.storyboard in Resources */,
 				F4371344265DDB0F00F17811 /* ClothingCollectionViewCell.xib in Resources */,
@@ -571,6 +584,7 @@
 				F4371343265DDB0F00F17811 /* ClothingCollectionViewCell.swift in Sources */,
 				F437135F265DF27F00F17811 /* OutdoorCollectionViewCell.swift in Sources */,
 				F457FE06265FF2E40080AFFC /* ClothingViewController+Extension.swift in Sources */,
+				F4B66F3A266193FD0096BE05 /* ProductViewController.swift in Sources */,
 				5E03944F265801C5009639B7 /* ViewController.swift in Sources */,
 				F4E6596A26582E8E0086BA6E /* ForgotPasswordViewController.swift in Sources */,
 				5E039455265801C5009639B7 /* StoreAppProject.xcdatamodeld in Sources */,
@@ -585,6 +599,7 @@
 				F4B66F1326601C700096BE05 /* ToysViewController+Extension.swift in Sources */,
 				F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */,
 				F4B66F0E26601C1F0096BE05 /* ToysViewController.swift in Sources */,
+				F4B66F46266195250096BE05 /* ProductCollectionViewCell.swift in Sources */,
 				5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */,
 				8483F1B3265EA47700A5ABB9 /* PaymentMethod.swift in Sources */,
 				5E60BDCA26587F3400874292 /* WishlistDetailsViewController.swift in Sources */,
@@ -602,6 +617,7 @@
 				5E60BDCE2659959100874292 /* OrderSubmittedViewController.swift in Sources */,
 				5E03948C265818AF009639B7 /* UserDashboardViewController.swift in Sources */,
 				F4B66F2C2661450C0096BE05 /* WishListTableViewCell.swift in Sources */,
+				F4B66F40266194870096BE05 /* ProductViewController+Extension.swift in Sources */,
 				5E03944D265801C5009639B7 /* SceneDelegate.swift in Sources */,
 				84E329D42658591000AEE9A7 /* Customer+CoreDataProperties.swift in Sources */,
 				5E03948326580F0A009639B7 /* SignUpViewController.swift in Sources */,
