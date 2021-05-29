@@ -1,31 +1,29 @@
 //
-//  ClothingViewController.swift
+//  ProductViewController.swift
 //  StoreAppProject
 //
-//  Created by Home on 5/27/21.
+//  Created by Home on 5/28/21.
 //
 
 import UIKit
 
-class ClothingViewController: UIViewController ,UISearchBarDelegate{
-    static var cloth = ""
-    var image: UIImage?
-    var name: String?
-    var itemInfo: String?
-    var index: Int?
-    var price: Double?
+class ProductViewController: UIViewController ,UISearchBarDelegate{
+
+    @IBOutlet weak var numberOfItems: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var clothingCollectionView: UICollectionView!
+    @IBOutlet weak var productCollectionView: UICollectionView!
     var filteredData:[Item]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         searchBar.delegate = self
-        filteredData = clothing
+        filteredData = product
+        numberOfItems.text = filteredData.count.description
+        productCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
     
-    var clothing:[Item] = [
+    var product:[Item] = [
         Item(name: "Elliot", price: 39.99, image: UIImage(named: "5")!, description: "The Elliot is a modern. "),
         Item(name: "Bellona", price: 59.99, image: UIImage(named: "5")!, description: "The Bellona is a stylish ."),
         Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "5")!, description: " Clubmaster is the iconic."),
@@ -41,9 +39,9 @@ class ClothingViewController: UIViewController ,UISearchBarDelegate{
     func setupUI() {
 
        
-        setupCollectionView(collection: clothingCollectionView)
+        setupCollectionView(collection: productCollectionView)
         
-        clothingCollectionView.register(UINib(nibName: "ClothingCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
+        productCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
       
     }
     
