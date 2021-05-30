@@ -47,6 +47,8 @@
 		F437135F265DF27F00F17811 /* OutdoorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437135D265DF27F00F17811 /* OutdoorCollectionViewCell.swift */; };
 		F4371360265DF27F00F17811 /* OutdoorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F437135E265DF27F00F17811 /* OutdoorCollectionViewCell.xib */; };
 		F4371368265ECF0F00F17811 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371367265ECF0F00F17811 /* TableViewController.swift */; };
+		F457F2772663167A00C9CBF2 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457F2762663167A00C9CBF2 /* FilterViewController.swift */; };
+		F457F27F266316AF00C9CBF2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457F27E266316AF00C9CBF2 /* Enums.swift */; };
 		F457FE06265FF2E40080AFFC /* ClothingViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457FE05265FF2E40080AFFC /* ClothingViewController+Extension.swift */; };
 		F457FE0B265FFCC80080AFFC /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457FE0A265FFCC80080AFFC /* KitchenViewController.swift */; };
 		F457FE10265FFD4C0080AFFC /* KitchenViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457FE0F265FFD4C0080AFFC /* KitchenViewController+Extension.swift */; };
@@ -140,6 +142,8 @@
 		F437135D265DF27F00F17811 /* OutdoorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorCollectionViewCell.swift; sourceTree = "<group>"; };
 		F437135E265DF27F00F17811 /* OutdoorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutdoorCollectionViewCell.xib; sourceTree = "<group>"; };
 		F4371367265ECF0F00F17811 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F457F2762663167A00C9CBF2 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		F457F27E266316AF00C9CBF2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		F457FE05265FF2E40080AFFC /* ClothingViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClothingViewController+Extension.swift"; sourceTree = "<group>"; };
 		F457FE0A265FFCC80080AFFC /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
 		F457FE0F265FFD4C0080AFFC /* KitchenViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KitchenViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		5E039449265801C5009639B7 /* StoreAppProject */ = {
 			isa = PBXGroup;
 			children = (
+				F457F2752663162600C9CBF2 /* Filter */,
 				F4371340265DDA9B00F17811 /* Categories */,
 				F4371337265DD0C600F17811 /* WishList */,
 				5E03944A265801C5009639B7 /* AppDelegate.swift */,
@@ -330,6 +335,15 @@
 				F437135E265DF27F00F17811 /* OutdoorCollectionViewCell.xib */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		F457F2752663162600C9CBF2 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				F457F2762663167A00C9CBF2 /* FilterViewController.swift */,
+				F457F27E266316AF00C9CBF2 /* Enums.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		F4EEFEC2265FED8E001EEF32 /* Categories */ = {
@@ -600,6 +614,7 @@
 				F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */,
 				F4B66F0E26601C1F0096BE05 /* ToysViewController.swift in Sources */,
 				F4B66F46266195250096BE05 /* ProductCollectionViewCell.swift in Sources */,
+				F457F27F266316AF00C9CBF2 /* Enums.swift in Sources */,
 				5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */,
 				8483F1B3265EA47700A5ABB9 /* PaymentMethod.swift in Sources */,
 				5E60BDCA26587F3400874292 /* WishlistDetailsViewController.swift in Sources */,
@@ -622,6 +637,7 @@
 				84E329D42658591000AEE9A7 /* Customer+CoreDataProperties.swift in Sources */,
 				5E03948326580F0A009639B7 /* SignUpViewController.swift in Sources */,
 				F4371368265ECF0F00F17811 /* TableViewController.swift in Sources */,
+				F457F2772663167A00C9CBF2 /* FilterViewController.swift in Sources */,
 				5E03948A2658184A009639B7 /* ItemViewController.swift in Sources */,
 				F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */,
 				5E60BDC826587ED500874292 /* AddPaymentOptionViewController.swift in Sources */,

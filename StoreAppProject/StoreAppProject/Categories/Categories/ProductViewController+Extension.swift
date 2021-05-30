@@ -28,7 +28,6 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
        
             
       
-      
             
         }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
