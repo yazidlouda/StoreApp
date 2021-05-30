@@ -23,7 +23,7 @@ class ItemViewController: UIViewController {
     var price: Double?
     var cartInstance = Cart.sharedInstance*/
     var WishListInst = WishList.sharedInstance
-    
+    static var dt: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         itemname.text = product?.name
@@ -32,7 +32,7 @@ class ItemViewController: UIViewController {
         itemPrice.text = String(product!.price)
         
     }
-    
+   
     @IBAction func addToCart(_ sender: Any) {
         /*let product = inventory[index!]
         let haptic = UINotificationFeedbackGenerator()

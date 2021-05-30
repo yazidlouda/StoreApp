@@ -72,8 +72,8 @@ extension ClothingViewController : UICollectionViewDelegate , UICollectionViewDa
                 
                 self.present(viewController!, animated: true, completion: nil)
                 
-           
-          
+            ItemViewController.dt = "clothing"
+            
         })
     }
 }

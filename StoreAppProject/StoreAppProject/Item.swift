@@ -27,3 +27,4 @@ let inventory: [Item] = [
     Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "1")!, description: "The Muse Ivor is a effortlessly cool ."),
     Item(name: "Coach", price: 49.99, image: UIImage(named: "1")!, description: "The Coach HC8179 is an oversized square ."),
 ]
+

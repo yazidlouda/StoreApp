@@ -8,7 +8,12 @@
 import UIKit
 
 class ClothingViewController: UIViewController ,UISearchBarDelegate{
-
+    static var cloth = ""
+    var image: UIImage?
+    var name: String?
+    var itemInfo: String?
+    var index: Int?
+    var price: Double?
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var clothingCollectionView: UICollectionView!
     var filteredData:[Item]!
