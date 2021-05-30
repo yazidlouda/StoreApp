@@ -13,13 +13,24 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productCollectionView: UICollectionView!
     var filteredData:[Item]!
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         searchBar.delegate = self
         filteredData = product
         numberOfItems.text = filteredData.count.description
-        productCollectionView.reloadData()
+       
+        if (FilterViewController.sort == "low"){
+            self.filteredData?.sort(by: { $0.price < $1.price })
+            print(FilterViewController.sort!)
+            productCollectionView.reloadData()
+        }
+        if (FilterViewController.sort == "high"){
+            self.filteredData?.sort(by: { $0.price > $1.price })
+            print(FilterViewController.sort!)
+            productCollectionView.reloadData()
+        }
+            productCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
     
@@ -47,3 +58,4 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
     
    
 }
+
