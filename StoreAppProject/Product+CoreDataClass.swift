@@ -1,5 +1,5 @@
 //
-//  Customer+CoreDataClass.swift
+//  Product+CoreDataClass.swift
 //  StoreAppProject
 //
 //  Created by Scott Benson on 6/1/21.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Customer)
-public class Customer: NSManagedObject {
+@objc(Product)
+public class Product: NSManagedObject {
 
 }

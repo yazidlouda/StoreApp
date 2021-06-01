@@ -2,7 +2,7 @@
 //  Customer+CoreDataProperties.swift
 //  StoreAppProject
 //
-//  Created by admin on 5/21/21.
+//  Created by Scott Benson on 6/1/21.
 //
 //
 
@@ -16,9 +16,14 @@ extension Customer {
         return NSFetchRequest<Customer>(entityName: "Customer")
     }
 
-    @NSManaged public var username: String?
+    @NSManaged public var cart: [Product]?
+    @NSManaged public var cartTotal: Double
+    @NSManaged public var firstname: String?
+    @NSManaged public var giftCardBalance: Double
+    @NSManaged public var lastname: String?
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: Int64
+    @NSManaged public var username: String?
 
 }
 
