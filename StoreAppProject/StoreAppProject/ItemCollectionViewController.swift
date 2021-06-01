@@ -36,11 +36,11 @@ class ItemCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController =  storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
     
-        viewController?.image = inventory[indexPath.item].image
+        /*viewController?.image = inventory[indexPath.item].image
         viewController?.name = inventory[indexPath.item].name
         viewController?.itemInfo = inventory[indexPath.item].description
         viewController?.price = inventory[indexPath.item].price
-        viewController?.index  = indexPath.item
+        viewController?.index  = indexPath.item*/
         
         
         let haptic = UIImpactFeedbackGenerator(style: .soft)

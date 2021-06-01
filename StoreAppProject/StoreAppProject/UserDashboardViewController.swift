@@ -10,12 +10,17 @@ import UserNotifications
 
 
 class UserDashboardViewController: UIViewController {
+    var username : String?
+    var phone : Int64?
+    var products : [Product]?
+    
     @IBOutlet weak var clothingCollectionView: UICollectionView!
     
     @IBOutlet weak var kitchenCollectionView: UICollectionView!
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = DBHelper.inst.getAllProducts()
         setupUI()
         addLocalNotifaction()
         // Do any additional setup after loading the view.

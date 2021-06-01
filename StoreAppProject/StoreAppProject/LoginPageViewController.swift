@@ -25,9 +25,12 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
+
         
+
         animateRight()
         
+
         func animateRight() {
             UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
                 self.logo.transform = CGAffineTransform(rotationAngle: 170)
@@ -46,8 +49,24 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func login(_ sender: Any) {
-        let cus: Customer
-        
+        let cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
+        if (cus.username == nil) {
+            warningLabel.text = "Invalid Login Credentials"
+        } else if (cus.password != password.text!){
+            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+        } else if (cus.password == password.text!) {
+            let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
+            dashboard.modalPresentationStyle = .fullScreen
+            dashboard.username = username.text!
+            self.present(dashboard, animated: true, completion: nil)
+            
+        }
+        /*
         if DBHelper.found == 0 || username.text == "" || password.text == "" {
             username.text = ""
             password.text = ""
@@ -57,7 +76,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
             warningLabel.text = ""
         }
-
+        
         if (cus.username == nil || cus.password == nil) {
             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -70,6 +89,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     
             let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
             dashboard.modalPresentationStyle = .fullScreen
+            dashboard.username = username.text!
             self.present(dashboard, animated: true, completion: nil)
         }
         else {
@@ -78,7 +98,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             
             // show the alert
             self.present(alert, animated: true, completion: nil)
-        }
+        }*/
     }
     
     @IBAction func rememberLogin(_ sender: UISwitch) {

@@ -23,7 +23,7 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: filteredData[indexPath.item])
+            //cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -61,12 +61,12 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
          
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+                /*
                 viewController?.image = self.outdoor[indexPath.item].image
                 viewController?.name = self.outdoor[indexPath.item].name
                 viewController?.itemInfo = self.outdoor[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+                */
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 

@@ -23,7 +23,7 @@ extension HomeGoodViewController : UICollectionViewDelegate , UICollectionViewDa
        
             let cell = homeGoodCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: filteredData[indexPath.item])
+            //cell.setupClothingCell(item: filteredData[indexPath.item])
             return cell
        
             
@@ -61,12 +61,12 @@ extension HomeGoodViewController : UICollectionViewDelegate , UICollectionViewDa
          
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+            /*
                 viewController?.image = self.homeGood[indexPath.item].image
                 viewController?.name = self.homeGood[indexPath.item].name
                 viewController?.itemInfo = self.homeGood[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+                */
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
