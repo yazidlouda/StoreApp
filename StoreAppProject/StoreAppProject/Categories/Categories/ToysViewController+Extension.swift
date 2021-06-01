@@ -72,7 +72,7 @@ extension ToysViewController : UICollectionViewDelegate , UICollectionViewDataSo
                 
                 self.present(viewController!, animated: true, completion: nil)
                 
-           
+            ItemViewController.dt = "toys"
           
         })
     }

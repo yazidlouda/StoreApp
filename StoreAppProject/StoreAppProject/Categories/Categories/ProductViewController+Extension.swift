@@ -1,12 +1,12 @@
 //
-//  OutdoorViewController+Extension.swift
+//  ProductViewController+Extension.swift
 //  StoreAppProject
 //
-//  Created by Home on 5/27/21.
+//  Created by Home on 5/28/21.
 //
 
 import UIKit
-extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension ProductViewController : UICollectionViewDelegate , UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func setupCollectionView(collection:UICollectionView) {
         collection.delegate = self
@@ -21,31 +21,34 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
        
-            let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
+            let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCollectionViewCell
             
-            //cell.setupClothingCell(item: filteredData[indexPath.item])
+            cell.setupProductCell(item: filteredData[indexPath.item])
             return cell
        
             
       
-      
             
         }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = []
         if searchText == "" {
-            filteredData = outdoor
+            filteredData = product
+            numberOfItems.text = filteredData.count.description
+            productCollectionView.reloadData()
         }else{
-            for db in outdoor {
+            for db in product {
                 if (db.name.lowercased().contains(searchText.lowercased())){
                     filteredData.append(db)
+                    numberOfItems.text = filteredData.count.description
+                    productCollectionView.reloadData()
                 }
             }
         }
-        self.outdoorCollectionView.reloadData()
+        self.productCollectionView.reloadData()
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
@@ -61,23 +64,23 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
          
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-                /*
-                viewController?.image = self.outdoor[indexPath.item].image
-                viewController?.name = self.outdoor[indexPath.item].name
-                viewController?.itemInfo = self.outdoor[indexPath.item].description
+            
+                viewController?.image = self.product[indexPath.item].image
+                viewController?.name = self.product[indexPath.item].name
+                viewController?.itemInfo = self.product[indexPath.item].description
                 viewController?.index  = indexPath.item
-                */
+                
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
                 self.present(viewController!, animated: true, completion: nil)
                 
-            ItemViewController.dt = "outdoor"
+            ItemViewController.dt = "product"
           
         })
     }
 }
-    
+  
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         let rotationtransForm = CATransform3DTranslate(CATransform3DIdentity, -800, 100, 0)
@@ -89,5 +92,3 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
         }
     }
 }
-
-

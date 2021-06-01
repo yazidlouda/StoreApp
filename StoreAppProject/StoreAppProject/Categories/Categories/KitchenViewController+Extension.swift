@@ -73,7 +73,7 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
                 
                 self.present(viewController!, animated: true, completion: nil)
                 
-           
+            ItemViewController.dt = "kitchen"
           
         })
     }
