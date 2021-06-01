@@ -33,7 +33,7 @@ class ItemViewController: UIViewController {
    
     @IBAction func addToCart(_ sender: Any) {
        
-        let product = inventory[index!]
+        let product = ProductViewController().product[index!]
         let product1 = ClothingViewController().clothing[index!]
         let product2 = KitchenViewController().kitchen[index!]
         let product3 = ToysViewController().toys[index!]
@@ -110,7 +110,7 @@ class ItemViewController: UIViewController {
     }
     
     @IBAction func addToWishList(_ sender: Any) {
-        let product = inventory[index!]
+        let product = ProductViewController().product[index!]
         let product1 = ClothingViewController().clothing[index!]
         let product2 = KitchenViewController().kitchen[index!]
         let product3 = ToysViewController().toys[index!]
