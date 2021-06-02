@@ -1648,7 +1648,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -2272,6 +2272,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="tfa-Iw-knn">
+                                <rect key="frame" x="91" y="181" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ddn-NL-Hca"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2874,9 +2878,9 @@
         <segue reference="3VI-bR-B62"/>
         <segue reference="ggX-p5-AV2"/>
         <segue reference="zgX-O9-Xmj"/>
-        <segue reference="vTS-Il-9v6"/>
+        <segue reference="HUI-Og-Nv9"/>
         <segue reference="gKn-ER-cap"/>
-        <segue reference="dC1-81-oI1"/>
+        <segue reference="bKC-bb-6LZ"/>
         <segue reference="2iq-3e-Emy"/>
         <segue reference="ilT-Pq-sEb"/>
         <segue reference="JYb-IY-jaZ"/>
