@@ -8,6 +8,7 @@
 import UIKit
 
 class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var shippingAddressEntry: UITextField!
     
     @IBOutlet weak var paymentOptionPicker: UIPickerView!
     @IBOutlet weak var shippingOptionPicker: UIPickerView!
@@ -17,7 +18,6 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -26,18 +26,17 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
-                return shippingOptions.count
-            } else {
-                return paymentOptions.count
-            }
+            return shippingOptions.count
+        } else {
+            return paymentOptions.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
-                return shippingOptions[row]
-            } else {
-                return paymentOptions[row]
-            }
+            return shippingOptions[row]
+        } else {
+            return paymentOptions[row]
+        }
     }
-    
 }

@@ -587,6 +587,7 @@
                     <navigationItem key="navigationItem" id="dC4-JV-Jev"/>
                     <connections>
                         <outlet property="paymentOptionPicker" destination="wXf-Cc-OWr" id="cu1-5b-2a5"/>
+                        <outlet property="shippingAddressEntry" destination="sF5-0R-hlu" id="JL3-4a-9to"/>
                         <outlet property="shippingOptionPicker" destination="SYQ-Jv-8UT" id="IPP-ji-rak"/>
                     </connections>
                 </viewController>
@@ -1647,7 +1648,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
