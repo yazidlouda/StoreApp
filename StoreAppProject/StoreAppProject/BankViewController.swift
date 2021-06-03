@@ -13,10 +13,11 @@ class BankViewController: UIViewController {
     @IBOutlet weak var lName: UITextField!
     @IBOutlet weak var accountNum: UITextField!
     @IBOutlet weak var routingNum: UITextField!
+    @IBOutlet weak var allFields: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        allFields.isHidden = true
         // Do any additional setup after loading the view.
     }
     

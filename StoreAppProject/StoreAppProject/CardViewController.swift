@@ -14,9 +14,13 @@ class CardViewController: UIViewController {
     @IBOutlet weak var cardNum: UITextField!
     @IBOutlet weak var cvc: UITextField!
     @IBOutlet weak var zip: UITextField!
+    @IBOutlet weak var expDate: UITextField!
+    @IBOutlet weak var allFields: UILabel!
+    @IBOutlet weak var invalidDate: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        invalidDate.isHidden = true
+        allFields.isHidden = true
         // Do any additional setup after loading the view.
     }
     

@@ -68,20 +68,20 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
             
             if collectionView == self.clothingCollectionView {
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
             
                 /*viewController?.image = self.clothing[indexPath.item].image
                 viewController?.name = self.clothing[indexPath.item].name
                 viewController?.itemInfo = self.clothing[indexPath.item].description
                 viewController?.index  = indexPath.item*/
-                viewController?.username = self.username
-                viewController?.phone = self.phone
-                viewController?.product = self.products?[indexPath.item]
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.products?[indexPath.item]
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-                self.present(viewController!, animated: true, completion: nil)
+                self.present(viewController, animated: true, completion: nil)
                 
             }
             if collectionView == self.kitchenCollectionView {

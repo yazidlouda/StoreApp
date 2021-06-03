@@ -7,9 +7,13 @@
 
 import UIKit
 
-class AddPaymentOptionViewController: UIViewController {
+class AddPaymentOptionViewController: UIViewController, UITextFieldDelegate {
     var bankVC : BankViewController?
     var cardVC : CardViewController?
+    var username : String = "bcrits"
+    var phone : Int64?
+    var expDate : DateComponents?
+    var isValidDate : Bool = false
     @IBOutlet weak var bankView: UIView!
     @IBOutlet weak var cardView: UIView!
     
@@ -28,7 +32,9 @@ class AddPaymentOptionViewController: UIViewController {
         self.cardVC = cardVC
         cardView.isHidden = true
         bankView.isHidden = false
-        
+        var today = Date()
+        self.expDate = Calendar.current.dateComponents([.month, .year], from: today)
+        self.cardVC?.expDate.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -47,36 +53,123 @@ class AddPaymentOptionViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        var paymentmethod = PaymentMethod(type: self.type)
+        var numData : [String:Int64] = [:]
+        var firstName : String = ""
+        var lastName : String = ""
+        //var expDate : DateComponents
         switch type {
         case .BankAccount:
-            paymentmethod.firstName = (bankVC?.fName.text)!
-            paymentmethod.lastName = (bankVC?.lName.text)!
-            paymentmethod.accountNum = Int64((bankVC?.accountNum.text)!)!
-            paymentmethod.routingNum = Int64((bankVC?.routingNum.text)!)!
+            if (bankVC?.fName.text == "" || bankVC?.lName.text == "" || bankVC?.accountNum.text == "" || bankVC?.routingNum.text == "") {
+                bankVC?.allFields.isHidden = false
+                print("empty field")
+            } else {
+            firstName = (bankVC?.fName.text)!
+            lastName = (bankVC?.lName.text)!
+            numData["accountNum"] = Int64((bankVC?.accountNum.text)!)!
+            numData["routingNum"] = Int64((bankVC?.routingNum.text)!)!
+            if phone != nil {
+                DBHelper.inst.addBankAccount(firstName: firstName, lastName: lastName, numberData: numData, forCustomerWithPhone: phone!)
+            } else if (username != nil) {
+                print("Username found, DB call made")
+                DBHelper.inst.addBankAccount(firstName: firstName, lastName: lastName, numberData: numData, forCustomerWithEmailID: username)
+            } else {
+                print("no username or phone data found")
+            }
+            }
         case .Card:
-            paymentmethod.firstName = (cardVC?.fName.text)!
-            paymentmethod.lastName = (cardVC?.lName.text)!
-            paymentmethod.cardNum = Int64((cardVC?.cardNum.text)!)!
-            paymentmethod.cvc = Int64((cardVC?.cvc.text)!)!
-            paymentmethod.zip = Int64((cardVC?.zip.text)!)!
+            if (cardVC?.fName.text == "" || cardVC?.lName.text == "" || cardVC?.cvc.text == "" || cardVC?.zip.text == "" || cardVC?.expDate.text == "") {
+                cardVC?.allFields.isHidden = false
+                print("empty field")
+            } else {
+            firstName = (cardVC?.fName.text)!
+            lastName = (cardVC?.lName.text)!
+            numData["cardNum"] = Int64((cardVC?.cardNum.text)!)!
+            numData["cvc"] = Int64((cardVC?.cvc.text)!)!
+            numData["zip"] = Int64((cardVC?.zip.text)!)!
+            if (phone != nil && isValidDate) {
+                DBHelper.inst.addCard(firstName: firstName, lastName: lastName, numberData: numData, expDate: self.expDate ?? DateComponents(), forCustomerWithPhone: phone!)
+            } else if (username != nil && isValidDate) {
+                //print(expDate)
+                DBHelper.inst.addCard(firstName: firstName, lastName: lastName, numberData: numData, expDate: self.expDate ?? DateComponents(), forCustomerWithEmailID: username)
+            } else {
+                print("card not added")
+            }
+            }
+        
+            
         }
+        /*
         PaymentMethod.methods.append(paymentmethod)
         var methods = PaymentMethod.methods
         for method in methods {
             print(method.firstName, method.lastName, method.accountNum, method.routingNum, method.cardNum, method.cvc, method.zip, method.expDate)
-            
-        }
+            */
+        print(DBHelper.inst.getCustomer(withEmailID: username).paymentMethods)
         self.presentingViewController?.dismiss(animated: true)
     }
-    /*
-    // MARK: - Navigation
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let oldText = textField.text, let r = Range(range, in: oldText) else {
+            return true
+        }
+        let updatedText = oldText.replacingCharacters(in: r, with: string)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if string == "" {
+            if updatedText.count == 2 {
+                textField.text = "\(updatedText.prefix(1))"
+                return false
+            }
+        } else if updatedText.count == 1 {
+            if updatedText > "1" {
+                return false
+            }
+        } else if updatedText.count == 2 {
+            if updatedText <= "12" { //Prevent user to not enter month more than 12
+                textField.text = "\(updatedText)/" //This will add "/" when user enters 2nd digit of month
+            }
+            return false
+        } else if updatedText.count == 5 {
+            self.expDateValidation(dateStr: updatedText)
+        } else if updatedText.count > 5 {
+            return false
+        }
+
+        return true
     }
-    */
+    
+    func expDateValidation(dateStr:String) {
 
+        let currentYear = Calendar.current.component(.year, from: Date()) % 100   // This will give you current year (i.e. if 2019 then it will be 19)
+        let currentMonth = Calendar.current.component(.month, from: Date()) // This will give you current month (i.e if June then it will be 6)
+
+        let enteredYear = Int(dateStr.suffix(2)) ?? 0 // get last two digit from entered string as year
+        let enteredMonth = Int(dateStr.prefix(2)) ?? 0 // get first two digit from entered string as month
+        print(dateStr) // This is MM/YY Entered by user
+
+        if enteredYear > currentYear {
+            if (1 ... 12).contains(enteredMonth) {
+                print("Entered Date Is Right")
+                isValidDate = true
+                expDate = DateComponents(calendar: Calendar.current, year: (2000 + enteredYear), month: enteredMonth, day: 1)
+            } else {
+                print("Entered Date Is Wrong")
+            }
+        } else if currentYear == enteredYear {
+            if enteredMonth >= currentMonth {
+                if (1 ... 12).contains(enteredMonth) {
+                   print("Entered Date Is Right")
+                    isValidDate = true
+                    expDate = DateComponents(calendar: Calendar.current, year: currentYear, month: enteredMonth, day: 1)
+                } else {
+                   print("Entered Date Is Wrong")
+                }
+            } else {
+                print("Entered Date Is Wrong")
+            }
+        } else {
+           print("Entered Date Is Wrong")
+        }
+
+    }
+    
 }

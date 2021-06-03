@@ -16,8 +16,8 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var itemname: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
-    /*var image: UIImage?
-    var name: String?
+    //var image: UIImage?
+    /*var name: String?
     var itemInfo: String?
     var index: Int?
     var price: Double?
@@ -45,8 +45,10 @@ class ItemViewController: UIViewController {
             haptic.notificationOccurred(.error)
         }*/
         DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1, forCustomerWithEmailID: username!)
-        var customer = DBHelper.inst.getCustomer(withEmailID: username!)
-        print(customer.cart)
+        //print(username)
+        //var customer = DBHelper.inst.getCustomer(withEmailID: username!)
+        //print(customer)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addToWishList(_ sender: Any) {

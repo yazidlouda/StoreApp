@@ -64,12 +64,12 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
          
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+                /*
                 viewController?.image = self.product[indexPath.item].image
                 viewController?.name = self.product[indexPath.item].name
                 viewController?.itemInfo = self.product[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+                */
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
