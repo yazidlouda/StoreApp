@@ -82,7 +82,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             
             // show the alert
             self.present(alert, animated: true, completion: nil)
-        }*/
+        }
     }
     
     @IBAction func rememberLogin(_ sender: UISwitch) {

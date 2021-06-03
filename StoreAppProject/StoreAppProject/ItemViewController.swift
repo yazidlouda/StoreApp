@@ -63,10 +63,9 @@ class ItemViewController: UIViewController {
             print("Product is already added to wishlist")
             haptic.notificationOccurred(.error)
         }*/
-    }
     
 
-       
+       /*
         let product = ProductViewController().product[index!]
         let product1 = ClothingViewController().clothing[index!]
         let product2 = KitchenViewController().kitchen[index!]
@@ -167,7 +166,8 @@ class ItemViewController: UIViewController {
             print("Product is already added to wishlist")
             haptic.notificationOccurred(.error)
         }*/
-    }
+    }*/
     
 
+    }
 }
