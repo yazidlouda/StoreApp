@@ -33,18 +33,24 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
         switch collectionView {
         case clothingCollectionView:
             let cell = clothingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
-            
-            cell.setupClothingCell(item: popular[indexPath.item])
+
+            cell.setupClothingCell(product: (clothingProducts?[indexPath.item])!)
+            //cell.setupClothingCell(item: clothing[indexPath.item])
+
             return cell
         case kitchenCollectionView:
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! KitchenCollectionViewCell
             
-            cell.setupKitchenCell(item: featured[indexPath.item])
+
+            cell.setupKitchenCell(product: (kitchenProducts?[indexPath.item])!)
+
             return cell
         case outdoorCollectionView:
             let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! OutdoorCollectionViewCell
             
-            cell.setupOutdoorCell(item: deals[indexPath.item])
+
+            cell.setupOutdoorCell(product: (outdoorsProducts?[indexPath.item])!)
+
             
             return cell
             
@@ -68,48 +74,62 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
             
             if collectionView == self.clothingCollectionView {
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
             
-                viewController?.image = self.popular[indexPath.item].image
-                viewController?.name = self.popular[indexPath.item].name
-                viewController?.itemInfo = self.popular[indexPath.item].description
-                viewController?.index  = indexPath.item
+
+                
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.clothingProducts?[indexPath.item]
+
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-                self.present(viewController!, animated: true, completion: nil)
-                ItemViewController.dt = "popular"
+
+                self.present(viewController, animated: true, completion: nil)
+                
             }
             if collectionView == self.kitchenCollectionView {
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
-                viewController?.image = self.featured[indexPath.item].image
-                viewController?.name = self.featured[indexPath.item].name
-                viewController?.itemInfo = self.featured[indexPath.item].description
-                viewController?.index  = indexPath.item
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
+               
+                
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.kitchenProducts?[indexPath.item]
+
+               
+                
+            }
+           
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-                self.present(viewController!, animated: true, completion: nil)
-                ItemViewController.dt = "featured"
+
+                self.present(viewController, animated: true, completion: nil)
+                
             }
             if collectionView == self.outdoorCollectionView {
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
-                viewController?.image = self.deals[indexPath.item].image
-                viewController?.name = self.deals[indexPath.item].name
-                viewController?.itemInfo = self.deals[indexPath.item].description
-                viewController?.index  = indexPath.item
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
+          
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.outdoorsProducts?[indexPath.item]
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
+    
+                self.present(viewController, animated: true, completion: nil)
                 
-                self.present(viewController!, animated: true, completion: nil)
-                ItemViewController.dt = "deals"
+  
+                
+            }
+           
+                
+
             }
             else {
             

@@ -23,7 +23,7 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            cell.setupClothingCell(item: filteredData[indexPath.item])
+            cell.setupClothingCell(product: filteredData[indexPath.item])
             return cell
        
             
@@ -35,10 +35,11 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = []
         if searchText == "" {
-            filteredData = outdoor
+            filteredData = products
         }else{
-            for db in outdoor {
-                if (db.name.lowercased().contains(searchText.lowercased())){
+            for db in products! {
+                var name = db.name!
+                if (name.lowercased().contains(searchText.lowercased())){
                     filteredData.append(db)
                 }
             }
@@ -60,17 +61,21 @@ extension OutdoorViewController : UICollectionViewDelegate , UICollectionViewDat
             
          
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
+                /*
                 viewController?.image = self.outdoor[indexPath.item].image
                 viewController?.name = self.outdoor[indexPath.item].name
                 viewController?.itemInfo = self.outdoor[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+                */
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.products?[indexPath.item]
+            
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-                self.present(viewController!, animated: true, completion: nil)
+                self.present(viewController, animated: true, completion: nil)
                 
             ItemViewController.dt = "outdoor"
           

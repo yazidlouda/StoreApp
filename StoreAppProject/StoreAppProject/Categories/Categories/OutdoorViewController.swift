@@ -10,15 +10,20 @@ import UIKit
 class OutdoorViewController: UIViewController ,UISearchBarDelegate{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
-    var filteredData:[Item]!
+    var username: String?
+    var phone: Int64?
+    var filteredData:[Product]!
+    var products: [Product]?
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = DBHelper.inst.getProductsForDepartment(name: "outdoors")
         setupUI()
         searchBar.delegate = self
-        filteredData = outdoor
+        filteredData = products
+        username = "bcrits"
         // Do any additional setup after loading the view.
     }
-    
+    /*
     var outdoor:[Item] = [
         Item(name: "Outdoor Rug", price: 39.99, image: UIImage(named: "od1")!, description: "Timeless design, this plastic patio rug is elegant as it is functional, use on your patio with outdoor furniture and accessories to show off your personal style."),
         Item(name: "G40 String Lights", price: 59.99, image: UIImage(named: "od2")!, description: "The G40 string lights are dimmable(Remote is NOT included.) and UL listed,2 spare bulbs for replacement.All the remaining bulbs will continue lighting up and brightening up our life even if some bulbs broken or removed."),
@@ -30,7 +35,7 @@ class OutdoorViewController: UIViewController ,UISearchBarDelegate{
         Item(name: "polyTEAK Umbrella", price: 39.99, image: UIImage(named: "od8")!, description: "100% POLYESTER FABRIC -- PolyTEAK patio umbrella is made of 100% polyester, waterproof and UV resistant, long lasting, easy to clean."),
         Item(name: "Plant Pots", price: 149.99, image: UIImage(named: "od9")!, description: "Thick, high-quality PP materials can be used repeatedly without fading, not easy to crack even in summer."),
         Item(name: "Oversized Chair", price: 49.99, image: UIImage(named: "od10")!, description: "The weatherproof chair has 22 inch oversized seat width, comfortably contoured seating with a weight capacity of 350 lbs, ergonomic backrest and wide armrests, which offer the comfort expected of Adirondack chairs. And the oversized design offers the freedom for any sitting and lying position.")
-    ]
+    ]*/
  
     func setupUI() {
 

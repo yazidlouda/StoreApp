@@ -22,13 +22,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
       
         // Initialization code
     }
-    func setupProductCell(item:Item)  {
-        name.text = item.name
-        image.image = item.image
-        price.text = "$" + item.price.description
-       
-    }
+
+    func setupProductCell(product:Product)  {
+        name.text = product.name
+        image.image = product.image
+        price.text = "$" + product.price.description
+
     func setupRating(ratt: Double){
         rat.rating = ratt
+
     }
 }

@@ -8,18 +8,23 @@
 import UIKit
 
 class ClothingCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     static let cellName =  String(describing: ClothingCollectionViewCell.self)
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-    func setupClothingCell(item:Item)  {
+    /*func setupClothingCell(item:Item)  {
         name.text = item.name
         image.image = item.image
         price.text = "$" + item.price.description
+    }*/
+    func setupClothingCell(product : Product)  {
+        name.text = product.name
+        image.image = product.image!
+        price.text = "$" + String(product.price)
     }
+    
 }

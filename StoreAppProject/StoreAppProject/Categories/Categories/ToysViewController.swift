@@ -10,15 +10,20 @@ import UIKit
 class ToysViewController: UIViewController ,UISearchBarDelegate{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var toysCollectionView: UICollectionView!
-    var filteredData:[Item]!
+    var filteredData:[Product]!
+    var products : [Product]?
+    var username : String?
+    var phone : Int64?
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = DBHelper.inst.getProductsForDepartment(name: "toys")
         setupUI()
         searchBar.delegate = self
-        filteredData = toys
+        filteredData = products
+        username = "bcrits"
         // Do any additional setup after loading the view.
     }
-    
+    /*
     var toys:[Item] = [
         Item(name: "Spawn Action Figure", price: 39.99, image: UIImage(named: "toy1")!, description: "Incredibly detailed 7” scale figure based off the Mortal Kombat Franchise."),
         Item(name: "GT3 replica", price: 59.99, image: UIImage(named: "toy2")!, description: "An immersive and rewarding building experience with this highly authentic Nifeliz super car GT3 replica, Packed with realistic features and functions."),
@@ -31,7 +36,7 @@ class ToysViewController: UIViewController ,UISearchBarDelegate{
         Item(name: "Nerf Rival Blaster", price: 149.99, image: UIImage(named: "toy9")!, description: "The Nerf Rival Phantom Corps is a group of rogue specialists who may join Team Red or Team Blue today, then challenge those teams tomorrow. Nerf Rival battles will never be the same! Experience intense head-to-head competition with the precision and power of the Nerf Rival Hera MXVII-1200 blaster."),
         Item(name: "Nazgul Statue", price: 49.99, image: UIImage(named: "toy10")!, description: "A Diamond Select Toys release! Form the Fellowship! Add the Hobbit that started it all to your 7-inch Lord of the Rings collection with this highly anticipated release! Featuring movie likeness, this approximately 4-inch figure shares the series with a 7-inch Nazgul/Ringwraith!"),
     ]
- 
+    */
     func setupUI() {
 
        
