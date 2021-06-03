@@ -31,13 +31,13 @@ class OrderSubmittedViewController: UIViewController {
         }
         
         func truckAnimateRight() {
-            UIView.animateKeyframes(withDuration: 1, delay: 0, animations: {
+            UIView.animateKeyframes(withDuration: 1.25, delay: 0, animations: {
                 self.truck.transform = CGAffineTransform(translationX: 400, y: 0)
             }, completion: {_ in truckAnimateLeft()})
         }
         
         func truckAnimateLeft() {
-            UIView.animateKeyframes(withDuration: 1, delay: 0, animations: {
+            UIView.animateKeyframes(withDuration: 1.25, delay: 0, animations: {
                 self.truck.transform = CGAffineTransform(translationX: 0, y: 0)
             }, completion: {_ in boxAnimateLeft()})
         }
