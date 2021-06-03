@@ -264,9 +264,13 @@
 		5E039449265801C5009639B7 /* StoreAppProject */ = {
 			isa = PBXGroup;
 			children = (
+
+				84DBC112266190D2007B7878 /* DBTesting */,
 				84DBC0CB26618138007B7878 /* DBHelper */,
 				84DBC0CA266180DA007B7878 /* Model */,
+
 				F457F2752663162600C9CBF2 /* Filter */,
+
 				F4371340265DDA9B00F17811 /* Categories */,
 				F4371337265DD0C600F17811 /* WishList */,
 				5E03944A265801C5009639B7 /* AppDelegate.swift */,
@@ -363,6 +367,15 @@
 				84DBC13726643487007B7878 /* PaymentMethod.swift */,
 			);
 			path = DBHelper;
+			sourceTree = "<group>";
+		};
+		84DBC112266190D2007B7878 /* DBTesting */ = {
+			isa = PBXGroup;
+			children = (
+				84DBC113266190E4007B7878 /* DBTest.storyboard */,
+				84DBC12026619162007B7878 /* DBTestViewController.swift */,
+			);
+			path = DBTesting;
 			sourceTree = "<group>";
 		};
 		84E329A926583F5100AEE9A7 /* Recovered References */ = {
@@ -539,6 +552,7 @@
 				5E039452265801C5009639B7 /* Main.storyboard in Resources */,
 				F4371344265DDB0F00F17811 /* ClothingCollectionViewCell.xib in Resources */,
 				F4371360265DF27F00F17811 /* OutdoorCollectionViewCell.xib in Resources */,
+				84DBC114266190E4007B7878 /* DBTest.storyboard in Resources */,
 				F4583B6E265C84B40051D5D6 /* CartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,12 +682,14 @@
 				84D0959C2669621600C72821 /* Customer+CoreDataClass.swift in Sources */,
 				F4583B6D265C84B40051D5D6 /* CartTableViewCell.swift in Sources */,
 				F457FE0B265FFCC80080AFFC /* KitchenViewController.swift in Sources */,
+				84DBC0D72661821A007B7878 /* Product+CoreDataClass.swift in Sources */,
 				8483F1C1265EB2BE00A5ABB9 /* CardViewController.swift in Sources */,
 				5E039486265816DC009639B7 /* LandingPageViewController.swift in Sources */,
 				F4371339265DD0FB00F17811 /* WishList.swift in Sources */,
 				5E03944B265801C5009639B7 /* AppDelegate.swift in Sources */,
 				8483F1CC265EB59D00A5ABB9 /* BankViewController.swift in Sources */,
 				F4371352265DE21200F17811 /* UserDashboardViewController+Extension.swift in Sources */,
+				84DBC0E326618252007B7878 /* Customer+CoreDataProperties.swift in Sources */,
 				F4B66F1326601C700096BE05 /* ToysViewController+Extension.swift in Sources */,
 				84D09563266938D100C72821 /* Review+CoreDataClass.swift in Sources */,
 				F4EEFEC4265FEE05001EEF32 /* ClothingViewController.swift in Sources */,
@@ -683,6 +699,7 @@
 				5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */,
 				84DBC13E2664380B007B7878 /* PaymentMethod+CoreDataClass.swift in Sources */,
 				5E60BDCA26587F3400874292 /* WishlistDetailsViewController.swift in Sources */,
+				84DBC0D82661821A007B7878 /* Product+CoreDataProperties.swift in Sources */,
 				5E0394882658177F009639B7 /* CartViewController.swift in Sources */,
 				84D0950F26692DD300C72821 /* PaymentMethod+CoreDataProperties.swift in Sources */,
 				F4583B67265C82710051D5D6 /* Cart.swift in Sources */,
@@ -713,6 +730,7 @@
 				84D09567266938D100C72821 /* Product+CoreDataClass.swift in Sources */,
 				5E03948A2658184A009639B7 /* ItemViewController.swift in Sources */,
 				F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */,
+				84DBC0E226618252007B7878 /* Customer+CoreDataClass.swift in Sources */,
 				5E60BDC826587ED500874292 /* AddPaymentOptionViewController.swift in Sources */,
 				F457FE10265FFD4C0080AFFC /* KitchenViewController+Extension.swift in Sources */,
 			);

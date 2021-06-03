@@ -25,7 +25,9 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
+
         
+
         func animateRight() {
             UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
                 self.logo.transform = CGAffineTransform(rotationAngle: 170)
@@ -80,7 +82,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             
             // show the alert
             self.present(alert, animated: true, completion: nil)
-        }
+        }*/
     }
     
     @IBAction func rememberLogin(_ sender: UISwitch) {
