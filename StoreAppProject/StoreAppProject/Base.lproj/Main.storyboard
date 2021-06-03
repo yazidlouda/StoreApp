@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yDh-nK-7Qi">
+
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -272,6 +274,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GnS-Ys-YvN" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="30" y="610" width="354" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BbC-iu-8ko"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -281,6 +288,7 @@
                         <outlet property="itemImage" destination="iMe-cZ-vKi" id="HQo-tD-ynK"/>
                         <outlet property="itemPrice" destination="Nxr-zQ-6Zp" id="Lkw-sN-EdK"/>
                         <outlet property="itemname" destination="P3G-ni-VTD" id="NxT-dM-7sf"/>
+                        <outlet property="rat" destination="GnS-Ys-YvN" id="wDg-fb-Lc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ex-W1-ujK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -967,14 +975,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-gs-gD0">
-                                <rect key="frame" x="260" y="677" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="yDh-nK-7Qi" kind="show" id="PSB-XE-q8w"/>
-                                </connections>
-                            </button>
+
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEz-Sw-BE4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="h7N-Lk-1fU">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="t2J-JQ-TDk">
+                                            <connections>
+                                                <segue destination="yDh-nK-7Qi" kind="presentation" modalPresentationStyle="fullScreen" id="zV9-1E-EjK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U9o-al-gpv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1250,7 +1265,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2EB-C7-DwY">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2EB-C7-DwY" customClass="ProductCollectionViewCell" customModule="StoreAppProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="178" height="275"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LZE-xd-2Lv">
@@ -2696,8 +2711,10 @@
         <segue reference="zgX-O9-Xmj"/>
         <segue reference="vTS-Il-9v6"/>
         <segue reference="dC1-81-oI1"/>
-        <segue reference="2iq-3e-Emy"/>
-        <segue reference="jYw-wr-wle"/>
+
+        <segue reference="zV9-1E-EjK"/>
+        <segue reference="Xq7-9f-MaY"/>
+
         <segue reference="LLW-EM-PL0"/>
     </inferredMetricsTieBreakers>
     <resources>
