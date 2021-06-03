@@ -24,6 +24,9 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
             let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCollectionViewCell
             
             cell.setupProductCell(item: filteredData[indexPath.item])
+        
+        //Method to display rating in product view
+            cell.setupRating(ratt: rating[indexPath.row])
             return cell
        
             
@@ -69,7 +72,9 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
                 viewController?.name = self.product[indexPath.item].name
                 viewController?.itemInfo = self.product[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+                viewController?.price = self.product[indexPath.item].price
+                viewController?.rat1 = self.rating[indexPath.row]
+            
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 

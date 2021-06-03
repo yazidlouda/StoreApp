@@ -19,6 +19,7 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
         searchBar.delegate = self
         filteredData = product
         numberOfItems.text = filteredData.count.description
+            
        
         if (FilterViewController.sort == "low"){
             self.filteredData?.sort(by: { $0.price < $1.price })
@@ -31,6 +32,7 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
             productCollectionView.reloadData()
         }
             productCollectionView.reloadData()
+            
         // Do any additional setup after loading the view.
     }
     
@@ -46,6 +48,7 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
         Item(name: "Nifty Coffee Pod Storage", price: 79.99, image: UIImage(named: "k7")!, description: "The Nifty Coffee Pod Storage Drawer is compatible with K-Cups and will hold up to 36 of your favorite pods where space is a necessity."),
         Item(name: "Outdoor Hammock", price: 99.99, image: UIImage(named: "od3")!, description: "Unlike Other Hammocks ours are made of high quality heavy duty 210T parachute nylon. This extra soft yet super strong material gives you the most comfortable and relaxing experience ever."),
     ]
+    let rating = [4.0,3.0,2.5,4.5,5.0,3.6,4.0,2.0,1.0,3.5,]
  
     func setupUI() {
 

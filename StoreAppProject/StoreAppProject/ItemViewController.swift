@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
+import Cosmos
 class ItemViewController: UIViewController {
 
     
+    @IBOutlet weak var rat: CosmosView!
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemname: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
@@ -19,6 +20,7 @@ class ItemViewController: UIViewController {
     var itemInfo: String?
     var index: Int?
     var price: Double?
+    var rat1: Double?
     var cartInstance = Cart.sharedInstance
     var WishListInst = WishList.sharedInstance
     static var dt: String?
@@ -28,7 +30,7 @@ class ItemViewController: UIViewController {
         itemImage.image = image
         itemDescription.text = itemInfo
         itemPrice.text = price?.description
-        
+        rat.rating = rat1!
     }
    
     @IBAction func addToCart(_ sender: Any) {
@@ -39,6 +41,10 @@ class ItemViewController: UIViewController {
         let product3 = ToysViewController().toys[index!]
         let product4 = OutdoorViewController().outdoor[index!]
         let product5 = HomeGoodViewController().homeGood[index!]
+        let product6 = UserDashboardViewController().popular[index!]
+        let product7 = UserDashboardViewController().featured[index!]
+        let product8 = UserDashboardViewController().deals[index!]
+        
         
         if(ItemViewController.dt == "product"){
             //let haptic = UINotificationFeedbackGenerator()
@@ -107,6 +113,41 @@ class ItemViewController: UIViewController {
               //  haptic.notificationOccurred(.error)
             }
         }
+        
+        if(ItemViewController.dt == "popular"){
+            //let haptic = UINotificationFeedbackGenerator()
+
+            if !cartInstance.cartItems.contains(where: {$0.name == product6.name}) {
+            cartInstance.cartItems.append(product1)
+               // haptic.notificationOccurred(.success)
+            } else {
+                print("Product is already added to Cart")
+               // haptic.notificationOccurred(.error)
+            }
+        }
+        if(ItemViewController.dt == "featured"){
+           // let haptic = UINotificationFeedbackGenerator()
+
+            if !cartInstance.cartItems.contains(where: {$0.name == product7.name}) {
+            cartInstance.cartItems.append(product2)
+               // haptic.notificationOccurred(.success)
+            } else {
+                print("Product is already added to Cart")
+               // haptic.notificationOccurred(.error)
+            }
+        }
+      
+        if(ItemViewController.dt == "deals"){
+           // let haptic = UINotificationFeedbackGenerator()
+
+            if !cartInstance.cartItems.contains(where: {$0.name == product8.name}) {
+            cartInstance.cartItems.append(product3)
+              //  haptic.notificationOccurred(.success)
+            } else {
+                print("Product is already added to Cart")
+               // haptic.notificationOccurred(.error)
+            }
+        }
     }
     
     @IBAction func addToWishList(_ sender: Any) {
@@ -116,7 +157,9 @@ class ItemViewController: UIViewController {
         let product3 = ToysViewController().toys[index!]
         let product4 = OutdoorViewController().outdoor[index!]
         let product5 = HomeGoodViewController().homeGood[index!]
-        
+        let product6 = UserDashboardViewController().popular[index!]
+        let product7 = UserDashboardViewController().featured[index!]
+        let product8 = UserDashboardViewController().deals[index!]
         if(ItemViewController.dt == "product"){
             //let haptic = UINotificationFeedbackGenerator()
 
@@ -184,6 +227,41 @@ class ItemViewController: UIViewController {
               //  haptic.notificationOccurred(.error)
             }
         }
+        
+        
+        if(ItemViewController.dt == "popular"){
+            //let haptic = UINotificationFeedbackGenerator()
 
+            if !WishListInst.wishListItems.contains(where: {$0.name == product6.name}) {
+                WishListInst.wishListItems.append(product1)
+               // haptic.notificationOccurred(.success)
+            } else {
+                print("Product is already added to Cart")
+               // haptic.notificationOccurred(.error)
+            }
+        }
+        if(ItemViewController.dt == "featured"){
+           // let haptic = UINotificationFeedbackGenerator()
+
+            if !WishListInst.wishListItems.contains(where: {$0.name == product7.name}) {
+                WishListInst.wishListItems.append(product2)
+               // haptic.notificationOccurred(.success)
+            } else {
+                print("Product is already added to Cart")
+               // haptic.notificationOccurred(.error)
+            }
+        }
+      
+        if(ItemViewController.dt == "deals"){
+           // let haptic = UINotificationFeedbackGenerator()
+
+            if !WishListInst.wishListItems.contains(where: {$0.name == product8.name}) {
+                WishListInst.wishListItems.append(product3)
+              //  haptic.notificationOccurred(.success)
+            } else {
+                print("Product is already added to Cart")
+               // haptic.notificationOccurred(.error)
+            }
+        }
 }
 }

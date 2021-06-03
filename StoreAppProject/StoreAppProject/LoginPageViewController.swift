@@ -44,39 +44,40 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func login(_ sender: Any) {
-        let cus: Customer
+        var cus = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
+                if DBHelper.found == 1 || username.text == "" || password.text == "" {
+                    username.text = ""
+                    password.text = ""
+                    warningLabel.text = "Invalid Login Credentials"
+                    return
+                } else {
+                    cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
+                    warningLabel.text = ""
+                }
+                
+                if (cus.username == nil || cus.password == nil) {
+                    let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
+                }
+                if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
+                   // let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
+            
+                    let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
+                    dashboard.modalPresentationStyle = .fullScreen
+                    //dashboard.username = username.text!
+                    self.present(dashboard, animated: true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
+                }
         
-        if DBHelper.found == 0 || username.text == "" || password.text == "" {
-            username.text = ""
-            password.text = ""
-            warningLabel.text = "Invalid Login Credentials"
-            return
-        } else {
-            cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
-            warningLabel.text = ""
-        }
-
-        if (cus.username == nil || cus.password == nil) {
-            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
-        if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
-           // let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
-    
-            let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
-            dashboard.modalPresentationStyle = .fullScreen
-            self.present(dashboard, animated: true, completion: nil)
-        }
-        else {
-            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
     }
     
     @IBAction func rememberLogin(_ sender: UISwitch) {
