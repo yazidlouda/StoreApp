@@ -12,7 +12,9 @@ import UserNotifications
 class UserDashboardViewController: UIViewController {
     var username : String?
     var phone : Int64?
-    var products : [Product]?
+    var clothingProducts : [Product]?
+    var kitchenProducts : [Product]?
+    var outdoorsProducts : [Product]?
     
     @IBOutlet weak var clothingCollectionView: UICollectionView!
     
@@ -20,12 +22,14 @@ class UserDashboardViewController: UIViewController {
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        products = DBHelper.inst.getAllProducts()
+        clothingProducts = DBHelper.inst.getProductsForDepartment(name: "clothing")
+        kitchenProducts = DBHelper.inst.getProductsForDepartment(name: "kitchen")
+        outdoorsProducts = DBHelper.inst.getProductsForDepartment(name: "outdoors")
         setupUI()
         addLocalNotifaction()
         // Do any additional setup after loading the view.
     }
-    
+    /*
     var clothing:[Item] = [
         Item(name: "Elliot", price: 39.99, image: UIImage(named: "1")!, description: "The Elliot is a modern. "),
         Item(name: "Bellona", price: 59.99, image: UIImage(named: "1")!, description: "The Bellona is a stylish ."),
@@ -64,7 +68,7 @@ class UserDashboardViewController: UIViewController {
         Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "4")!, description: "The Muse Ivor is a effortlessly cool ."),
         Item(name: "Coach", price: 49.99, image: UIImage(named: "4")!, description: "The Coach HC8179 is an oversized square ."),
     ]
-    
+    */
     //MARK: -> Class Methods
     
     func setupUI() {

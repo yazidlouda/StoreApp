@@ -27,7 +27,7 @@ class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemname.text = product?.name
-        itemImage.image = UIImage(named: "1")!
+        itemImage.image = product?.image
         itemDescription.text = product?.info
         itemPrice.text = String(product!.price)
         

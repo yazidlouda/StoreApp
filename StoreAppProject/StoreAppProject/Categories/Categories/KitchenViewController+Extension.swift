@@ -24,7 +24,7 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
             
-            //cell.setupClothingCell(item: filteredData[indexPath.item])
+            cell.setupClothingCell(product: filteredData[indexPath.item])
             return cell
        
             
@@ -35,10 +35,11 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = []
         if searchText == "" {
-            filteredData = kitchen
+            filteredData = products
         }else{
-            for db in kitchen {
-                if (db.name.lowercased().contains(searchText.lowercased())){
+            for db in products! {
+                var name = db.name!
+                if (name.lowercased().contains(searchText.lowercased())){
                     filteredData.append(db)
                 }
             }
@@ -61,17 +62,20 @@ extension KitchenViewController : UICollectionViewDelegate , UICollectionViewDat
             
          
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
             /*
                 viewController?.image = self.kitchen[indexPath.item].image
                 viewController?.name = self.kitchen[indexPath.item].name
                 viewController?.itemInfo = self.kitchen[indexPath.item].description
                 viewController?.index  = indexPath.item
                 */
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.products?[indexPath.item]
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-                self.present(viewController!, animated: true, completion: nil)
+                self.present(viewController, animated: true, completion: nil)
                 
             ItemViewController.dt = "kitchen"
           

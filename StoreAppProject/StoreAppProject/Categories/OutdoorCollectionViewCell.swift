@@ -11,13 +11,14 @@ class OutdoorCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
+    //var product : Product?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    func setupOutdoorCell(item:Item)  {
-        name.text = item.name
-        image.image = item.image
+    func setupOutdoorCell(product:Product)  {
+        name.text = product.name
+        image.image = product.image
        
     }
 }
