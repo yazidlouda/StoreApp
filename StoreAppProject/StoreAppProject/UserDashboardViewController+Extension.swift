@@ -18,44 +18,42 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case clothingCollectionView:
-            return popular.count
+            return clothingProducts!.count
         case kitchenCollectionView:
-            return featured.count
+            return kitchenProducts!.count
         case outdoorCollectionView:
-            return deals.count
+            return outdoorsProducts!.count
         default:return 0
         }
+        }
         
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch collectionView {
         case clothingCollectionView:
             let cell = clothingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
-
-            cell.setupClothingCell(product: (clothingProducts?[indexPath.item])!)
-            //cell.setupClothingCell(item: clothing[indexPath.item])
-
+            
+            cell.setupClothingCell(product: clothingProducts![indexPath.item])
             return cell
         case kitchenCollectionView:
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! KitchenCollectionViewCell
             
-
-            cell.setupKitchenCell(product: (kitchenProducts?[indexPath.item])!)
-
+            cell.setupKitchenCell(product: kitchenProducts![indexPath.item])
             return cell
         case outdoorCollectionView:
             let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! OutdoorCollectionViewCell
             
-
-            cell.setupOutdoorCell(product: (outdoorsProducts?[indexPath.item])!)
-
+            cell.setupOutdoorCell(product: outdoorsProducts![indexPath.item])
             
             return cell
             
       
         default:return UICollectionViewCell()
+            
+      
+     
             
         }
     }
@@ -76,60 +74,46 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
             
-
-                
                 viewController.username = self.username
                 viewController.phone = self.phone
-                viewController.product = self.clothingProducts?[indexPath.item]
-
+                viewController.product = self.clothingProducts![indexPath.item]
+               // viewController?.index  = indexPath.item
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-
                 self.present(viewController, animated: true, completion: nil)
-                
+                ItemViewController.dt = "popular"
             }
             if collectionView == self.kitchenCollectionView {
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
-               
-                
+            
                 viewController.username = self.username
                 viewController.phone = self.phone
-                viewController.product = self.kitchenProducts?[indexPath.item]
-
-               
-                
-            }
-           
+                viewController.product = self.kitchenProducts![indexPath.item]
+              //  viewController?.index  = indexPath.item
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-
                 self.present(viewController, animated: true, completion: nil)
-                
+                ItemViewController.dt = "featured"
             }
             if collectionView == self.outdoorCollectionView {
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
-          
+            
                 viewController.username = self.username
                 viewController.phone = self.phone
-                viewController.product = self.outdoorsProducts?[indexPath.item]
+                viewController.product = self.outdoorsProducts![indexPath.item]
+                //viewController?.index  = indexPath.item
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
-    
+                
                 self.present(viewController, animated: true, completion: nil)
-                
-  
-                
-            }
-           
-                
-
+                ItemViewController.dt = "deals"
             }
             else {
             
@@ -140,14 +124,6 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     }
 }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-//        let rotationtransForm = CATransform3DTranslate(CATransform3DIdentity, -800, 100, 0)
-//        cell.layer.transform = rotationtransForm
-//        UIView.animate(withDuration: 0.3) {cell.layer.transform = CATransform3DIdentity}
-//        cell.alpha = 0
-//        UIView.animate(withDuration: 0.5) {
-//            cell.alpha = 1
-//        }
-    }
+   
+
 }

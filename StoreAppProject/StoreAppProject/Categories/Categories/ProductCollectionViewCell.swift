@@ -33,3 +33,4 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     }
 }
+}

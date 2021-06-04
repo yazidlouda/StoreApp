@@ -1,8 +1,8 @@
 //
 //  Customer+CoreDataProperties.swift
-//  StoreAppProject
+//  
 //
-//  Created by admin on 6/3/21.
+//  Created by Home on 6/4/21.
 //
 //
 
@@ -59,9 +59,5 @@ extension Customer {
 
     @objc(removeCart:)
     @NSManaged public func removeFromCart(_ values: NSSet)
-
-}
-
-extension Customer : Identifiable {
 
 }

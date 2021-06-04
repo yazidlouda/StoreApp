@@ -42,10 +42,13 @@ class ItemViewController: UIViewController {
    
     @IBAction func addToCart(_ sender: Any) {
 
-       
+        let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+        dashboard.modalPresentationStyle = .fullScreen
         DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1, forCustomerWithEmailID: username!)
+        self.present(dashboard, animated: true, completion: nil)
         
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+       // self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
   
 

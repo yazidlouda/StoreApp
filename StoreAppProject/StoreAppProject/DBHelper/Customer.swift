@@ -1,6 +1,8 @@
 //
-//  DBHelper.swift
+//  Customer.swift
 //  StoreAppProject
+//
+//  Created by Home on 6/3/21.
 //
 
 

@@ -30,53 +30,95 @@ extension DBHelper {
     }
     
     func addToCart(productID: UUID, quantity: Int, forCustomerWithEmailID username: String) {
+//        var product = Product()
+//        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+//        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+//        fetchReqP.fetchLimit = 1
+//
+//        var customer = Customer()
+//        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+//        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
+//        fetchReqC.fetchLimit = 1
+//
+//        do {
+//            let resP = try context?.fetch(fetchReqP) as! [Product]
+//            let resC = try context?.fetch(fetchReqC) as! [Customer]
+//            if (resP.count != 0){
+//                product = resP.first!
+//                print("product found: ", product)
+//            } else {
+//                print("product not found")
+//            }
+//            if (resC.count != 0){
+//                customer = resC.first!
+//                DBHelper.cartSet = customer.cart!
+//                DBHelper.cartSet.insert(product)
+//                customer.cart = DBHelper.cartSet
+//                print("customer found: ", customer.cart)
+//            } else {
+//                print("customer not found")
+//            }
+//            if (customer.cart == nil) {
+//                //customer.cart = [Product]()
+//                //pro.append(product)
+//                print("cart created")
+//            }
+//            //pro.append(product)
+//            print(product)
+//            //customer.cart = [Product]()
+//            //customer.cart = pro
+//            //customer.cart = pro
+//            //customer.products?.append(product)
+//            //customer.cart = product
+//            print(customer.cart, " cart info")
+//            try context?.save()
+//        } catch (let exception) {
+//            print("catch block")
+//            print(exception.localizedDescription)
+//        }
         var product = Product()
-        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
-        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
-        fetchReqP.fetchLimit = 1
-        
-        var customer = Customer()
-        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
-        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
-        fetchReqC.fetchLimit = 1
-        
-        do {
-            let resP = try context?.fetch(fetchReqP) as! [Product]
-            let resC = try context?.fetch(fetchReqC) as! [Customer]
-            if (resP.count != 0){
-                product = resP.first!
-                print("product found: ", product)
-            } else {
-                print("product not found")
-            }
-            if (resC.count != 0){
-                customer = resC.first!
-                DBHelper.cartSet = customer.cart!
-                DBHelper.cartSet.insert(product)
-                customer.cart = DBHelper.cartSet
-                print("customer found: ", customer.cart)
-            } else {
-                print("customer not found")
-            }
-            if (customer.cart == nil) {
-                //customer.cart = [Product]()
-                //pro.append(product)
-                print("cart created")
-            }
-            //pro.append(product)
-            print(product)
-            //customer.cart = [Product]()
-            //customer.cart = pro
-            //customer.cart = pro
-            //customer.products?.append(product)
-            //customer.cart = product
-            print(customer.cart, " cart info")
-            try context?.save()
-        } catch (let exception) {
-            print("catch block")
-            print(exception.localizedDescription)
-        }
-        
+                let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+                fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+                fetchReqP.fetchLimit = 1
+                
+                var customer = Customer()
+                let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+                fetchReqC.predicate = NSPredicate(format: "username == %@", username)
+                fetchReqC.fetchLimit = 1
+                
+                do {
+                    let resP = try context?.fetch(fetchReqP) as! [Product]
+                    let resC = try context?.fetch(fetchReqC) as! [Customer]
+                    if (resP.count != 0){
+                        product = resP.first!
+                        print("product found: ", product)
+                    } else {
+                        print("product not found")
+                    }
+                    if (resC.count != 0){
+                        customer = resC.first!
+                        print("custoooooooooooomer",customer.username!)
+                        
+                        //DBHelper.cartSet = customer.cart!
+                        DBHelper.cartSet.insert(product)
+                        customer.cart = DBHelper.cartSet
+                        print("customer found: ", customer.cart)
+                    } else {
+                        print("customer not found")
+                    }
+                    //pro.append(product)
+                    print(product)
+                    //customer.cart = [Product]()
+                    //customer.cart = pro
+                    //customer.cart = pro
+                    //customer.products?.append(product)
+                    //customer.cart = product
+                    print(customer.cart, " cart info")
+                    try context?.save()
+                } catch (let exception) {
+                    print("catch block")
+                    print(exception.localizedDescription)
+                }
     }
     
     func getAllProducts() -> [Product] {
