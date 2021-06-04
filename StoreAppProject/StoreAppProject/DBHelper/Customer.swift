@@ -11,6 +11,9 @@ import CoreData
 import UIKit
 
 class DBHelper {
+    static var isLoggedIn : Bool = false
+    static var currentUser : String = ""
+    
     static var cartSet : Set<Product> = []
     static var inst = DBHelper()
     

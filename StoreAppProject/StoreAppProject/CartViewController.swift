@@ -26,7 +26,23 @@ class CartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
- 
+    @IBAction func checkoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        let checkoutPage = mainBoard.instantiateViewController(withIdentifier: "checkoutPage") as! CheckoutViewController
+        checkoutPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            self.tabBarController?.present(checkoutPage, animated: true, completion: nil)
+            
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)

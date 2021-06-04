@@ -332,6 +332,7 @@
         <!--Cart-->
         <scene sceneID="Fqv-qR-Qn6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nw6-rx-DMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CartTableViewCell" id="nZ8-uk-Np8" customClass="CartViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ln-RI-znf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -448,7 +449,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="ZXI-Qf-W5H" kind="presentation" modalPresentationStyle="fullScreen" id="Vdf-rP-7g3"/>
+                                    <action selector="checkoutClicked:" destination="nZ8-uk-Np8" eventType="touchUpInside" id="Wpw-el-rKz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -464,14 +465,13 @@
                         <outlet property="totalNoShipp" destination="tml-uD-d5U" id="rZc-xo-Odq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nw6-rx-DMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2794.202898550725" y="77.678571428571431"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="bvz-WZ-Zt5">
             <objects>
-                <viewController id="ZXI-Qf-W5H" customClass="CheckoutViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkoutPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZXI-Qf-W5H" customClass="CheckoutViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BA5-Tq-waw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -622,7 +622,7 @@
         <!--Item-->
         <scene sceneID="7xB-4o-IIx">
             <objects>
-                <viewController id="yDh-nK-7Qi" customClass="LoginPageViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yDh-nK-7Qi" customClass="LoginPageViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="laX-94-1ee">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1239,7 +1239,7 @@
                                     </preferredSymbolConfiguration>
                                 </state>
                                 <connections>
-                                    <segue destination="HNo-BP-IHs1" kind="presentation" modalPresentationStyle="fullScreen" id="zgX-O9-Xmj"/>
+                                    <action selector="profileClicked:" destination="Z9a-IG-BP1" eventType="touchUpInside" id="eFe-E6-Dev"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQd-PG-U00">
@@ -1260,7 +1260,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYI-Ey-yNN">
-                                <rect key="frame" x="327" y="70" width="64" height="36"/>
+                                <rect key="frame" x="309" y="70" width="82" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Sign In">
@@ -1278,6 +1278,9 @@
                         <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="A82-aN-TRs"/>
+                    <connections>
+                        <outlet property="signInButton" destination="eYI-Ey-yNN" id="JWg-Bc-gEC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmX-BB-9Sg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1307,7 +1310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-Ym-lhp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="-1" y="44" width="413" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textAttributes key="titleTextAttributes">
@@ -1649,7 +1652,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -1794,7 +1797,7 @@
         <!--Dashboard-->
         <scene sceneID="FT9-6E-0ds1">
             <objects>
-                <viewController id="HNo-BP-IHs1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profilePage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HNo-BP-IHs1" customClass="ProfilePageViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ivz-jK-phG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1992,7 +1995,7 @@
             <objects>
                 <viewController id="HNo-BP-IHs" customClass="AddPaymentOptionViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ivz-jK-phG1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Payment Option" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prp-49-Bb0">
@@ -2031,14 +2034,14 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwM-DD-Myg">
-                                <rect key="frame" x="0.0" y="181" width="414" height="456"/>
+                                <rect key="frame" x="0.0" y="235" width="414" height="456"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="4b2-CF-wdM" kind="embed" id="Esa-2s-Waf"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WG1-GH-vc3">
-                                <rect key="frame" x="0.0" y="181" width="414" height="456"/>
+                                <rect key="frame" x="0.0" y="235" width="414" height="456"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="0P2-Ks-o0z" kind="embed" id="9kd-zH-brH"/>
@@ -2911,12 +2914,11 @@
         <segue reference="TjK-Ub-UOf"/>
         <segue reference="3VI-bR-B62"/>
         <segue reference="ggX-p5-AV2"/>
-        <segue reference="zgX-O9-Xmj"/>
         <segue reference="vTS-Il-9v6"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="dC1-81-oI1"/>
-        <segue reference="nvO-OR-XHA"/>
-        <segue reference="MwO-tH-GR5"/>
+        <segue reference="2iq-3e-Emy"/>
+        <segue reference="rsZ-AK-Ty9"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>
