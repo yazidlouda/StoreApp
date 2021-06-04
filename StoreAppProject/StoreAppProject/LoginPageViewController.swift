@@ -65,7 +65,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
 
 
         //print(username.text)
-        let cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
+//        let cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
 
         
        

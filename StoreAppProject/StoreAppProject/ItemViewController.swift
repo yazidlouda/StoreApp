@@ -32,7 +32,7 @@ class ItemViewController: UIViewController {
     
 
     var rat1: Double?
-    var cartInstance = Cart.sharedInstance
+//    var cartInstance = Cart.sharedInstance
 
 
     var WishListInst = WishList.sharedInstance
@@ -58,12 +58,12 @@ class ItemViewController: UIViewController {
     }
     
   
-        self.present(dashboard, animated: true, completion: nil)
+//        self.present(dashboard, animated: true, completion: nil)
         
 
         
        // self.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
+    
   
 
 
