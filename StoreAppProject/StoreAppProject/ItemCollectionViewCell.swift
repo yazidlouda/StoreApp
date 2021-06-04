@@ -8,15 +8,16 @@
 import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
+    var product : Product?
     
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var lb: UILabel!
     @IBOutlet weak var lb1: UILabel!
     
-    func configure(with item: Item){
-        lb.text = item.name
-        lb1.text = "$" + item.price.description
-        itemImage.image = item.image
+    func configure(product: Product){
+        lb.text = product.name
+        lb1.text = "$" + String(product.price)
+        itemImage.image = product.image
     }
    
     

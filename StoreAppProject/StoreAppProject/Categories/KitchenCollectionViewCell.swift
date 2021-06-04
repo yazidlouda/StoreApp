@@ -11,13 +11,15 @@ class KitchenCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
+    //var product : Product?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    func setupKitchenCell(item:Item)  {
-        name.text = item.name
-        image.image = item.image
+    func setupKitchenCell(product : Product)  {
+        name.text = product.name
+        image.image = product.image!
        
     }
+    
 }

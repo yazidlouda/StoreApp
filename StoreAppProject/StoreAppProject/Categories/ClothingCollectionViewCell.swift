@@ -23,8 +23,8 @@ class ClothingCollectionViewCell: UICollectionViewCell {
     }*/
     func setupClothingCell(product : Product)  {
         name.text = product.name
-        image.image = UIImage(named: "1")!
-       
+        image.image = product.image!
+        price.text = "$" + String(product.price)
     }
     
 }

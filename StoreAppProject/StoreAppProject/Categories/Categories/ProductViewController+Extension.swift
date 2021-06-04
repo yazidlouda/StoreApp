@@ -23,7 +23,13 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
        
             let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCollectionViewCell
             
-            cell.setupProductCell(item: filteredData[indexPath.item])
+
+            cell.setupProductCell(product: filteredData[indexPath.item])
+
+           
+        
+        //Method to display rating in product view
+         //   cell.setupRating(ratt: rating[indexPath.row])
             return cell
        
             
@@ -33,12 +39,13 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = []
         if searchText == "" {
-            filteredData = product
+            filteredData = products
             numberOfItems.text = filteredData.count.description
             productCollectionView.reloadData()
         }else{
-            for db in product {
-                if (db.name.lowercased().contains(searchText.lowercased())){
+            for db in products! {
+                var name = db.name!
+                if (name.lowercased().contains(searchText.lowercased())){
                     filteredData.append(db)
                     numberOfItems.text = filteredData.count.description
                     productCollectionView.reloadData()
@@ -63,17 +70,26 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
             
          
                 
-                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-            
+                let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
+                /*
                 viewController?.image = self.product[indexPath.item].image
                 viewController?.name = self.product[indexPath.item].name
                 viewController?.itemInfo = self.product[indexPath.item].description
                 viewController?.index  = indexPath.item
-                
+
+                */
+                viewController.username = self.username
+                viewController.phone = self.phone
+                viewController.product = self.products?[indexPath.item]
+
+             //   viewController?.price = self.product[indexPath.item].price
+              //  viewController?.rat1 = self.rating[indexPath.row]
+
+            
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
-                self.present(viewController!, animated: true, completion: nil)
+                self.present(viewController, animated: true, completion: nil)
                 
             ItemViewController.dt = "product"
           

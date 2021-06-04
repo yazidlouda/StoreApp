@@ -9,22 +9,27 @@ import UIKit
 
 class ClothingViewController: UIViewController ,UISearchBarDelegate{
     static var cloth = ""
+    var username : String?
+    var phone : Int64?
     var image: UIImage?
     var name: String?
     var itemInfo: String?
     var index: Int?
     var price: Double?
+    var products : [Product]?
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var clothingCollectionView: UICollectionView!
-    var filteredData:[Item]!
+    var filteredData:[Product]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = DBHelper.inst.getProductsForDepartment(name: "clothing")
         setupUI()
         searchBar.delegate = self
-        filteredData = clothing
+        filteredData = products
+        username = "bcrits"
         // Do any additional setup after loading the view.
     }
-    
+    /*
     var clothing:[Item] = [
         Item(name: "Black Elastic Shirt", price: 39.99, image: UIImage(named: "c1")!, description: "High quality stretchy and soft fabric made the fashion jumpsuit works with most body types."),
         Item(name: "Tie Dye Jumpsuit", price: 59.99, image: UIImage(named: "c2")!, description: "This jumpsuit features sleeveless tank top/ short sleeves top, bust pocket, scoop neckline, elastic smocked waist waistband, drawstring tie, two pockets, beam foot long pants."),
@@ -37,7 +42,7 @@ class ClothingViewController: UIViewController ,UISearchBarDelegate{
         Item(name: "Moreno Oxford Shoe", price: 149.99, image: UIImage(named: "c9")!, description: "Men's Moreno Canvas Oxford Shoe."),
         Item(name: "Sun Hat", price: 49.99, image: UIImage(named: "c10")!, description: "With wide brim flap cover on this cap, adding stylish&cool style, leading to the fashion top trend. Lightweight, comfort&protective sun cap hat for use in summer, autumn, and spring."),
     ]
- 
+ */
     func setupUI() {
 
        

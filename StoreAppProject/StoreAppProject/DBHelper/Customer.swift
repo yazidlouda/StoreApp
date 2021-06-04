@@ -1,6 +1,8 @@
 //
-//  DBHelper.swift
+//  Customer.swift
 //  StoreAppProject
+//
+//  Created by Home on 6/3/21.
 //
 
 
@@ -9,6 +11,7 @@ import CoreData
 import UIKit
 
 class DBHelper {
+    static var cartSet : Set<Product> = []
     static var inst = DBHelper()
     
     var context : NSManagedObjectContext?
@@ -25,7 +28,9 @@ class DBHelper {
         
         customer.username = username
         customer.password = password
-        
+        //var p = Product()
+        //pro.append(p)
+        //customer.cart = pro
         do {
             try context?.save()
         } catch(let exception) {
@@ -63,15 +68,17 @@ class DBHelper {
             let res = try context?.fetch(fetchReq) as! [Customer]
             if (res.count != 0){
                 customer = res.first!
+                print("customer info: ", customer)
                 DBHelper.found = 0
             } else {
                 print("data not found")
                 DBHelper.found = 1
             }
         } catch (let exception) {
+            print("catch block")
             print(exception.localizedDescription)
         }
-        
+        print("final customer info: ", customer)
         return customer
     }
     

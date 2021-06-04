@@ -10,61 +10,27 @@ import UserNotifications
 
 
 class UserDashboardViewController: UIViewController {
+
     var username : String?
     var phone : Int64?
-    var products : [Product]?
+    var clothingProducts : [Product]?
+    var kitchenProducts : [Product]?
+    var outdoorsProducts : [Product]?
     
     @IBOutlet weak var clothingCollectionView: UICollectionView!
-    
     @IBOutlet weak var kitchenCollectionView: UICollectionView!
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        products = DBHelper.inst.getAllProducts()
         setupUI()
         addLocalNotifaction()
+        clothingProducts = DBHelper.inst.getProductsForDepartment(name: "clothing")
+        kitchenProducts = DBHelper.inst.getProductsForDepartment(name: "kitchen")
+        outdoorsProducts = DBHelper.inst.getProductsForDepartment(name: "outdoors")
+       
         // Do any additional setup after loading the view.
     }
-    
-    var clothing:[Item] = [
-        Item(name: "Elliot", price: 39.99, image: UIImage(named: "1")!, description: "The Elliot is a modern. "),
-        Item(name: "Bellona", price: 59.99, image: UIImage(named: "1")!, description: "The Bellona is a stylish ."),
-        Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "1")!, description: " Clubmaster is the iconic."),
-        Item(name: "Amelia", price: 29.99, image: UIImage(named: "1")!, description: "The Amelia E. Hepburn is a modern cat-eye "),
-        Item(name: "Ottoto", price: 49.99, image: UIImage(named: "1")!, description: "The Ottoto  is a full-rimmed."),
-        Item(name: "Andria", price: 69.99, image: UIImage(named: "1")!, description: "The Andria is a well-rounded frame ."),
-        Item(name: "Revel", price: 79.99, image: UIImage(named: "1")!, description: "The Revel  is a wrap-around ."),
-        Item(name: "Vogue", price: 39.99, image: UIImage(named: "1")!, description: "The Vogue VO5051S is a modern ."),
-        Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "1")!, description: "The Muse Ivor is a effortlessly cool ."),
-        Item(name: "Coach", price: 49.99, image: UIImage(named: "1")!, description: "The Coach HC8179 is an oversized square ."),
-    ]
-    
-   
-    var kitchen:[Item] = [
-        Item(name: "Elliot", price: 39.99, image: UIImage(named: "2")!, description: "The Elliot is a modern. "),
-        Item(name: "Bellona", price: 59.99, image: UIImage(named: "2")!, description: "The Bellona is a stylish ."),
-        Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "2")!, description: " Clubmaster is the iconic."),
-        Item(name: "Amelia", price: 29.99, image: UIImage(named: "2")!, description: "The Amelia E. Hepburn is a modern cat-eye "),
-        Item(name: "Ottoto", price: 49.99, image: UIImage(named: "2")!, description: "The Ottoto  is a full-rimmed."),
-        Item(name: "Andria", price: 69.99, image: UIImage(named: "2")!, description: "The Andria is a well-rounded frame ."),
-        Item(name: "Revel", price: 79.99, image: UIImage(named: "2")!, description: "The Revel  is a wrap-around ."),
-        Item(name: "Vogue", price: 39.99, image: UIImage(named: "2")!, description: "The Vogue VO5051S is a modern ."),
-        Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "2")!, description: "The Muse Ivor is a effortlessly cool ."),
-        Item(name: "Coach", price: 49.99, image: UIImage(named: "2")!, description: "The Coach HC8179 is an oversized square ."),
-    ]
-    var outdoor:[Item] = [
-        Item(name: "Elliot", price: 39.99, image: UIImage(named: "4")!, description: "The Elliot is a modern. "),
-        Item(name: "Bellona", price: 59.99, image: UIImage(named: "4")!, description: "The Bellona is a stylish ."),
-        Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "4")!, description: " Clubmaster is the iconic."),
-        Item(name: "Amelia", price: 29.99, image: UIImage(named: "4")!, description: "The Amelia E. Hepburn is a modern cat-eye "),
-        Item(name: "Ottoto", price: 49.99, image: UIImage(named: "4")!, description: "The Ottoto  is a full-rimmed."),
-        Item(name: "Andria", price: 69.99, image: UIImage(named: "4")!, description: "The Andria is a well-rounded frame ."),
-        Item(name: "Revel", price: 79.99, image: UIImage(named: "4")!, description: "The Revel  is a wrap-around ."),
-        Item(name: "Vogue", price: 39.99, image: UIImage(named: "4")!, description: "The Vogue VO5051S is a modern ."),
-        Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "4")!, description: "The Muse Ivor is a effortlessly cool ."),
-        Item(name: "Coach", price: 49.99, image: UIImage(named: "4")!, description: "The Coach HC8179 is an oversized square ."),
-    ]
-    
+
     //MARK: -> Class Methods
     
     func setupUI() {

@@ -1,13 +1,13 @@
 //
-//  DBTestViewController.swift
+//  TabBarViewController.swift
 //  StoreAppProject
 //
-//  Created by admin on 5/28/21.
+//  Created by Home on 6/4/21.
 //
 
 import UIKit
 
-class DBTestViewController: UIViewController {
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +16,6 @@ class DBTestViewController: UIViewController {
     }
     
 
-    @IBAction func populateDB(_ sender: Any) {
-        for item in inventory {
-            DBHelper.inst.addProduct(name: item.name, price: item.price, info: item.description)
-        }
-        
-    }
     /*
     // MARK: - Navigation
 
