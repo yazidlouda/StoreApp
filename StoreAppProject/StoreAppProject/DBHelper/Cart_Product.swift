@@ -52,24 +52,29 @@ extension DBHelper {
             if (resC.count != 0){
                 customer = resC.first!
                 DBHelper.cartSet = customer.cart!
-                DBHelper.cartSet.insert(product)
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                if (DBHelper.cartSet.contains(product)) {
+                    print("product already in cart, updating quantity")
+                    DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
+                    
+                } else {
+                    DBHelper.cartSet.insert(product)
+                    DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
+                }
                 customer.cart = DBHelper.cartSet
-                print("customer found: ", customer.cart)
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                //print("customer found: ", customer.cart)
             } else {
                 print("customer not found")
             }
-            if (customer.cart == nil) {
-                //customer.cart = [Product]()
-                //pro.append(product)
-                print("cart created")
-            }
             //pro.append(product)
-            print(product)
+            //print(product)
             //customer.cart = [Product]()
             //customer.cart = pro
             //customer.cart = pro
             //customer.products?.append(product)
             //customer.cart = product
+            print(customer.cartItemQuantities, " item quantities")
             print(customer.cart, " cart info")
             try context?.save()
         } catch (let exception) {

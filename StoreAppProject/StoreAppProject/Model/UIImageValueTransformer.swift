@@ -19,7 +19,7 @@ class UIImageValueTransformer : ValueTransformer {
         return true
     }
     override public func transformedValue(_ value: Any?) -> Any? {
-        guard let color = value as? UIColor else { return nil }
+        guard let color = value as? UIImage else { return nil }
             
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: true)
@@ -33,7 +33,7 @@ class UIImageValueTransformer : ValueTransformer {
         guard let data = value as? NSData else { return nil }
             
         do {
-            let color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: data as Data)
+            let color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIImage.self, from: data as Data)
             return color
         } catch {
             fatalError("error transforming value")

@@ -10,6 +10,7 @@ import UIKit
 
 class DBHelper {
     static var cartSet : Set<Product> = []
+    static var cartItemQuantities : [UUID : Int64] = [:]
     static var inst = DBHelper()
     
     var context : NSManagedObjectContext?
@@ -26,6 +27,7 @@ class DBHelper {
         
         customer.username = username
         customer.password = password
+        customer.cartItemQuantities = DBHelper.cartItemQuantities
         //var p = Product()
         //pro.append(p)
         //customer.cart = pro

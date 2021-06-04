@@ -8,6 +8,7 @@
         <attribute name="zipCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Customer" representedClassName="Customer" syncable="YES">
+        <attribute name="cartItemQuantities" optional="YES" attributeType="Transformable"/>
         <attribute name="cartTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String"/>
         <attribute name="giftCardBalance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -73,7 +74,7 @@
     </entity>
     <elements>
         <element name="Address" positionX="-18" positionY="81" width="128" height="118"/>
-        <element name="Customer" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Customer" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="Department" positionX="-54" positionY="63" width="128" height="73"/>
         <element name="Order" positionX="-36" positionY="72" width="128" height="73"/>
         <element name="PaymentMethod" positionX="0" positionY="99" width="128" height="208"/>
