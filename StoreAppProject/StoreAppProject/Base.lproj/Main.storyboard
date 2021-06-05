@@ -668,7 +668,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Persistent Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWM-Qr-Saq">
-                                <rect key="frame" x="41" y="45" width="332" height="73"/>
+                                <rect key="frame" x="41" y="89" width="332" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="332" id="95L-zd-kXH"/>
                                     <constraint firstAttribute="height" constant="73" id="qEh-S8-DuK"/>
@@ -710,7 +710,7 @@
                                 <color key="onTintColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </switch>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Hhy-Q9-yGG">
-                                <rect key="frame" x="87" y="126" width="240" height="172"/>
+                                <rect key="frame" x="87" y="170" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="ZgM-wz-sOO"/>
                                 </constraints>
@@ -1267,7 +1267,7 @@
                                     <color key="titleColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yDh-nK-7Qi" kind="presentation" modalPresentationStyle="fullScreen" id="2iq-3e-Emy"/>
+                                    <action selector="signoutClicked:" destination="Z9a-IG-BP1" eventType="touchUpInside" id="Mtm-F9-cyb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1279,7 +1279,7 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="A82-aN-TRs"/>
                     <connections>
-                        <outlet property="signInButton" destination="eYI-Ey-yNN" id="JWg-Bc-gEC"/>
+                        <outlet property="signInButton" destination="eYI-Ey-yNN" id="kzy-id-Bwz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmX-BB-9Sg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1652,7 +1652,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -1979,12 +1979,22 @@
                                     <segue destination="cJP-Dr-XFX" kind="presentation" modalPresentationStyle="fullScreen" id="MwO-tH-GR5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcD-hc-NvR">
+                                <rect key="frame" x="69" y="266" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zfh-UC-1mL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="person" catalog="system" id="EN6-UJ-5li"/>
                     <navigationItem key="navigationItem" id="QpA-9C-WZ0"/>
+                    <connections>
+                        <outlet property="usernameLabel" destination="Chv-1Y-bgQ" id="bU9-Z7-21I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdy-Zp-bkN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2917,8 +2927,8 @@
         <segue reference="vTS-Il-9v6"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="dC1-81-oI1"/>
-        <segue reference="2iq-3e-Emy"/>
-        <segue reference="rsZ-AK-Ty9"/>
+        <segue reference="Xsn-Fa-Ni1"/>
+        <segue reference="Ega-yE-XUc"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -29,17 +29,25 @@ class LandingPageViewController: UIViewController {
         loginPage.modalPresentationStyle = .fullScreen
         
         if DBHelper.isLoggedIn == true {
-            print("2")
-               
             self.tabBarController?.present(profilePage, animated: true, completion: nil)
-            
         } else {
-            print("3")
             self.tabBarController?.present(loginPage, animated: true, completion: nil)
         }
-        
     }
     
-    
+    @IBAction func signoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            DBHelper.isLoggedIn = false
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
+
 }
 

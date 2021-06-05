@@ -49,6 +49,11 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func login(_ sender: Any) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        let dashboard = mainBoard.instantiateViewController(withIdentifier: "dashboard") as! UserDashboardViewController
+        dashboard.modalPresentationStyle = .fullScreen
+        let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+        tabBar.modalPresentationStyle = .fullScreen
         
         var cus = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
         
@@ -63,6 +68,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
             DBHelper.currentUser = cus.username ?? ""
             warningLabel.text = ""
+            self.present(tabBar, animated: true, completion: nil)
         }
         
         
@@ -75,10 +81,8 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             // let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
             print("account verified")
             //print(cus.cart)
-            let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
-            dashboard.modalPresentationStyle = .fullScreen
             dashboard.username = username.text!
-            self.present(dashboard, animated: true, completion: nil)
+//            self.present(dashboard, animated: true, completion: nil)
         }
         else {
             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
@@ -89,10 +93,9 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             self.present(alert, animated: true, completion: nil)
         }
         
-        let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
-        dashboard.modalPresentationStyle = .fullScreen
         //dashboard.username = username.text!
-        self.present(dashboard, animated: true, completion: nil)
+//        self.present(dashboard, animated: true, completion: nil)
+//        self.present(tabBar, animated: true, completion: nil)
     }
     
     
