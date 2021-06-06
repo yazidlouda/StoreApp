@@ -18,11 +18,11 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case clothingCollectionView:
-            return popular.count
+            return clothing.count
         case kitchenCollectionView:
-            return featured.count
+            return kitchen.count
         case outdoorCollectionView:
-            return deals.count
+            return outdoor.count
         default:return 0
         }
         
@@ -65,12 +65,12 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
         
         let cell = collectionView.cellForItem(at: indexPath)
         
-        UIView.animate(withDuration: 0.2,animations: {cell?.alpha = 0.5}) {[weak self] (completed) in
+        //UIView.animate(withDuration: 0.2,animations: {cell?.alpha = 0.5}) {[weak self] (completed) in
          //fade in
-        UIView.animate(withDuration: 0.2,animations: {
+        //UIView.animate(withDuration: 0.2,animations: {
          //Fade out
-        guard let self = self else {return}
-        cell?.alpha = 1
+        //guard let self = self else {return}
+        //cell?.alpha = 1
             
             if collectionView == self.clothingCollectionView {
                 
@@ -98,10 +98,6 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
                 viewController.username = self.username
                 viewController.phone = self.phone
                 viewController.product = self.kitchenProducts?[indexPath.item]
-
-               
-                
-            }
            
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
@@ -130,15 +126,9 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
            
                 
 
-            }
-            else {
-            
-       
-        print("")
-            }
-        })
+           
     }
-}
+
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         

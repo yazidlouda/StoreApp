@@ -27,6 +27,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         name.text = product.name
         image.image = product.image
         price.text = "$" + product.price.description
+    }
 
     func setupRating(ratt: Double){
         rat.rating = ratt
