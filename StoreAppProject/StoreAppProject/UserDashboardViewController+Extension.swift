@@ -18,11 +18,11 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case clothingCollectionView:
-            return clothing.count
+            return popular.count
         case kitchenCollectionView:
-            return kitchen.count
+            return featured.count
         case outdoorCollectionView:
-            return outdoor.count
+            return deals.count
         default:return 0
         }
         
@@ -33,18 +33,24 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
         switch collectionView {
         case clothingCollectionView:
             let cell = clothingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ClothingCollectionViewCell
+
             cell.setupClothingCell(product: (clothingProducts?[indexPath.item])!)
             //cell.setupClothingCell(item: clothing[indexPath.item])
+
             return cell
         case kitchenCollectionView:
             let cell = kitchenCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! KitchenCollectionViewCell
             
+
             cell.setupKitchenCell(product: (kitchenProducts?[indexPath.item])!)
+
             return cell
         case outdoorCollectionView:
             let cell = outdoorCollectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! OutdoorCollectionViewCell
             
+
             cell.setupOutdoorCell(product: (outdoorsProducts?[indexPath.item])!)
+
             
             return cell
             
@@ -70,48 +76,45 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
             
-                /*viewController?.image = self.clothing[indexPath.item].image
-                viewController?.name = self.clothing[indexPath.item].name
-                viewController?.itemInfo = self.clothing[indexPath.item].description
-                viewController?.index  = indexPath.item*/
+
+                
                 viewController.username = self.username
                 viewController.phone = self.phone
                 viewController.product = self.clothingProducts?[indexPath.item]
+
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
+
                 self.present(viewController, animated: true, completion: nil)
                 
             }
             if collectionView == self.kitchenCollectionView {
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
-                /*
-                viewController?.image = self.kitchen[indexPath.item].image
-                viewController?.name = self.kitchen[indexPath.item].name
-                viewController?.itemInfo = self.kitchen[indexPath.item].description
-                viewController?.index  = indexPath.item*/
+               
                 
                 viewController.username = self.username
                 viewController.phone = self.phone
                 viewController.product = self.kitchenProducts?[indexPath.item]
+
+               
+                
+            }
+           
                 
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 
+
                 self.present(viewController, animated: true, completion: nil)
                 
             }
             if collectionView == self.outdoorCollectionView {
                 
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
-            /*
-                viewController?.image = self.outdoor[indexPath.item].image
-                viewController?.name = self.outdoor[indexPath.item].name
-                viewController?.itemInfo = self.outdoor[indexPath.item].description
-                viewController?.index  = indexPath.item*/
-                
+          
                 viewController.username = self.username
                 viewController.phone = self.phone
                 viewController.product = self.outdoorsProducts?[indexPath.item]
@@ -121,6 +124,12 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     
                 self.present(viewController, animated: true, completion: nil)
                 
+  
+                
+            }
+           
+                
+
             }
             else {
             
