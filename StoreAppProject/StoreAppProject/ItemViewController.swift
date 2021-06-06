@@ -13,7 +13,7 @@ class ItemViewController: UIViewController {
     var username : String?
     var phone : Int64?
     var product : Product?
-
+    var index: Int?
     
     @IBOutlet weak var rat: CosmosView!
 
@@ -21,7 +21,7 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var itemname: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
-    
+    static var id : UUID?
 
     var rat1: Double?
     var cartInstance = Cart.sharedInstance
@@ -30,12 +30,12 @@ class ItemViewController: UIViewController {
     static var dt: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         itemname.text = product?.name
         itemImage.image = product?.image
         itemDescription.text = product?.info
         itemPrice.text = String(product!.price)
-        
+        //ItemViewController.id = product?.id
 
    
     }
@@ -44,15 +44,41 @@ class ItemViewController: UIViewController {
 
         let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
         dashboard.modalPresentationStyle = .fullScreen
-        DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1, forCustomerWithEmailID: username!)
+
         self.present(dashboard, animated: true, completion: nil)
-        
-        
-       // self.presentingViewController?.dismiss(animated: true, completion: nil)
+        let product = DBHelper.inst.getAllProducts()
+        for i in product{
+            DBHelper.inst.addToCart(productID: i.id!, quantity: 1, forCustomerWithEmailID: "y")
+            if i.name == itemname.text {
+              
+                cartInstance.cartItems.append(i)
+            }
+
+        }
+       
+      
     }
   
 
+    @IBAction func addToWishlist(_ sender: Any) {
+        
+        let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+        dashboard.modalPresentationStyle = .fullScreen
+//        DBHelper.inst.addToCart(productID: ItemViewController.id!, quantity: 1, forCustomerWithEmailID: "yaz")
+        self.present(dashboard, animated: true, completion: nil)
+        let product = DBHelper.inst.getAllProducts()
+        for i in product{
+            DBHelper.inst.addToCart(productID: i.id!, quantity: 1, forCustomerWithEmailID: "y")
+            if i.name == itemname.text {
+                WishListInst.wishListItems.append(i)
+            }
 
+        }
+       
+      
+        
+    }
+    
 
 
 }

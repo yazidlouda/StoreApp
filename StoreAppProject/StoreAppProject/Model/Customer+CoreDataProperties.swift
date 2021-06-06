@@ -24,7 +24,7 @@ extension Customer {
     @NSManaged public var phoneNumber: Int64
     @NSManaged public var username: String?
     @NSManaged public var paymentMethods: NSSet?
-    @NSManaged public var cart: Set<Product>?
+    @NSManaged public var cart: [Product]?
 
 }
 

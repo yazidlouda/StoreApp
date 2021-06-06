@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 
 class DBHelper {
-    static var cartSet : Set<Product> = []
+    static var cartSet : [Product]?
     static var inst = DBHelper()
     
     var context : NSManagedObjectContext?

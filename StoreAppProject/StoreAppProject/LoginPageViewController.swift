@@ -66,9 +66,9 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
            // let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
             print("account verified")
             //print(cus.cart)
-            let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
+            let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
             dashboard.modalPresentationStyle = .fullScreen
-            dashboard.username = username.text!
+           // dashboard.username = username.text!
             self.present(dashboard, animated: true, completion: nil)
         }
         else {

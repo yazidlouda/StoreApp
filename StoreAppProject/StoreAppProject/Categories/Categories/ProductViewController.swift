@@ -18,7 +18,7 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
     var filteredData:[Product]!
         override func viewDidLoad() {
         super.viewDidLoad()
-        products = DBHelper.inst.getProductsForDepartment(name: "clothing")
+        products = DBHelper.inst.getAllProducts()
         setupUI()
         searchBar.delegate = self
         filteredData = products

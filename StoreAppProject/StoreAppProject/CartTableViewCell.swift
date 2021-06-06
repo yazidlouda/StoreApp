@@ -9,13 +9,9 @@ import UIKit
 
 class CartTableViewCell: UITableViewCell {
 
-    
+    var product: [Product]?
     @IBOutlet weak var itemImage1: UIImageView!
     @IBOutlet weak var itemName1: UILabel!
-    
-    
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
     var index: Int?
@@ -26,7 +22,11 @@ class CartTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func setupClothingCell(product : Product)  {
+        itemName1.text = product.name
+        itemImage1.image = product.image!
+        itemPrice.text = "$" + String(product.price)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
