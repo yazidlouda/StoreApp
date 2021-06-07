@@ -23,11 +23,10 @@ class ClothingViewController: UIViewController ,UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         products = DBHelper.inst.getProductsForDepartment(name: "clothing")
-        
         setupUI()
         searchBar.delegate = self
         filteredData = products
-        username = "yaz"
+        username = "bcrits"
         // Do any additional setup after loading the view.
     }
     /*

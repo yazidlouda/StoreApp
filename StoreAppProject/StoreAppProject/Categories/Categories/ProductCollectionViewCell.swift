@@ -25,7 +25,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     func setupProductCell(product:Product)  {
         name.text = product.name
-        image.image = product.image
+        image.image = (product.image as! UIImage)
         price.text = "$" + product.price.description
     }
 
@@ -35,3 +35,4 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
 
 }
+

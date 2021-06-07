@@ -15,7 +15,7 @@ class WishlistDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        products = DBHelper.inst.getAllProducts()
+       
         tableView.delegate = self
         tableView.dataSource = self
         print(wishListInstance.wishListItems as Any)

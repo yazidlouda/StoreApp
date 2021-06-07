@@ -2,7 +2,9 @@
 //  Customer+CoreDataProperties.swift
 //  StoreAppProject
 //
+
 //  Created by Home on 6/7/21.
+
 //
 //
 
@@ -25,12 +27,14 @@ extension Customer {
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: Int64
 
+
     @NSManaged public var searches: [String]?
     @NSManaged public var username: String?
     @NSManaged public var cart: Set<Product>?
     @NSManaged public var paymentMethods: NSSet?
     @NSManaged public var wishlist: Set<Product>?
     @NSManaged public var orders: NSSet?
+
 
 
 }
@@ -86,6 +90,7 @@ extension Customer {
 
 }
 
+
 // MARK: Generated accessors for orders
 extension Customer {
 
@@ -102,6 +107,7 @@ extension Customer {
     @NSManaged public func removeFromOrders(_ values: NSSet)
 
 }
+
 
 extension Customer : Identifiable {
 

@@ -8,14 +8,14 @@
 import UIKit
 
 class CartViewController: UIViewController {
-    
+
     let db = DBHelper.inst.getCustomer(withEmailID: "y")
     var cartInstance = Cart.sharedInstance
-    var orderInstance = Orders.sharedInstance
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var shipping: UILabel!
     @IBOutlet weak var totalNoShipp: UILabel!
+
    
     var Products : [Product]?
     
@@ -26,21 +26,36 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
    
+
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
+        
         tableView.rowHeight = 150
         tableView.reloadData()
         // Do any additional setup after loading the view.
     }
     
-  
+    @IBAction func checkoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        let checkoutPage = mainBoard.instantiateViewController(withIdentifier: "checkoutPage") as! CheckoutViewController
+        checkoutPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            self.tabBarController?.present(checkoutPage, animated: true, completion: nil)
+            
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            tableView.reloadData()
-        Products = DBHelper.inst.getAllProducts()
         totalNoShipp.text = "$" + cartInstance.getTotal().description
         if(cartInstance.getTotal() >= 50.00){
             shipping.text = "$" + 20.00.description
@@ -70,7 +85,7 @@ extension CartViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
-      
+
         var array = Array(db.cart!)
         cell.itemImage1.image = array[indexPath.row].image
         cell.itemName1.text = array[indexPath.row].name
@@ -95,6 +110,7 @@ extension CartViewController: UITableViewDataSource {
        
     }
     
+
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
