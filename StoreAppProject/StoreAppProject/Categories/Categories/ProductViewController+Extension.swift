@@ -29,7 +29,7 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
            
         
         //Method to display rating in product view
-            cell.setupRating(ratt: rating[indexPath.row])
+         //   cell.setupRating(ratt: rating[indexPath.row])
             return cell
        
             
@@ -82,8 +82,10 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
                 viewController.phone = self.phone
                 viewController.product = self.products?[indexPath.item]
 
+
                 //viewController.price = self.product[indexPath.item].price
                 viewController.rat1 = self.rating[indexPath.row]
+
 
             
                 let haptic = UIImpactFeedbackGenerator(style: .soft)

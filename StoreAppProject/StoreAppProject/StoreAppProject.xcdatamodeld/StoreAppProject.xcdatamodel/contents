@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Address" representedClassName="Address" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -87,7 +87,7 @@
         <element name="Address" positionX="-18" positionY="81" width="128" height="118"/>
         <element name="Customer" positionX="-63" positionY="-18" width="128" height="253"/>
         <element name="Department" positionX="-54" positionY="63" width="128" height="73"/>
-        <element name="Order" positionX="-36" positionY="72" width="128" height="163"/>
+        <element name="Order" positionX="-36" positionY="72" width="128" height="73"/>
         <element name="PaymentMethod" positionX="0" positionY="99" width="128" height="208"/>
         <element name="Product" positionX="-63" positionY="36" width="128" height="208"/>
         <element name="Promotion" positionX="18" positionY="117" width="128" height="118"/>

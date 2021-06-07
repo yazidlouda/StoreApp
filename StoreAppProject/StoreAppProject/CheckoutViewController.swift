@@ -7,23 +7,36 @@
 
 import UIKit
 
-class CheckoutViewController: UIViewController {
-
+class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var shippingAddressEntry: UITextField!
+    
+    @IBOutlet weak var paymentOptionPicker: UIPickerView!
+    @IBOutlet weak var shippingOptionPicker: UIPickerView!
+    
+    var shippingOptions = ["Standard", "Expedited +$10.00"]
+    var paymentOptions = ["Credit Card", "Bank Account"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Do any additional setup after loading the view.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 1 {
+            return shippingOptions.count
+        } else {
+            return paymentOptions.count
+        }
     }
-    */
-
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == 1 {
+            return shippingOptions[row]
+        } else {
+            return paymentOptions[row]
+        }
+    }
 }

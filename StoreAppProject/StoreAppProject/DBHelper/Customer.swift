@@ -1,6 +1,8 @@
 //
-//  DBHelper.swift
+//  Customer.swift
 //  StoreAppProject
+//
+//  Created by Home on 6/3/21.
 //
 
 
@@ -9,10 +11,20 @@ import CoreData
 import UIKit
 
 class DBHelper {
+
+    static var isLoggedIn : Bool = false
+    static var currentUser : String = ""
+    
+
+
+   // static var cartSet : [Product]?
+
     static var cartSet : Set<Product> = []
     static var wishlistSet : Set<Product> = []
     static var cartItemQuantities : [UUID : Int64] = [:]
     static var cartItemSubtotals : [UUID : Double] = [:]
+
+
     static var inst = DBHelper()
     
     var context : NSManagedObjectContext?
