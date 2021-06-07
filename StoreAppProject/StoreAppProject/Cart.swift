@@ -2,13 +2,13 @@
 //  Cart.swift
 //  StoreAppProject
 //
-//  Created by Home on 6/5/21.
+//  Created by Home on 5/24/21.
 //
 
 import Foundation
 class Cart {
     static let sharedInstance = Cart()
-    var cartItems = [Product]()
+    var cartItems = [Item]()
     private init() {}
     
     func getTotal() -> Double {

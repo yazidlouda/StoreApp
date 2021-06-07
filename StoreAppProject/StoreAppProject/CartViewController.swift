@@ -8,44 +8,45 @@
 import UIKit
 
 class CartViewController: UIViewController {
-    
-    
     var cartInstance = Cart.sharedInstance
-    var orderInstance = Orders.sharedInstance
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var shipping: UILabel!
     @IBOutlet weak var totalNoShipp: UILabel!
-    var index: Int?
-    var Products : [Product]?
-    var product : Product?
-    var cus = Customer()
-    var id : UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //cartInstance.cartItems = DBHelper.inst.getAllProducts()
-       
-                 
-        
-        
+//        let nib = UINib(nibName: "CartTableViewCell", bundle: nil)
+//        tableView.register(nib, forCellReuseIdentifier: "CartTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
+        
         tableView.rowHeight = 150
         tableView.reloadData()
         // Do any additional setup after loading the view.
     }
     
-  
+    @IBAction func checkoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        let checkoutPage = mainBoard.instantiateViewController(withIdentifier: "checkoutPage") as! CheckoutViewController
+        checkoutPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            self.tabBarController?.present(checkoutPage, animated: true, completion: nil)
+            
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            tableView.reloadData()
-        Products = DBHelper.inst.getAllProducts()
         totalNoShipp.text = "$" + cartInstance.getTotal().description
         if(cartInstance.getTotal() >= 50.00){
             shipping.text = "$" + 20.00.description
@@ -71,34 +72,14 @@ extension CartViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
-       //cell.setupClothingCell(product: Products![indexPath.item])
-        index = indexPath.row
-        id = cartInstance.cartItems[indexPath.row].id
+        
         cell.itemImage1.image = cartInstance.cartItems[indexPath.row].image
         cell.itemName1.text = cartInstance.cartItems[indexPath.row].name
-        cell.itemDescription.text = cartInstance.cartItems[indexPath.row].info
+        cell.itemDescription.text = cartInstance.cartItems[indexPath.row].description
         cell.itemPrice.text = "$" + cartInstance.cartItems[indexPath.row].price.description
         cell.index = indexPath.row
-        
         return cell
     }
-    
-    
-    @IBAction func checkout(_ sender: Any) {
-        let product = DBHelper.inst.getAllProducts()
-        for i in product {
-           
-          
-            //let cell = self.viewCell
-           // if  i.name == cell!.itemName1.text{
-                orderInstance.orderItems.append(i)
-           // }
-                
-            }
-        
-       
-    }
-    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
