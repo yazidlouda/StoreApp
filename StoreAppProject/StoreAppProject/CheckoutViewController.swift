@@ -7,36 +7,60 @@
 
 import UIKit
 
-class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    @IBOutlet weak var shippingAddressEntry: UITextField!
+class CheckoutViewController: UIViewController {
     
-    @IBOutlet weak var paymentOptionPicker: UIPickerView!
-    @IBOutlet weak var shippingOptionPicker: UIPickerView!
-    
-    var shippingOptions = ["Standard", "Expedited +$10.00"]
-    var paymentOptions = ["Credit Card", "Bank Account"]
-    
+    var index: Int?
+    @IBOutlet weak var tableView: UITableView!
+    var orderInstance = Orders.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
+        // Do any additional setup after loading the view.
     }
+    
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
+ 
+
+}
+extension CheckoutViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderInstance.orderItems.count
+        
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 1 {
-            return shippingOptions.count
-        } else {
-            return paymentOptions.count
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "CheckoutTableViewCell", for: indexPath) as! CheckoutTableViewCell
+        cell.name.text = orderInstance.orderItems[indexPath.item].name
+        cell.price.text = orderInstance.orderItems[indexPath.item].price.description
+       
+        cell.index = indexPath.row
+       
+        return cell
     }
+   
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController =  storyboard?.instantiateViewController(identifier: "CheckoutViewController") as? CheckoutViewController
+        
+        viewController?.index  = indexPath.item
+        
+        let haptic = UIImpactFeedbackGenerator(style: .soft)
+        haptic.impactOccurred()
+        
+        self.present(viewController!, animated: true, completion: nil)
+    }
+//    @IBAction func submitOrder(_ sender: Any) {
+//
+//        let product = ProductViewController().product[index!]
+//        if !orderInstance.orderItems.contains(where: {$0.name == product.name}){
+//
+//            orderInstance.orderItems.append(product)
+//        }
+//
+//    }
+}
+
+extension CheckoutViewController: UITableViewDelegate {
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 1 {
-            return shippingOptions[row]
-        } else {
-            return paymentOptions[row]
-        }
-    }
 }
