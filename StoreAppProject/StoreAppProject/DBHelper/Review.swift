@@ -28,24 +28,18 @@ extension DBHelper {
         }
     }
     
-    func getReviewScore() -> Int {
+    func getReviewScore() -> Double {
         var reviewScore = 0
         var numOfReviews = 0
-        let calculatedScore = {reviewScore / numOfReviews}
-        var reviews = [Review]()
-        let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Review")
+        var calculatedScore : Double = 0.0
         
-        do {
-            reviews = try context?.fetch(fetchReq) as! [Review]
-        } catch (let exception) {
-            print(exception.localizedDescription)
-        }
-        for review in reviews {
-            reviewScore += Int(review.rating)
+        let review = DBHelper.currentProduct.reviews?.allObjects
+        for rev in review! {
             numOfReviews += 1
+            reviewScore += Int((rev as AnyObject).rating!)
+            calculatedScore = Double(reviewScore / numOfReviews)
         }
-        return calculatedScore()
-        
+        return calculatedScore
     }
     
 }

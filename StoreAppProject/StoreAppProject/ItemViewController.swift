@@ -8,7 +8,7 @@
 import UIKit
 import Cosmos
 class ItemViewController: UIViewController {
-
+    @IBOutlet weak var addReviewButton: UIButton!
 
     var username : String?
     var phone : Int64?
@@ -45,10 +45,21 @@ class ItemViewController: UIViewController {
         itemPrice.text = String(product!.price)
         
         DBHelper.currentProduct = product!
-        print(DBHelper.inst.getReviewScore())
         
         rat.rating = Double(DBHelper.inst.getReviewScore())
    
+    }
+    
+    @IBAction func addReviewClicked(_ sender: UIButton) {
+        if DBHelper.isLoggedIn == true {
+            let reviewView = self.storyboard?.instantiateViewController(identifier: "Review") as! ReviewViewController
+            self.present(reviewView, animated: true, completion: nil)
+        } else {
+            let loginView = self.storyboard?.instantiateViewController(identifier: "loginPage") as! LoginPageViewController
+            loginView.modalPresentationStyle = .fullScreen
+            self.present(loginView, animated: true, completion: nil)
+                
+        }
     }
    
     @IBAction func addToCart(_ sender: Any) {

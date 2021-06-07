@@ -102,7 +102,7 @@ extension CartViewController: UITableViewDataSource {
         let product = DBHelper.inst.getAllProducts()
         for i in product {
            
-                orderInstance.orderItems.append(i)
+//                orderInstance.orderItems.append(i)
       
                 
             }

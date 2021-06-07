@@ -331,6 +331,7 @@
                                     <color key="titleColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="0.98724489790000003" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="addReviewClicked:" destination="Wha-ti-4yS" eventType="touchUpInside" id="mXN-1c-HI9"/>
                                     <segue destination="NMp-QG-rP4" kind="presentation" id="Uz6-2j-jau"/>
                                 </connections>
                             </button>
@@ -339,6 +340,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="addReviewButton" destination="y5S-sS-Ilj" id="hPq-qo-mTK"/>
                         <outlet property="itemDescription" destination="AHf-IF-Zt3" id="hT9-PG-Sgq"/>
                         <outlet property="itemImage" destination="iMe-cZ-vKi" id="HQo-tD-ynK"/>
                         <outlet property="itemPrice" destination="Nxr-zQ-6Zp" id="Lkw-sN-EdK"/>
@@ -353,7 +355,7 @@
         <!--Review View Controller-->
         <scene sceneID="KMv-wm-hjy">
             <objects>
-                <viewController id="NMp-QG-rP4" customClass="ReviewViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Review" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NMp-QG-rP4" customClass="ReviewViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1FL-S2-fus">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1786,7 +1788,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -3062,7 +3064,7 @@
         <segue reference="mYq-75-2HH"/>
         <segue reference="dC1-81-oI1"/>
         <segue reference="Xsn-Fa-Ni1"/>
-        <segue reference="Xq7-9f-MaY"/>
+        <segue reference="Bni-P3-HLW"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>
