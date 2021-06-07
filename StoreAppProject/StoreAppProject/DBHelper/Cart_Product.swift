@@ -239,6 +239,8 @@ extension DBHelper {
             }
             if (resC.count != 0) {
                 customer = resC.first!
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartSet.remove(product)
                 DBHelper.cartItemQuantities = customer.cartItemQuantities!
                 DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
                 DBHelper.cartItemQuantities.removeValue(forKey: productID)
@@ -248,6 +250,7 @@ extension DBHelper {
                     let quantity = DBHelper.cartItemQuantities[prod.id!]!
                     updatedTotal += (Double(quantity) * prod.price)
                 }
+                customer.cart = DBHelper.cartSet
                 customer.cartTotal = updatedTotal
                 customer.cartItemQuantities = DBHelper.cartItemQuantities
                 customer.cartItemSubtotals = DBHelper.cartItemSubtotals
@@ -281,6 +284,8 @@ extension DBHelper {
             }
             if (resC.count != 0) {
                 customer = resC.first!
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartSet.remove(product)
                 DBHelper.cartItemQuantities = customer.cartItemQuantities!
                 DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
                 DBHelper.cartItemQuantities.removeValue(forKey: productID)
@@ -290,6 +295,7 @@ extension DBHelper {
                     let quantity = DBHelper.cartItemQuantities[prod.id!]!
                     updatedTotal += (Double(quantity) * prod.price)
                 }
+                customer.cart = DBHelper.cartSet
                 customer.cartTotal = updatedTotal
                 customer.cartItemQuantities = DBHelper.cartItemQuantities
                 customer.cartItemSubtotals = DBHelper.cartItemSubtotals
