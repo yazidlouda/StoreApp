@@ -29,7 +29,8 @@ extension DBHelper {
         
     }
     
-    func addToCart(productID: UUID, quantity: Int, forCustomerWithEmailID username: String) {
+    func addToCart(productID: UUID, quantity: Int, forCustomerWithEmailID username: String) -> Bool {
+        var isSuccessful = false
         var product = Product()
         let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
         fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
@@ -60,6 +61,7 @@ extension DBHelper {
                     DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
                     
                 } else {
+                    isSuccessful = true
                     DBHelper.cartSet.insert(product)
                     DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
                     DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
@@ -78,10 +80,12 @@ extension DBHelper {
             print("catch block")
             print(exception.localizedDescription)
         }
+        return isSuccessful
         
     }
     
-    func addToCart(productID: UUID, quantity: Int, forCustomerWithPhone number: Int64) {
+    func addToCart(productID: UUID, quantity: Int, forCustomerWithPhone number: Int64) -> Bool {
+        var isSuccessful = false
         var product = Product()
         let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
         fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
@@ -112,6 +116,7 @@ extension DBHelper {
                     DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
                     
                 } else {
+                    isSuccessful = true
                     DBHelper.cartSet.insert(product)
                     DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
                     DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
@@ -130,6 +135,7 @@ extension DBHelper {
             print("catch block")
             print(exception.localizedDescription)
         }
+        return isSuccessful
         
     }
     
