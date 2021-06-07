@@ -33,5 +33,5 @@ class ProductCollectionViewCell: UICollectionViewCell {
         rat.rating = ratt
 
     }
-}
+
 }

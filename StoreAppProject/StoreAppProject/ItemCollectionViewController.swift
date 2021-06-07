@@ -46,7 +46,7 @@ class ItemCollectionViewController: UICollectionViewController {
         viewController?.itemInfo = inventory[indexPath.item].description
         viewController?.price = inventory[indexPath.item].price
         viewController?.index  = indexPath.item*/
-        
+    
         viewController.username = self.username
         viewController.phone = self.phone
         viewController.product = self.products?[indexPath.item]

@@ -46,36 +46,16 @@ class ItemViewController: UIViewController {
         dashboard.modalPresentationStyle = .fullScreen
 
         self.present(dashboard, animated: true, completion: nil)
-        let product = DBHelper.inst.getAllProducts()
-        for i in product{
-            DBHelper.inst.addToCart(productID: i.id!, quantity: 1, forCustomerWithEmailID: "y")
-            if i.name == itemname.text {
-              
-                cartInstance.cartItems.append(i)
-            }
 
-        }
-       
+        DBHelper.inst.addToCart(productID: (product?.id) as! UUID, quantity: 1, forCustomerWithEmailID: "y")
+  
       
     }
   
 
     @IBAction func addToWishlist(_ sender: Any) {
         
-        let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-        dashboard.modalPresentationStyle = .fullScreen
-//        DBHelper.inst.addToCart(productID: ItemViewController.id!, quantity: 1, forCustomerWithEmailID: "yaz")
-        self.present(dashboard, animated: true, completion: nil)
-        let product = DBHelper.inst.getAllProducts()
-        for i in product{
-            DBHelper.inst.addToCart(productID: i.id!, quantity: 1, forCustomerWithEmailID: "y")
-            if i.name == itemname.text {
-                WishListInst.wishListItems.append(i)
-            }
-
-        }
-       
-      
+        
         
     }
     

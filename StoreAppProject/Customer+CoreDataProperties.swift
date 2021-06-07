@@ -1,10 +1,8 @@
 //
 //  Customer+CoreDataProperties.swift
-//  
+//  StoreAppProject
 //
-
-//  Created by admin on 6/7/21.
-
+//  Created by Home on 6/7/21.
 //
 //
 
@@ -19,22 +17,18 @@ extension Customer {
     }
 
     @NSManaged public var cartItemQuantities: [UUID:Int64]?
+    @NSManaged public var cartItemSubtotals: [UUID:Double]?
     @NSManaged public var cartTotal: Double
     @NSManaged public var firstname: String?
     @NSManaged public var giftCardBalance: Double
     @NSManaged public var lastname: String?
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: Int64
-    @NSManaged public var username: String?
-
-   
-    //@NSManaged public var cart: [Product]?
-
-    @NSManaged public var cartItemSubtotals: [UUID:Double]?
     @NSManaged public var searches: NSObject?
+    @NSManaged public var username: String?
     @NSManaged public var cart: Set<Product>?
     @NSManaged public var paymentMethods: NSSet?
-    @NSManaged public var wishlist: Set<Product>?
+    @NSManaged public var wishlist: NSSet?
 
 }
 
@@ -52,7 +46,6 @@ extension Customer {
 
     @objc(removeCart:)
     @NSManaged public func removeFromCart(_ values: NSSet)
-
 
 }
 
@@ -87,5 +80,9 @@ extension Customer {
 
     @objc(removeWishlist:)
     @NSManaged public func removeFromWishlist(_ values: NSSet)
+
+}
+
+extension Customer : Identifiable {
 
 }

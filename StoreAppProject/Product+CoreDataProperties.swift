@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension Product {
 
@@ -19,7 +19,7 @@ extension Product {
     @NSManaged public var avgRating: Double
     @NSManaged public var descriptions: String?
     @NSManaged public var id: UUID?
-    @NSManaged public var image: NSObject?
+    @NSManaged public var image: UIImage?
     @NSManaged public var info: String?
     @NSManaged public var marketPrice: Double
     @NSManaged public var name: String?
