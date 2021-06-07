@@ -29,98 +29,240 @@ extension DBHelper {
         
     }
     
-    func addToCart(productID: UUID, quantity: Int, forCustomerWithEmailID username: String) {
-//        var product = Product()
-//        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
-//        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
-//        fetchReqP.fetchLimit = 1
-//
-//        var customer = Customer()
-//        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
-//        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
-//        fetchReqC.fetchLimit = 1
-//
-//        do {
-//            let resP = try context?.fetch(fetchReqP) as! [Product]
-//            let resC = try context?.fetch(fetchReqC) as! [Customer]
-//            if (resP.count != 0){
-//                product = resP.first!
-//                print("product found: ", product)
-//            } else {
-//                print("product not found")
-//            }
-//            if (resC.count != 0){
-//                customer = resC.first!
-//                DBHelper.cartSet = customer.cart!
-//                DBHelper.cartSet.insert(product)
-//                customer.cart = DBHelper.cartSet
-//                print("customer found: ", customer.cart)
-//            } else {
-//                print("customer not found")
-//            }
-//            if (customer.cart == nil) {
-//                //customer.cart = [Product]()
-//                //pro.append(product)
-//                print("cart created")
-//            }
-//            //pro.append(product)
-//            print(product)
-//            //customer.cart = [Product]()
-//            //customer.cart = pro
-//            //customer.cart = pro
-//            //customer.products?.append(product)
-//            //customer.cart = product
-//            print(customer.cart, " cart info")
-//            try context?.save()
-//        } catch (let exception) {
-//            print("catch block")
-//            print(exception.localizedDescription)
-//        }
+
+    
+    func addToCart(productID: UUID, quantity: Int, forCustomerWithPhone number: Int64) {
         var product = Product()
-                let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
-                fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
-                fetchReqP.fetchLimit = 1
-                
-                var customer = Customer()
-                let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
-                fetchReqC.predicate = NSPredicate(format: "username == %@", username)
-                fetchReqC.fetchLimit = 1
-                
-                do {
-                    let resP = try context?.fetch(fetchReqP) as! [Product]
-                    let resC = try context?.fetch(fetchReqC) as! [Customer]
-                    if (resP.count != 0){
-                        product = resP.first!
-                        print("product found: ", product)
-                    } else {
-                        print("product not found")
-                    }
-                    if (resC.count != 0){
-                        customer = resC.first!
-                        print("custoooooooooooomer",customer.username!)
-                        
-                        //DBHelper.cartSet = customer.cart!
-                        DBHelper.cartSet.insert(product)
-                        customer.cart = DBHelper.cartSet
-                        print("customer found: ", customer.cart)
-                    } else {
-                        print("customer not found")
-                    }
-                    //pro.append(product)
-                    print(product)
-                    //customer.cart = [Product]()
-                    //customer.cart = pro
-                    //customer.cart = pro
-                    //customer.products?.append(product)
-                    //customer.cart = product
-                    print(customer.cart, " cart info")
-                    try context?.save()
-                } catch (let exception) {
-                    print("catch block")
-                    print(exception.localizedDescription)
+        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+        fetchReqP.fetchLimit = 1
+        
+        var customer = Customer()
+        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+        fetchReqC.predicate = NSPredicate(format: "phoneNumber == %@", number)
+        fetchReqC.fetchLimit = 1
+        
+        do {
+            let resP = try context?.fetch(fetchReqP) as! [Product]
+            let resC = try context?.fetch(fetchReqC) as! [Customer]
+            if (resP.count != 0){
+                product = resP.first!
+                print("product found: ", product)
+            } else {
+                print("product not found")
+            }
+            if (resC.count != 0){
+                customer = resC.first!
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                if (DBHelper.cartSet.contains(product)) {
+                    print("product already in cart, updating quantity")
+                    DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
+                    DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
+                    
+                } else {
+                    DBHelper.cartSet.insert(product)
+                    DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
+                    DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
+
                 }
+                customer.cartTotal += (product.price * Double(quantity))
+                customer.cart = DBHelper.cartSet
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            } else
+            {
+                print("customer not found")
+            }
+            print(customer.cartItemQuantities, " item quantities")
+            print(customer.cart, " cart info")
+            try context?.save()
+        }
+        catch (let exception) {
+            print("catch block")
+            print(exception.localizedDescription)
+        }
+        
     }
     
+
+    func updateCartQuantity(productID : UUID, quantity: Int, forCustomerWithEmailID username: String) {
+        var product = Product()
+        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+        fetchReqP.fetchLimit = 1
+        
+        var customer = Customer()
+        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
+        fetchReqC.fetchLimit = 1
+        
+        do {
+            let resC = try context?.fetch(fetchReqC) as! [Customer]
+            let resP = try context?.fetch(fetchReqP) as! [Product]
+            if (resP.count != 0){
+                product = resP.first!
+                print("product found: ", product)
+            } else {
+                print("product not found")
+            }
+            if (resC.count != 0) {
+                customer = resC.first!
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                DBHelper.cartItemQuantities[productID] = Int64(quantity)
+                DBHelper.cartItemSubtotals[productID] = Double(quantity) * product.price
+                var updatedTotal = 0.0
+                for prod in customer.cart! {
+                    let quantity = DBHelper.cartItemQuantities[prod.id!]!
+                    updatedTotal += (Double(quantity) * prod.price)
+                }
+                customer.cartTotal = updatedTotal
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            }
+            try context?.save()
+        } catch (let exception){
+            print(exception.localizedDescription)
+        }
+        
+    }
+    
+    func updateCartQuantity(productID : UUID, quantity: Int, forCustomerWithPhone number: Int64) {
+        var product = Product()
+        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+        fetchReqP.fetchLimit = 1
+        
+        var customer = Customer()
+        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+        fetchReqC.predicate = NSPredicate(format: "phoneNumber == %@", number)
+        fetchReqC.fetchLimit = 1
+        
+        do {
+            let resC = try context?.fetch(fetchReqC) as! [Customer]
+            let resP = try context?.fetch(fetchReqP) as! [Product]
+            if (resP.count != 0){
+                product = resP.first!
+                print("product found: ", product)
+            } else {
+                print("product not found")
+            }
+            if (resC.count != 0) {
+                customer = resC.first!
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                DBHelper.cartItemQuantities[productID] = Int64(quantity)
+                DBHelper.cartItemSubtotals[productID] = Double(quantity) * product.price
+                var updatedTotal = 0.0
+                for prod in customer.cart! {
+                    let quantity = DBHelper.cartItemQuantities[prod.id!]!
+                    updatedTotal += (Double(quantity) * prod.price)
+                }
+                customer.cartTotal = updatedTotal
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            }
+            try context?.save()
+        } catch (let exception){
+            print(exception.localizedDescription)
+        }
+        
+    }
+    
+    func deleteFromCart(productID: UUID, forCustomerWithEmailID username: String) {
+        var product = Product()
+        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+        fetchReqP.fetchLimit = 1
+        
+        var customer = Customer()
+        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
+        fetchReqC.fetchLimit = 1
+        
+        do {
+            let resC = try context?.fetch(fetchReqC) as! [Customer]
+            let resP = try context?.fetch(fetchReqP) as! [Product]
+            if (resP.count != 0){
+                product = resP.first!
+                print("product found: ", product)
+            } else {
+                print("product not found")
+            }
+            if (resC.count != 0) {
+                customer = resC.first!
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartSet.remove(product)
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                DBHelper.cartItemQuantities.removeValue(forKey: productID)
+                DBHelper.cartItemSubtotals.removeValue(forKey: productID)
+                var updatedTotal = 0.0
+                for prod in customer.cart! {
+                    let quantity = DBHelper.cartItemQuantities[prod.id!]!
+                    updatedTotal += (Double(quantity) * prod.price)
+                }
+                customer.cart = DBHelper.cartSet
+                customer.cartTotal = updatedTotal
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            }
+            try context?.save()
+        } catch (let exception){
+            print(exception.localizedDescription)
+        }
+        
+    }
+    
+    func deleteFromCart(productID: UUID, forCustomerWithPhone number: Int64) {
+        var product = Product()
+        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+        fetchReqP.fetchLimit = 1
+        
+        var customer = Customer()
+        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+        fetchReqC.predicate = NSPredicate(format: "phoneNumber == %@", number)
+        fetchReqC.fetchLimit = 1
+        
+        do {
+            let resC = try context?.fetch(fetchReqC) as! [Customer]
+            let resP = try context?.fetch(fetchReqP) as! [Product]
+            if (resP.count != 0){
+                product = resP.first!
+                print("product found: ", product)
+            } else {
+                print("product not found")
+            }
+            if (resC.count != 0) {
+                customer = resC.first!
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartSet.remove(product)
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                DBHelper.cartItemQuantities.removeValue(forKey: productID)
+                DBHelper.cartItemSubtotals.removeValue(forKey: productID)
+                var updatedTotal = 0.0
+                for prod in customer.cart! {
+                    let quantity = DBHelper.cartItemQuantities[prod.id!]!
+                    updatedTotal += (Double(quantity) * prod.price)
+                }
+                customer.cart = DBHelper.cartSet
+                customer.cartTotal = updatedTotal
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            }
+            try context?.save()
+        } catch (let exception){
+            print(exception.localizedDescription)
+        }
+        
+    }
+    
+
+
     func getAllProducts() -> [Product] {
         var products = [Product]()
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Product")
@@ -148,6 +290,7 @@ extension DBHelper {
         }
         
     }
+    
     
     func addDepartment(name: String) {
         let dept = NSEntityDescription.insertNewObject(forEntityName: "Department", into: context!) as!  Department
@@ -180,4 +323,5 @@ extension DBHelper {
         }
         return dept
     }
+
 }

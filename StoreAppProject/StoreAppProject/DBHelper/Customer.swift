@@ -11,10 +11,20 @@ import CoreData
 import UIKit
 
 class DBHelper {
+
     static var isLoggedIn : Bool = false
     static var currentUser : String = ""
     
+
+
+   // static var cartSet : [Product]?
+
     static var cartSet : Set<Product> = []
+    static var wishlistSet : Set<Product> = []
+    static var cartItemQuantities : [UUID : Int64] = [:]
+    static var cartItemSubtotals : [UUID : Double] = [:]
+
+
     static var inst = DBHelper()
     
     var context : NSManagedObjectContext?
@@ -31,6 +41,8 @@ class DBHelper {
         
         customer.username = username
         customer.password = password
+        customer.cartItemQuantities = DBHelper.cartItemQuantities
+        customer.cartItemSubtotals = DBHelper.cartItemSubtotals
         //var p = Product()
         //pro.append(p)
         //customer.cart = pro
@@ -50,6 +62,8 @@ class DBHelper {
         
         customer.phoneNumber = number
         customer.password = password
+        customer.cartItemQuantities = DBHelper.cartItemQuantities
+        customer.cartItemSubtotals = DBHelper.cartItemSubtotals
         
         do {
             try context?.save()

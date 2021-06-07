@@ -88,10 +88,12 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             
+
             
             
             self.present(alert, animated: true, completion: nil)
         }
+
         
         //dashboard.username = username.text!
 //        self.present(dashboard, animated: true, completion: nil)
@@ -114,4 +116,5 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     }
     
     
+}
 }

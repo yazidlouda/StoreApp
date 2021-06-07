@@ -2,7 +2,9 @@
 //  Customer+CoreDataProperties.swift
 //  
 //
-//  Created by Home on 6/4/21.
+
+//  Created by admin on 6/7/21.
+
 //
 //
 
@@ -16,6 +18,7 @@ extension Customer {
         return NSFetchRequest<Customer>(entityName: "Customer")
     }
 
+    @NSManaged public var cartItemQuantities: [UUID:Int64]?
     @NSManaged public var cartTotal: Double
     @NSManaged public var firstname: String?
     @NSManaged public var giftCardBalance: Double
@@ -23,8 +26,35 @@ extension Customer {
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: Int64
     @NSManaged public var username: String?
-    @NSManaged public var paymentMethods: NSSet?
+
+   
+    //@NSManaged public var cart: [Product]?
+
+    @NSManaged public var cartItemSubtotals: [UUID:Double]?
+    @NSManaged public var searches: NSObject?
     @NSManaged public var cart: Set<Product>?
+    @NSManaged public var paymentMethods: NSSet?
+
+    @NSManaged public var wishlist: Set<Product>?
+
+}
+
+// MARK: Generated accessors for cart
+extension Customer {
+
+    @objc(addCartObject:)
+    @NSManaged public func addToCart(_ value: Product)
+
+    @objc(removeCartObject:)
+    @NSManaged public func removeFromCart(_ value: Product)
+
+    @objc(addCart:)
+    @NSManaged public func addToCart(_ values: NSSet)
+
+    @objc(removeCart:)
+    @NSManaged public func removeFromCart(_ values: NSSet)
+
+
 
 }
 
@@ -45,19 +75,19 @@ extension Customer {
 
 }
 
-// MARK: Generated accessors for cart
+// MARK: Generated accessors for wishlist
 extension Customer {
 
-    @objc(addCartObject:)
-    @NSManaged public func addToCart(_ value: Product)
+    @objc(addWishlistObject:)
+    @NSManaged public func addToWishlist(_ value: Product)
 
-    @objc(removeCartObject:)
-    @NSManaged public func removeFromCart(_ value: Product)
+    @objc(removeWishlistObject:)
+    @NSManaged public func removeFromWishlist(_ value: Product)
 
-    @objc(addCart:)
-    @NSManaged public func addToCart(_ values: NSSet)
+    @objc(addWishlist:)
+    @NSManaged public func addToWishlist(_ values: NSSet)
 
-    @objc(removeCart:)
-    @NSManaged public func removeFromCart(_ values: NSSet)
+    @objc(removeWishlist:)
+    @NSManaged public func removeFromWishlist(_ values: NSSet)
 
 }
