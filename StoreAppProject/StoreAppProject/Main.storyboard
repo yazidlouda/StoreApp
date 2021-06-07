@@ -332,7 +332,6 @@
         <!--Cart-->
         <scene sceneID="Fqv-qR-Qn6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nw6-rx-DMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CartTableViewCell" id="nZ8-uk-Np8" customClass="CartViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ln-RI-znf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -465,6 +464,7 @@
                         <outlet property="totalNoShipp" destination="tml-uD-d5U" id="rZc-xo-Odq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nw6-rx-DMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2794.202898550725" y="77.678571428571431"/>
         </scene>
@@ -2924,7 +2924,7 @@
         <segue reference="TjK-Ub-UOf"/>
         <segue reference="3VI-bR-B62"/>
         <segue reference="ggX-p5-AV2"/>
-        <segue reference="HUI-Og-Nv9"/>
+        <segue reference="B3M-9n-xTV"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="dC1-81-oI1"/>
         <segue reference="Xsn-Fa-Ni1"/>
