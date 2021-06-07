@@ -1652,7 +1652,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -2928,7 +2928,7 @@
         <segue reference="mYq-75-2HH"/>
         <segue reference="dC1-81-oI1"/>
         <segue reference="Xsn-Fa-Ni1"/>
-        <segue reference="Ega-yE-XUc"/>
+        <segue reference="Xq7-9f-MaY"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>

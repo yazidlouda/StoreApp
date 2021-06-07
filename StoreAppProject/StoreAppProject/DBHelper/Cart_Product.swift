@@ -29,9 +29,63 @@ extension DBHelper {
         
     }
     
-
+    func addToCart(productID: UUID, quantity: Int, forCustomerWithEmailID username: String) -> Bool {
+        var isSuccessful = false
+        var product = Product()
+        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+        fetchReqP.fetchLimit = 1
+        
+        var customer = Customer()
+        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
+        fetchReqC.fetchLimit = 1
+        
+        do {
+            let resP = try context?.fetch(fetchReqP) as! [Product]
+            let resC = try context?.fetch(fetchReqC) as! [Customer]
+            if (resP.count != 0){
+                product = resP.first!
+                print("product found: ", product)
+            } else {
+                print("product not found")
+            }
+            if (resC.count != 0){
+                customer = resC.first!
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                if (DBHelper.cartSet.contains(product)) {
+                    print("product already in cart, updating quantity")
+                    DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
+                    DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
+                    
+                } else {
+                    isSuccessful = true
+                    DBHelper.cartSet.insert(product)
+                    DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
+                    DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
+                }
+                customer.cartTotal += (product.price * Double(quantity))
+                customer.cart = DBHelper.cartSet
+                customer.cartItemQuantities = DBHelper.cartItemQuantities
+                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            } else {
+                print("customer not found")
+            }
+            print(customer.cartItemQuantities, " item quantities")
+            print(customer.cart, " cart info")
+            try context?.save()
+        } catch (let exception) {
+            print("catch block")
+            print(exception.localizedDescription)
+        }
+        return isSuccessful
+        
+    }
     
-    func addToCart(productID: UUID, quantity: Int, forCustomerWithPhone number: Int64) {
+    func addToCart(productID: UUID, quantity: Int, forCustomerWithPhone number: Int64) -> Bool {
+        var isSuccessful = false
         var product = Product()
         let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
         fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
@@ -62,31 +116,29 @@ extension DBHelper {
                     DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
                     
                 } else {
+                    isSuccessful = true
                     DBHelper.cartSet.insert(product)
                     DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
                     DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
-
                 }
                 customer.cartTotal += (product.price * Double(quantity))
                 customer.cart = DBHelper.cartSet
                 customer.cartItemQuantities = DBHelper.cartItemQuantities
                 customer.cartItemSubtotals = DBHelper.cartItemSubtotals
-            } else
-            {
+            } else {
                 print("customer not found")
             }
             print(customer.cartItemQuantities, " item quantities")
             print(customer.cart, " cart info")
             try context?.save()
-        }
-        catch (let exception) {
+        } catch (let exception) {
             print("catch block")
             print(exception.localizedDescription)
         }
+        return isSuccessful
         
     }
     
-
     func updateCartQuantity(productID : UUID, quantity: Int, forCustomerWithEmailID username: String) {
         var product = Product()
         let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
@@ -261,8 +313,6 @@ extension DBHelper {
         
     }
     
-
-
     func getAllProducts() -> [Product] {
         var products = [Product]()
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Product")
@@ -323,5 +373,4 @@ extension DBHelper {
         }
         return dept
     }
-
 }
