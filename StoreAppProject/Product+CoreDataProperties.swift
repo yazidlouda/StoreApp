@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  StoreAppProject
 //
-//  Created by admin on 6/3/21.
+//  Created by admin on 6/7/21.
 //
 //
 
@@ -17,15 +17,16 @@ extension Product {
     }
 
     @NSManaged public var avgRating: Double
+    @NSManaged public var descriptions: String?
     @NSManaged public var id: UUID?
+    @NSManaged public var image: NSObject?
     @NSManaged public var info: String?
     @NSManaged public var marketPrice: Double
     @NSManaged public var name: String?
     @NSManaged public var price: Double
-    @NSManaged public var image: NSObject?
     @NSManaged public var department: Department?
-    @NSManaged public var reviews: NSSet?
     @NSManaged public var promotion: Promotion?
+    @NSManaged public var reviews: NSSet?
 
 }
 

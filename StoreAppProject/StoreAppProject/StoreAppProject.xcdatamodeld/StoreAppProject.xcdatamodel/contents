@@ -9,15 +9,18 @@
     </entity>
     <entity name="Customer" representedClassName="Customer" syncable="YES">
         <attribute name="cartItemQuantities" optional="YES" attributeType="Transformable"/>
+        <attribute name="cartItemSubtotals" optional="YES" attributeType="Transformable"/>
         <attribute name="cartTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String"/>
         <attribute name="giftCardBalance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="searches" optional="YES" attributeType="Transformable"/>
         <attribute name="username" optional="YES" attributeType="String"/>
         <relationship name="cart" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product"/>
         <relationship name="paymentMethods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PaymentMethod" inverseName="customer" inverseEntity="PaymentMethod"/>
+        <relationship name="wishlist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="username"/>
@@ -32,6 +35,12 @@
     <entity name="Order" representedClassName="Order" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="itemQuantities" optional="YES" attributeType="Transformable"/>
+        <attribute name="itemSubtotals" optional="YES" attributeType="Transformable"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="paymentMethod" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PaymentMethod"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product"/>
     </entity>
     <entity name="PaymentMethod" representedClassName="PaymentMethod" syncable="YES">
         <attribute name="accountNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -75,9 +84,9 @@
     </entity>
     <elements>
         <element name="Address" positionX="-18" positionY="81" width="128" height="118"/>
-        <element name="Customer" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Customer" positionX="-63" positionY="-18" width="128" height="238"/>
         <element name="Department" positionX="-54" positionY="63" width="128" height="73"/>
-        <element name="Order" positionX="-36" positionY="72" width="128" height="73"/>
+        <element name="Order" positionX="-36" positionY="72" width="128" height="163"/>
         <element name="PaymentMethod" positionX="0" positionY="99" width="128" height="208"/>
         <element name="Product" positionX="-63" positionY="36" width="128" height="208"/>
         <element name="Promotion" positionX="18" positionY="117" width="128" height="118"/>
