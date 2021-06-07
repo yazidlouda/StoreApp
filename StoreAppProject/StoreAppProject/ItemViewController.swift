@@ -45,7 +45,11 @@ class ItemViewController: UIViewController {
         itemDescription.text = product?.info
         itemPrice.text = String(product!.price)
         
-
+        rat.settings.fillMode = .half
+        rat.didFinishTouchingCosmos = {
+            rate in
+            print(rate)
+        }
    
     }
    
