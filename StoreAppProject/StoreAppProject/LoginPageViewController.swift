@@ -81,7 +81,6 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
                     //dashboard.username = username.text!
                     self.present(dashboard, animated: true, completion: nil)
                 }
-               
         
     }
     

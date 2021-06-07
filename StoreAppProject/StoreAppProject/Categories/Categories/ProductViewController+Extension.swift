@@ -82,8 +82,10 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
                 viewController.phone = self.phone
                 viewController.product = self.products?[indexPath.item]
 
-             //   viewController?.price = self.product[indexPath.item].price
-              //  viewController?.rat1 = self.rating[indexPath.row]
+
+                //viewController.price = self.product[indexPath.item].price
+                viewController.rat1 = self.rating[indexPath.row]
+
 
             
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
