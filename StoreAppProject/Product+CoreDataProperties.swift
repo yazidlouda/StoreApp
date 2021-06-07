@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 import UIKit
-
 extension Product {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Product> {

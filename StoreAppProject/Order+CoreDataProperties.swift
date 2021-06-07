@@ -18,12 +18,12 @@ extension Order {
 
     @NSManaged public var date: Date?
     @NSManaged public var id: UUID?
-    @NSManaged public var itemQuantities: NSObject?
-    @NSManaged public var itemSubtotals: NSObject?
+    @NSManaged public var itemQuantities: [UUID:Int64]?
+    @NSManaged public var itemSubtotals: [UUID:Double]?
     @NSManaged public var total: Double
-    @NSManaged public var status: String?
-    @NSManaged public var products: NSSet?
     @NSManaged public var paymentMethod: PaymentMethod?
+    @NSManaged public var products: NSSet?
+    @NSManaged public var customer: Customer?
 
 }
 
