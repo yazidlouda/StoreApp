@@ -2,7 +2,7 @@
 //  Customer+CoreDataClass.swift
 //  StoreAppProject
 //
-//  Created by admin on 6/3/21.
+//  Created by Scott Benson on 6/7/21.
 //
 //
 
