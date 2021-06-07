@@ -9,7 +9,8 @@ import UIKit
 
 class WishlistDetailsViewController: UIViewController {
     var wishListInstance = WishList.sharedInstance
-    
+    var products: [Product]?
+    let db = DBHelper.inst.getCustomer(withEmailID: "y")
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -38,11 +39,12 @@ extension WishlistDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-        cell.itemImage.image = wishListInstance.wishListItems[indexPath.row].image
-        cell.name.text = wishListInstance.wishListItems[indexPath.row].name
-        cell.itemDescription.text = wishListInstance.wishListItems[indexPath.row].description
-        cell.itemPrice.text = "$" + wishListInstance.wishListItems[indexPath.row].price.description
-        cell.index = indexPath.row
+        var array = Array(db.cart!)
+            cell.itemImage.image = array[indexPath.row].image
+            cell.name.text = array[indexPath.row].name
+            cell.itemPrice.text = array[indexPath.row].price.description
+            cell.itemDescription.text = array[indexPath.row].info
+           
         return cell
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

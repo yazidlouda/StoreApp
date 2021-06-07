@@ -57,18 +57,10 @@ class ItemViewController: UIViewController {
         dashboard.modalPresentationStyle = .fullScreen
         DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1, forCustomerWithEmailID: username!)
 
+
+        self.present(dashboard, animated: true, completion: nil)
+
+        DBHelper.inst.addToCart(productID: (product?.id) as! UUID, quantity: 1, forCustomerWithEmailID: "y")
     }
-    
-  
-//        self.present(dashboard, animated: true, completion: nil)
-        
-
-        
-       // self.presentingViewController?.dismiss(animated: true, completion: nil)
-    
-  
-
-
-
 
 }

@@ -53,8 +53,7 @@ extension DBHelper {
             if (resC.count != 0){
                 customer = resC.first!
                 DBHelper.cartSet = customer.cart!
-                DBHelper.cartItemQuantities = customer.cartItemQuantities!
-                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+
                 if (DBHelper.cartSet.contains(product)) {
                     print("product already in cart, updating quantity")
                     DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
@@ -159,6 +158,7 @@ extension DBHelper {
             } else {
                 print("product not found")
             }
+            
             if (resC.count != 0) {
                 customer = resC.first!
                 DBHelper.cartItemQuantities = customer.cartItemQuantities!
@@ -347,7 +347,6 @@ extension DBHelper {
         print("final product info: ", product)
         return product
     }
-
     func deleteAllProducts() {
         let fetchReq = Product.fetchRequest() as NSFetchRequest<Product>
         do {
