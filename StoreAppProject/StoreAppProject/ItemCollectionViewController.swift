@@ -18,10 +18,10 @@ class ItemCollectionViewController: UICollectionViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        products = DBHelper.inst.getProductsForDepartment(name: "clothing")
+        products = DBHelper.inst.getAllProducts()
         collectView.dataSource = self
         collectView.delegate = self
-        username = "bcrits"
+        username = "y"
      
     }
 
@@ -46,11 +46,11 @@ class ItemCollectionViewController: UICollectionViewController {
         viewController?.itemInfo = inventory[indexPath.item].description
         viewController?.price = inventory[indexPath.item].price
         viewController?.index  = indexPath.item*/
-        
+    
         viewController.username = self.username
         viewController.phone = self.phone
         viewController.product = self.products?[indexPath.item]
-        
+        viewController.index  = indexPath.row
         let haptic = UIImpactFeedbackGenerator(style: .soft)
         haptic.impactOccurred()
         

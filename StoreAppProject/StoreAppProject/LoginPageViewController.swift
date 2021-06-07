@@ -47,47 +47,31 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func login(_ sender: Any) {
 
-        print(username.text)
-        var cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
-        if DBHelper.found == 1 || username.text == "" || password.text == "" {
-            print("first if block")
-            username.text = ""
-            password.text = ""
-            warningLabel.text = "Invalid Login Credentials"
-            
-        } else {
-            print("else block")
-            //cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
-            warningLabel.text = ""
-        }
         
-        /*if (cus.username == nil || cus.password == nil) {
-            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }*/
+        let cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
+
+        
+       
         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
-           // let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
+          
             print("account verified")
-            print(cus.cart)
-            let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
+            
+            let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
             dashboard.modalPresentationStyle = .fullScreen
-            dashboard.username = username.text!
+           
             self.present(dashboard, animated: true, completion: nil)
         }
-        else {
+         if (username.text != cus.username! && password.text != cus.password!){
             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
 
             
-                    let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
-                    dashboard.modalPresentationStyle = .fullScreen
-                    //dashboard.username = username.text!
-                    self.present(dashboard, animated: true, completion: nil)
-                }
-                
+            
+        }
+         if (username.text == nil || password.text == nil){
+            let alert = UIAlertController(title: "Wrong informations", message: "Enter  username and password", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        }
         
     }
     

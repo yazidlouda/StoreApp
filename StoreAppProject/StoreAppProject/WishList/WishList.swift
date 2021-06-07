@@ -8,7 +8,7 @@
 import Foundation
 class WishList {
     static let sharedInstance = WishList()
-    var wishListItems = [Item]()
+    var wishListItems = [Product]()
     private init() {}
     
 //    func getTotal() -> Double {

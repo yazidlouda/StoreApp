@@ -10,6 +10,7 @@ import UserNotifications
 
 
 class UserDashboardViewController: UIViewController {
+
     var username : String?
     var phone : Int64?
     var clothingProducts : [Product]?
@@ -21,11 +22,12 @@ class UserDashboardViewController: UIViewController {
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        addLocalNotifaction()
         clothingProducts = DBHelper.inst.getProductsForDepartment(name: "clothing")
         kitchenProducts = DBHelper.inst.getProductsForDepartment(name: "kitchen")
         outdoorsProducts = DBHelper.inst.getProductsForDepartment(name: "outdoors")
-        setupUI()
-        addLocalNotifaction()
+       
         // Do any additional setup after loading the view.
     }
 
