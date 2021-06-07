@@ -259,34 +259,6 @@ extension DBHelper {
         
     }
     
-    func getAllProducts() -> [Product] {
-        var products = [Product]()
-        let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Product")
-        
-        do {
-            products = try context?.fetch(fetchReq) as! [Product]
-        } catch (let exception) {
-            print(exception.localizedDescription)
-        }
-        
-        return products
-        
-    }
-    
-    func deleteAllProducts() {
-        let fetchReq = Product.fetchRequest() as NSFetchRequest<Product>
-        do {
-            let result = try context?.fetch(fetchReq)
-            for data in result! {
-                context?.delete(data)
-            }
-            try context?.save()
-        } catch (let exception) {
-            print(exception.localizedDescription)
-        }
-        
-    }
-    
     func deleteFromCart(productID: UUID, forCustomerWithPhone number: Int64) {
         var product = Product()
         let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
@@ -356,6 +328,8 @@ extension DBHelper {
         }
         
     }
+    
+    
     func addDepartment(name: String) {
         let dept = NSEntityDescription.insertNewObject(forEntityName: "Department", into: context!) as!  Department
         
