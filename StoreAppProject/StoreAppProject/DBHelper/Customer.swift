@@ -2,9 +2,8 @@
 //  Customer.swift
 //  StoreAppProject
 //
-//  Created by Home on 6/3/21.
+//  Created by admin on 6/7/21.
 //
-
 
 import Foundation
 import CoreData
@@ -14,6 +13,7 @@ class DBHelper {
 
     static var isLoggedIn : Bool = false
     static var currentUser : String = ""
+    static var currentPhone : Int64 = 0
     
 
 
