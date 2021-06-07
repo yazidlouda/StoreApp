@@ -327,6 +327,27 @@ extension DBHelper {
         
     }
     
+    func getOneProduct(_ name: String) -> Product {
+        var product = Product()
+        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Product")
+        fetchReq.predicate = NSPredicate(format: "name == %@", name)
+        fetchReq.fetchLimit = 1
+        
+        do {
+            let res = try context?.fetch(fetchReq) as! [Product]
+            if (res.count != 0){
+                product = res.first!
+            } else {
+                print("data not found")
+            }
+        } catch (let exception) {
+            print("catch block")
+            print(exception.localizedDescription)
+        }
+        print("final product info: ", product)
+        return product
+    }
+
     func deleteAllProducts() {
         let fetchReq = Product.fetchRequest() as NSFetchRequest<Product>
         do {

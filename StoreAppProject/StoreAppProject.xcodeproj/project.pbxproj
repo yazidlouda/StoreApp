@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		34C13F06BB1CCB03696357EB /* Pods_StoreAppProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE9BA278CD8D67D2F635EB6 /* Pods_StoreAppProjectTests.framework */; };
 		4B33FEE40EBF66C4B52D6B48 /* Pods_StoreAppProject_StoreAppProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E0E8611D5225C1BA9BFDE6 /* Pods_StoreAppProject_StoreAppProjectUITests.framework */; };
+		5E039137266E9C700043BE44 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039136266E9C700043BE44 /* Review.swift */; };
+		5E039139266EA4D70043BE44 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E039138266EA4D70043BE44 /* ReviewViewController.swift */; };
 		5E03944B265801C5009639B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03944A265801C5009639B7 /* AppDelegate.swift */; };
 		5E03944D265801C5009639B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03944C265801C5009639B7 /* SceneDelegate.swift */; };
 		5E03944F265801C5009639B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03944E265801C5009639B7 /* ViewController.swift */; };
@@ -113,6 +115,8 @@
 		31E0E8611D5225C1BA9BFDE6 /* Pods_StoreAppProject_StoreAppProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppProject_StoreAppProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F6B83A7B8F3F76F07BFBB4 /* Pods-StoreAppProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-StoreAppProjectTests/Pods-StoreAppProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BE9BA278CD8D67D2F635EB6 /* Pods_StoreAppProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E039136266E9C700043BE44 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		5E039138266EA4D70043BE44 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		5E039447265801C5009639B7 /* StoreAppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreAppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E03944A265801C5009639B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E03944C265801C5009639B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 				5E03944A265801C5009639B7 /* AppDelegate.swift */,
 				5E03944C265801C5009639B7 /* SceneDelegate.swift */,
 				5E03944E265801C5009639B7 /* ViewController.swift */,
+				5E039138266EA4D70043BE44 /* ReviewViewController.swift */,
 				5EAC6355266AD7C700ED80F8 /* ProfilePageViewController.swift */,
 				5E03948D2658191D009639B7 /* CheckoutViewController.swift */,
 				5E039485265816DC009639B7 /* LandingPageViewController.swift */,
@@ -372,6 +377,7 @@
 			children = (
 				84D095922669596900C72821 /* Cart_Product.swift */,
 				84DBC13726643487007B7878 /* PaymentMethod.swift */,
+				5E039136266E9C700043BE44 /* Review.swift */,
 				84D095D2266979BB00C72821 /* Department.swift */,
 				F491C8032669B6D1003A7983 /* Customer.swift */,
 			);
@@ -713,6 +719,7 @@
 				F4583B3C265C35F50051D5D6 /* ItemCollectionViewCell.swift in Sources */,
 				F4371358265DF26B00F17811 /* KitchenCollectionViewCell.swift in Sources */,
 				84D09566266938D100C72821 /* Department+CoreDataProperties.swift in Sources */,
+				5E039139266EA4D70043BE44 /* ReviewViewController.swift in Sources */,
 				F4B66F18266021260096BE05 /* OutdoorViewController.swift in Sources */,
 				5E60BDD2265998A700874292 /* OrderStatusViewController.swift in Sources */,
 				F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */,
@@ -735,6 +742,7 @@
 				8484F3FC266DD920000316DC /* Product+CoreDataProperties.swift in Sources */,
 				84D09567266938D100C72821 /* Product+CoreDataClass.swift in Sources */,
 				5E03948A2658184A009639B7 /* ItemViewController.swift in Sources */,
+				5E039137266E9C700043BE44 /* Review.swift in Sources */,
 				F491C8042669B6D1003A7983 /* Customer.swift in Sources */,
 				F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */,
 				5E60BDC826587ED500874292 /* AddPaymentOptionViewController.swift in Sources */,
