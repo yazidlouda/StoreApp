@@ -17,18 +17,19 @@ extension Customer {
     }
 
     @NSManaged public var cartItemQuantities: [UUID:Int64]?
+    @NSManaged public var cartItemSubtotals: [UUID:Double]?
     @NSManaged public var cartTotal: Double
     @NSManaged public var firstname: String?
     @NSManaged public var giftCardBalance: Double
     @NSManaged public var lastname: String?
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: Int64
+    @NSManaged public var searches: [String]?
     @NSManaged public var username: String?
-    @NSManaged public var cartItemSubtotals: [UUID:Double]?
-    @NSManaged public var searches: NSObject?
     @NSManaged public var cart: Set<Product>?
     @NSManaged public var paymentMethods: NSSet?
     @NSManaged public var wishlist: Set<Product>?
+    @NSManaged public var orders: NSSet?
 
 }
 
@@ -80,6 +81,23 @@ extension Customer {
 
     @objc(removeWishlist:)
     @NSManaged public func removeFromWishlist(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for orders
+extension Customer {
+
+    @objc(addOrdersObject:)
+    @NSManaged public func addToOrders(_ value: Order)
+
+    @objc(removeOrdersObject:)
+    @NSManaged public func removeFromOrders(_ value: Order)
+
+    @objc(addOrders:)
+    @NSManaged public func addToOrders(_ values: NSSet)
+
+    @objc(removeOrders:)
+    @NSManaged public func removeFromOrders(_ values: NSSet)
 
 }
 

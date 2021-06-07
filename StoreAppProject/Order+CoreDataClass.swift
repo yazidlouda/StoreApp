@@ -11,5 +11,5 @@ import CoreData
 
 @objc(Order)
 public class Order: NSManagedObject {
-
+    var status : OrderStatus?
 }
