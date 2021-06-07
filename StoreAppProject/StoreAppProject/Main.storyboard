@@ -298,7 +298,7 @@
                                 <rect key="frame" x="20" y="127" width="374" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdN-FO-5wv" customClass="CosmosView" customModule="RatingBar">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdN-FO-5wv" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="25" y="612" width="364" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
