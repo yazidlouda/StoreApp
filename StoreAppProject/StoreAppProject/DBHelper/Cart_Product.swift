@@ -29,56 +29,75 @@ extension DBHelper {
         
     }
     
-    func addToCart(productID: UUID, quantity: Int, forCustomerWithEmailID username: String) -> Bool {
+    func addToCart(productID: UUID, quantity: Int) -> Bool {
         var isSuccessful = false
-        var product = Product()
-        let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
-        fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
-        fetchReqP.fetchLimit = 1
-        
         var customer = Customer()
-        let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
-        fetchReqC.predicate = NSPredicate(format: "username == %@", username)
-        fetchReqC.fetchLimit = 1
-        
-        do {
-            let resP = try context?.fetch(fetchReqP) as! [Product]
-            let resC = try context?.fetch(fetchReqC) as! [Customer]
-            if (resP.count != 0){
-                product = resP.first!
-                print("product found: ", product)
-            } else {
-                print("product not found")
-            }
-            if (resC.count != 0){
-                customer = resC.first!
-                DBHelper.cartSet = customer.cart!
-                DBHelper.cartItemQuantities = customer.cartItemQuantities!
-                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
-                if (DBHelper.cartSet.contains(product)) {
-                    print("product already in cart, updating quantity")
-                    DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
-                    DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
-                    
+        var product = Product()
+        switch DBHelper.isLoggedIn {
+        case true:
+            let fetchReqC = NSFetchRequest<NSManagedObject>(entityName:"Customer")
+            fetchReqC.predicate = NSPredicate(format: "username == %@", DBHelper.currentUser)
+            fetchReqC.fetchLimit = 1
+            
+            do {
+                let resC = try context?.fetch(fetchReqC) as! [Customer]
+                if (resC.count != 0) {
+                    customer = resC.first!
                 } else {
-                    isSuccessful = true
-                    DBHelper.cartSet.insert(product)
-                    DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
-                    DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
+                    print("customer not found")
                 }
-                customer.cartTotal += (product.price * Double(quantity))
-                customer.cart = DBHelper.cartSet
-                customer.cartItemQuantities = DBHelper.cartItemQuantities
-                customer.cartItemSubtotals = DBHelper.cartItemSubtotals
-            } else {
-                print("customer not found")
+            } catch (let exception) {
+                print(exception.localizedDescription)
             }
-            print(customer.cartItemQuantities, " item quantities")
-            print(customer.cart, " cart info")
-            try context?.save()
-        } catch (let exception) {
-            print("catch block")
-            print(exception.localizedDescription)
+            
+            DBHelper.cartSet = customer.cart!
+            DBHelper.cartItemQuantities = customer.cartItemQuantities!
+            DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+            
+            fallthrough
+        case false:
+            let fetchReqP = NSFetchRequest<NSManagedObject>(entityName:"Product")
+            fetchReqP.predicate = NSPredicate(format: "id == %@", productID.uuidString)
+            fetchReqP.fetchLimit = 1
+            
+            do {
+                let resP = try context?.fetch(fetchReqP) as! [Product]
+                if (resP.count != 0) {
+                    product = resP.first!
+                } else {
+                    print("product not found")
+                }
+            } catch (let exception) {
+                print(exception.localizedDescription)
+            }
+            
+            if (DBHelper.cartSet.contains(product)) {
+                print("product already in cart, updating quantity")
+                DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
+                DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
+                
+            } else {
+                isSuccessful = true
+                DBHelper.cartSet.insert(product)
+                DBHelper.cartItemQuantities[product.id!] = Int64(quantity)
+                DBHelper.cartItemSubtotals[product.id!] = ( product.price * Double(quantity) )
+            }
+            print(DBHelper.cartSet)
+            print(DBHelper.cartItemQuantities)
+            print(DBHelper.cartItemSubtotals)
+        }
+        
+        if (DBHelper.isLoggedIn) {
+            customer.cartTotal += (product.price * Double(quantity))
+            customer.cart = DBHelper.cartSet
+            customer.cartItemQuantities = DBHelper.cartItemQuantities
+            customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            
+            do {
+                try context?.save()
+            } catch (let exception) {
+                print(exception.localizedDescription)
+            }
         }
         return isSuccessful
         

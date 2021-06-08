@@ -9,6 +9,7 @@ import UIKit
 
 class CartViewController: UIViewController {
     var cartInstance = Cart.sharedInstance
+    var cartData = Array(DBHelper.cartSet)
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var shipping: UILabel!
@@ -23,6 +24,12 @@ class CartViewController: UIViewController {
         
         tableView.rowHeight = 150
         tableView.reloadData()
+        //let p = parent as! TabBarViewController
+        //cartData = Array(DBHelper.cartSet)
+        //cartData = Array(DBHelper.cartSet)
+        print("data: ", cartData)
+        tableView.reloadData()
+        //print("DBHelper.cartSet: ", DBHelper.cartSet)
         // Do any additional setup after loading the view.
     }
     
@@ -66,18 +73,17 @@ class CartViewController: UIViewController {
 }
 extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartInstance.cartItems.count
+        //let data = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
+        return cartData.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
-        
-        cell.itemImage1.image = cartInstance.cartItems[indexPath.row].image
-        cell.itemName1.text = cartInstance.cartItems[indexPath.row].name
-        cell.itemDescription.text = cartInstance.cartItems[indexPath.row].description
-        cell.itemPrice.text = "$" + cartInstance.cartItems[indexPath.row].price.description
-        cell.index = indexPath.row
+        cell.itemImage1.image = cartData[indexPath.row].image
+        cell.itemName1.text = cartData[indexPath.row].name
+        cell.itemPrice.text = cartData[indexPath.row].price.description
+        cell.itemDescription.text = cartData[indexPath.row].info
         return cell
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

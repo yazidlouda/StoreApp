@@ -72,7 +72,7 @@ class DBHelper {
         }
     }
     
-    static var found = 0
+    static var found = 1
     
     //Returns the Customer object from the model with the specified username
     func getCustomer(withEmailID username: String) -> Customer {

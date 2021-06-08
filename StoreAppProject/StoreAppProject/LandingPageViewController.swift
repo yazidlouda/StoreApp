@@ -42,6 +42,11 @@ class LandingPageViewController: UIViewController {
         loginPage.modalPresentationStyle = .fullScreen
         
         if DBHelper.isLoggedIn == true {
+            DBHelper.cartSet = []
+            DBHelper.cartItemSubtotals = [:]
+            DBHelper.cartItemQuantities = [:]
+            DBHelper.currentUser = ""
+            DBHelper.found = 1
             DBHelper.isLoggedIn = false
             self.tabBarController?.present(loginPage, animated: true, completion: nil)
         } else {
