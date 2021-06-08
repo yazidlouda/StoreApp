@@ -9,7 +9,7 @@ import UIKit
 
 class CartViewController: UIViewController {
 
-    let db = DBHelper.inst.getCustomer(withEmailID: "y")
+    let db = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
     var cartInstance = Cart.sharedInstance
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -75,7 +75,7 @@ class CartViewController: UIViewController {
 }
 extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let data = DBHelper.inst.getCustomer(withEmailID: "y")
+        let data = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
         
         return data.cart!.count
         
