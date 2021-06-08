@@ -43,12 +43,24 @@ extension DBHelper {
             } else if (DBHelper.currentPhone != 0) {
                 fetchReqC.predicate = NSPredicate(format: "phoneNumber == %@,", DBHelper.currentPhone)
             }
+
             fetchReqC.fetchLimit = 1
             
             do {
                 let resC = try context?.fetch(fetchReqC) as! [Customer]
                 if (resC.count != 0) {
                     customer = resC.first!
+
+//             if (resC.count != 0){
+//                 customer = resC.first!
+//                 DBHelper.cartSet = customer.cart!
+
+//                 if (DBHelper.cartSet.contains(product)) {
+//                     print("product already in cart, updating quantity")
+//                     DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
+//                     DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
+                    
+
                 } else {
                     print("customer not found")
                 }
@@ -136,6 +148,7 @@ extension DBHelper {
                 print(exception.localizedDescription)
             }
         
+
             DBHelper.cartItemQuantities = customer.cartItemQuantities!
             DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
             DBHelper.cartTotal = customer.cartTotal
@@ -152,6 +165,28 @@ extension DBHelper {
                     product = resP.first!
                 } else {
                     print("product not found")
+
+//         do {
+//             let resC = try context?.fetch(fetchReqC) as! [Customer]
+//             let resP = try context?.fetch(fetchReqP) as! [Product]
+//             if (resP.count != 0){
+//                 product = resP.first!
+//                 print("product found: ", product)
+//             } else {
+//                 print("product not found")
+//             }
+            
+//             if (resC.count != 0) {
+//                 customer = resC.first!
+//                 DBHelper.cartItemQuantities = customer.cartItemQuantities!
+//                 DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+//                 DBHelper.cartItemQuantities[productID] = Int64(quantity)
+//                 DBHelper.cartItemSubtotals[productID] = Double(quantity) * product.price
+//                 var updatedTotal = 0.0
+//                 for prod in customer.cart! {
+//                     let quantity = DBHelper.cartItemQuantities[prod.id!]!
+//                     updatedTotal += (Double(quantity) * prod.price)
+
                 }
             } catch (let exception) {
                 print(exception.localizedDescription)
@@ -274,6 +309,26 @@ extension DBHelper {
         
     }
     
+    func getOneProduct(_ name: String) -> Product {
+        var product = Product()
+        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Product")
+        fetchReq.predicate = NSPredicate(format: "name == %@", name)
+        fetchReq.fetchLimit = 1
+        
+        do {
+            let res = try context?.fetch(fetchReq) as! [Product]
+            if (res.count != 0){
+                product = res.first!
+            } else {
+                print("data not found")
+            }
+        } catch (let exception) {
+            print("catch block")
+            print(exception.localizedDescription)
+        }
+        print("final product info: ", product)
+        return product
+    }
     func deleteAllProducts() {
         let fetchReq = Product.fetchRequest() as NSFetchRequest<Product>
         do {
