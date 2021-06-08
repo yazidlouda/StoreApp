@@ -27,16 +27,12 @@ extension Customer {
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: Int64
 
-
     @NSManaged public var searches: [String]?
     @NSManaged public var username: String?
     @NSManaged public var cart: Set<Product>?
     @NSManaged public var paymentMethods: NSSet?
     @NSManaged public var wishlist: Set<Product>?
     @NSManaged public var orders: NSSet?
-
-
-
 }
 
 // MARK: Generated accessors for cart
@@ -107,7 +103,6 @@ extension Customer {
     @NSManaged public func removeFromOrders(_ values: NSSet)
 
 }
-
 
 extension Customer : Identifiable {
 

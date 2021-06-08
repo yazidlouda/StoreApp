@@ -2,9 +2,8 @@
 //  Customer.swift
 //  StoreAppProject
 //
-//  Created by Home on 6/3/21.
+//  Created by admin on 6/7/21.
 //
-
 
 import Foundation
 import CoreData
@@ -14,6 +13,7 @@ class DBHelper {
 
     static var isLoggedIn : Bool = false
     static var currentUser : String = ""
+    static var currentPhone : Int64 = 0
     
 
 
@@ -23,6 +23,7 @@ class DBHelper {
     static var wishlistSet : Set<Product> = []
     static var cartItemQuantities : [UUID : Int64] = [:]
     static var cartItemSubtotals : [UUID : Double] = [:]
+    static var cartTotal = 0.0
 
 
     static var inst = DBHelper()
@@ -72,7 +73,7 @@ class DBHelper {
         }
     }
     
-    static var found = 0
+    static var found = 1
     
     //Returns the Customer object from the model with the specified username
     func getCustomer(withEmailID username: String) -> Customer {
