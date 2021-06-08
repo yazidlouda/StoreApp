@@ -23,6 +23,7 @@ class DBHelper {
     static var wishlistSet : Set<Product> = []
     static var cartItemQuantities : [UUID : Int64] = [:]
     static var cartItemSubtotals : [UUID : Double] = [:]
+    static var cartTotal = 0.0
 
 
     static var inst = DBHelper()

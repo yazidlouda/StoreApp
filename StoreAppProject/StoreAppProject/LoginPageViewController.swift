@@ -65,6 +65,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
                 DBHelper.currentUser = username.text!
                 DBHelper.isLoggedIn = true
                 DBHelper.cartSet = customer.cart!
+                DBHelper.cartTotal = customer.cartTotal
                 print("customer's cart: ", customer.cart!)
                 print("DBHelper.cartSet: ", DBHelper.cartSet)
                 DBHelper.wishlistSet = customer.wishlist!
