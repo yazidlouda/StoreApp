@@ -55,10 +55,6 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         present(tabBar, animated: true)
     }
     @IBAction func login(_ sender: Any) {
-        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
-        tabBar.modalPresentationStyle = .fullScreen
-        
         var customer = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
         
         let alert = UIAlertController(title: "Invalid Login", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
@@ -69,10 +65,15 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
                 DBHelper.currentUser = username.text!
                 DBHelper.isLoggedIn = true
                 DBHelper.cartSet = customer.cart!
-                print(customer.cart!)
+                print("customer's cart: ", customer.cart!)
+                print("DBHelper.cartSet: ", DBHelper.cartSet)
                 DBHelper.wishlistSet = customer.wishlist!
                 DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
                 DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                
+                let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+                tabBar.modalPresentationStyle = .fullScreen
                 self.present(tabBar, animated: true)
                 
             } else {

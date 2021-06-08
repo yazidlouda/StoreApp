@@ -8,9 +8,9 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    var cartData = Array(DBHelper.cartSet)
-    var cartQuantityData = DBHelper.cartItemQuantities
-    var cartSubtotalData = DBHelper.cartItemSubtotals
+    //var cartData = Array(DBHelper.cartSet)
+    //var cartQuantityData = DBHelper.cartItemQuantities
+    //var cartSubtotalData = DBHelper.cartItemSubtotals
     override func viewDidLoad() {
         super.viewDidLoad()
         

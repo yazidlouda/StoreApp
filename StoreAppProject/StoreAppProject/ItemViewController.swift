@@ -53,10 +53,8 @@ class ItemViewController: UIViewController {
 
         //let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
         //dashboard.modalPresentationStyle = .fullScreen
-        
-        
         DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1)
-
+        //self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
   

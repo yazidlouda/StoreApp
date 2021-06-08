@@ -28,7 +28,7 @@ class CartViewController: UIViewController {
         //cartData = Array(DBHelper.cartSet)
         //cartData = Array(DBHelper.cartSet)
         print("data: ", cartData)
-        tableView.reloadData()
+        //tableView.reloadData()
         //print("DBHelper.cartSet: ", DBHelper.cartSet)
         // Do any additional setup after loading the view.
     }
@@ -50,7 +50,7 @@ class CartViewController: UIViewController {
         }
     }
     
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            tableView.reloadData()
@@ -68,7 +68,7 @@ class CartViewController: UIViewController {
             total.text = "$" + (cartInstance.getTotal() + 0.00).description
         }
         
-    }
+    }*/
 
 }
 extension CartViewController: UITableViewDataSource {
