@@ -55,8 +55,16 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         present(tabBar, animated: true)
     }
     @IBAction func login(_ sender: Any) {
-        var customer = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
+        var customer : Customer
+        if let phone = Int(username.text!) {
+            print(phone)
+            customer = DBHelper.inst.getCustomer(withPhone: phone)
+        } else {
+            customer = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
+        }
         
+        print("current phone: ", customer.phoneNumber)
+        print("current username: ", customer.username)
         let alert = UIAlertController(title: "Invalid Login", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         

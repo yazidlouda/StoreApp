@@ -13,6 +13,7 @@ class AddPaymentOptionViewController: UIViewController, UITextFieldDelegate {
     var username : String = "bcrits"
     var phone : Int64?
     var expDate : DateComponents?
+    @IBOutlet weak var allFieldsLabel: UILabel!
     var isValidDate : Bool = false
     @IBOutlet weak var bankView: UIView!
     @IBOutlet weak var cardView: UIView!
@@ -28,6 +29,7 @@ class AddPaymentOptionViewController: UIViewController, UITextFieldDelegate {
         guard let cardVC = children.last as? CardViewController else {
             fatalError("no CardViewController found")
         }
+        allFieldsLabel.isHidden = true
         self.bankVC = bankVC
         self.cardVC = cardVC
         cardView.isHidden = true
@@ -60,7 +62,7 @@ class AddPaymentOptionViewController: UIViewController, UITextFieldDelegate {
         switch type {
         case .BankAccount:
             if (bankVC?.fName.text == "" || bankVC?.lName.text == "" || bankVC?.accountNum.text == "" || bankVC?.routingNum.text == "") {
-                bankVC?.allFields.isHidden = false
+                allFieldsLabel.isHidden = false
                 print("empty field")
             } else {
             firstName = (bankVC?.fName.text)!
@@ -78,7 +80,7 @@ class AddPaymentOptionViewController: UIViewController, UITextFieldDelegate {
             }
         case .Card:
             if (cardVC?.fName.text == "" || cardVC?.lName.text == "" || cardVC?.cvc.text == "" || cardVC?.zip.text == "" || cardVC?.expDate.text == "") {
-                cardVC?.allFields.isHidden = false
+                allFieldsLabel.isHidden = false
                 print("empty field")
             } else {
             firstName = (cardVC?.fName.text)!
