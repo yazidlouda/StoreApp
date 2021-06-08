@@ -28,7 +28,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         
         
         
-        animateRight()
+        //animateRight()
         
         
         func animateRight() {
@@ -48,58 +48,85 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         }
     }
     
+
+    @IBAction func enter(_ sender: Any) {
+        let mainBoard = UIStoryboard(name:"Main", bundle: nil)
+        let tabBar = mainBoard.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+
     @IBAction func login(_ sender: Any) {
 
         let mainBoard = UIStoryboard(name: "Main", bundle: nil)
         let dashboard = mainBoard.instantiateViewController(withIdentifier: "dashboard") as! UserDashboardViewController
         dashboard.modalPresentationStyle = .fullScreen
         let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+
         tabBar.modalPresentationStyle = .fullScreen
-        
-        var cus = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
-        
-        
-        if DBHelper.found == 1 || username.text == "" || password.text == "" {
-            username.text = ""
-            password.text = ""
-            warningLabel.text = "Invalid Login Credentials"
-            return
+        present(tabBar, animated: true)
+    }
+    @IBAction func login(_ sender: Any) {
+        var customer : Customer
+        if let phone = Int(username.text!) {
+            print(phone)
+            customer = DBHelper.inst.getCustomer(withPhone: phone)
         } else {
-            DBHelper.isLoggedIn = true
-            cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
-            DBHelper.currentUser = cus.username ?? ""
-            warningLabel.text = ""
-            self.present(tabBar, animated: true, completion: nil)
+            customer = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
         }
         
+        print("current phone: ", customer.phoneNumber)
+        print("current username: ", customer.username)
+        let alert = UIAlertController(title: "Invalid Login", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
-        //print(username.text)
-        //        let cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
-        
+
+        if (DBHelper.found == 0) {
+            if (customer.password == password.text!) {
+                DBHelper.currentUser = username.text!
+                DBHelper.isLoggedIn = true
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartTotal = customer.cartTotal
+                print("customer's cart: ", customer.cart!)
+                print("DBHelper.cartSet: ", DBHelper.cartSet)
+                DBHelper.wishlistSet = customer.wishlist!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                
+                let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+                tabBar.modalPresentationStyle = .fullScreen
+                self.present(tabBar, animated: true)
+                
+            } else {
+                present(alert, animated: true)
+            }
+        } else {
+            present(alert, animated: true)
+        }
+
         
 
         
-        if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
+//         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
 
           
-            print("account verified")
+//             print("account verified")
             
-            let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-            dashboard.modalPresentationStyle = .fullScreen
+//             let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+//             dashboard.modalPresentationStyle = .fullScreen
            
-            self.present(dashboard, animated: true, completion: nil)
+//             self.present(dashboard, animated: true, completion: nil)
 
-        }
-         if (username.text != cus.username! && password.text != cus.password!){
-            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//         }
+//          if (username.text != cus.username! && password.text != cus.password!){
+//             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+//             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             
 
             
             
 
-            self.present(alert, animated: true, completion: nil)
-        }
+//             self.present(alert, animated: true, completion: nil)
+//         }
+
 
     }
     

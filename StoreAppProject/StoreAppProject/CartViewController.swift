@@ -11,6 +11,7 @@ class CartViewController: UIViewController {
 
     let db = DBHelper.inst.getCustomer(withEmailID: "y")
     var cartInstance = Cart.sharedInstance
+    var cartData = Array(DBHelper.cartSet)
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var shipping: UILabel!
@@ -32,6 +33,12 @@ class CartViewController: UIViewController {
         
         tableView.rowHeight = 150
         tableView.reloadData()
+        //let p = parent as! TabBarViewController
+        //cartData = Array(DBHelper.cartSet)
+        //cartData = Array(DBHelper.cartSet)
+        print("data: ", cartData)
+        //tableView.reloadData()
+        //print("DBHelper.cartSet: ", DBHelper.cartSet)
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +59,7 @@ class CartViewController: UIViewController {
         }
     }
     
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            tableView.reloadData()
@@ -70,30 +77,42 @@ class CartViewController: UIViewController {
             total.text = "$" + (cartInstance.getTotal() + 0.00).description
         }
         
-    }
+    }*/
 
 }
 extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let data = DBHelper.inst.getCustomer(withEmailID: "y")
+
+        //let data = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
+        return cartData.count
+
+//         let data = DBHelper.inst.getCustomer(withEmailID: "y")
         
-        return data.cart!.count
+//         return data.cart!.count
         
         
+
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
 
-        var array = Array(db.cart!)
-        cell.itemImage1.image = array[indexPath.row].image
-        cell.itemName1.text = array[indexPath.row].name
-            cell.itemPrice.text = array[indexPath.row].price.description
-            cell.itemDescription.text = array[indexPath.row].info
+        cell.itemImage1.image = cartData[indexPath.row].image
+        cell.itemName1.text = cartData[indexPath.row].name
+        cell.itemPrice.text = cartData[indexPath.row].price.description
+        cell.itemDescription.text = cartData[indexPath.row].info
+
+
+//         var array = Array(db.cart!)
+//         cell.itemImage1.image = array[indexPath.row].image
+//         cell.itemName1.text = array[indexPath.row].name
+//             cell.itemPrice.text = array[indexPath.row].price.description
+//             cell.itemDescription.text = array[indexPath.row].info
            
            
      
+
         return cell
     }
     
