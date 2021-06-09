@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoginPageViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var warningLabel: UILabel!
@@ -25,11 +26,6 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
-        
-        
-        
-        //animateRight()
-        
         
         func animateRight() {
             UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
@@ -52,17 +48,8 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     @IBAction func enter(_ sender: Any) {
         let mainBoard = UIStoryboard(name:"Main", bundle: nil)
         let tabBar = mainBoard.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-
-    @IBAction func login(_ sender: Any) {
-
-        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
-        let dashboard = mainBoard.instantiateViewController(withIdentifier: "dashboard") as! UserDashboardViewController
-        dashboard.modalPresentationStyle = .fullScreen
-        let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
-
-        tabBar.modalPresentationStyle = .fullScreen
-        present(tabBar, animated: true)
     }
+  
     @IBAction func login(_ sender: Any) {
         var customer : Customer
         if let phone = Int(username.text!) {
@@ -102,32 +89,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             present(alert, animated: true)
         }
 
-        
-
-        
-//         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
-
-          
-//             print("account verified")
-            
-//             let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-//             dashboard.modalPresentationStyle = .fullScreen
-           
-//             self.present(dashboard, animated: true, completion: nil)
-
-//         }
-//          if (username.text != cus.username! && password.text != cus.password!){
-//             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-//             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-
-            
-            
-
-//             self.present(alert, animated: true, completion: nil)
-//         }
-
-
+   
     }
     
     
@@ -146,4 +108,14 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     }
     
     
+
 }
+
+    
+    
+    
+    
+    
+
+    
+

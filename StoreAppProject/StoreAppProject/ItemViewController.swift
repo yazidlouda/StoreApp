@@ -60,28 +60,29 @@ class ItemViewController: UIViewController {
             self.present(loginView, animated: true, completion: nil)
                 
         }
+        func addToCart(_ sender: Any) {
+
+
+            //let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+            //dashboard.modalPresentationStyle = .fullScreen
+            DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1)
+            
+        }
+        
+
+
+             let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+             dashboard.modalPresentationStyle = .fullScreen
+    //         DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1, forCustomerWithEmailID: username!)
+
+
+
+            self.present(dashboard, animated: true, completion: nil)
+
+//            DBHelper.inst.addToCart(productID: (product?.id) as! UUID, quantity: 1, forCustomerWithEmailID: "y")
+        }
     }
    
-    @IBAction func addToCart(_ sender: Any) {
-
-
-        //let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-        //dashboard.modalPresentationStyle = .fullScreen
-        DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1)
-        
-    }
-    
-
-
-//         let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-//         dashboard.modalPresentationStyle = .fullScreen
-//         DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1, forCustomerWithEmailID: username!)
 
 
 
-        self.present(dashboard, animated: true, completion: nil)
-
-        DBHelper.inst.addToCart(productID: (product?.id) as! UUID, quantity: 1, forCustomerWithEmailID: "y")
-    }
-
-}
