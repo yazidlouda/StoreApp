@@ -10,7 +10,8 @@ import UserNotifications
 
 
 class UserDashboardViewController: UIViewController {
-
+    @IBOutlet weak var signInButton: UIButton!
+    
     var username : String?
     var phone : Int64?
     var clothingProducts : [Product]?
@@ -22,6 +23,11 @@ class UserDashboardViewController: UIViewController {
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if DBHelper.isLoggedIn == true {
+            signInButton.setTitle("Sign Out", for: .normal)
+        } else {
+            signInButton.setTitle("Sign In", for: .normal)
+        }
         setupUI()
         addLocalNotifaction()
         clothingProducts = DBHelper.inst.getProductsForDepartment(name: "clothing")
@@ -29,6 +35,42 @@ class UserDashboardViewController: UIViewController {
         outdoorsProducts = DBHelper.inst.getProductsForDepartment(name: "outdoors")
        
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func profileClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profilePage = mainBoard.instantiateViewController(withIdentifier: "profilePage") as! ProfilePageViewController
+        profilePage.modalPresentationStyle = .fullScreen
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            self.tabBarController?.present(profilePage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func signoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            DBHelper.cartSet = []
+            DBHelper.cartItemSubtotals = [:]
+            DBHelper.cartItemQuantities = [:]
+            DBHelper.currentUser = ""
+            DBHelper.found = 1
+            DBHelper.isLoggedIn = false
+            DBHelper.cartTotal = 0.0
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
     }
 
     //MARK: -> Class Methods

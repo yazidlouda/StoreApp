@@ -26,7 +26,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
-        
+        animateRight()
         func animateRight() {
             UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
                 self.logo.transform = CGAffineTransform(rotationAngle: 170)
@@ -59,8 +59,8 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             customer = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
         }
         
-        print("current phone: ", customer.phoneNumber)
-        print("current username: ", customer.username)
+//        print("current phone: ", customer.phoneNumber)
+//        print("current username: ", customer.username)
         let alert = UIAlertController(title: "Invalid Login", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         

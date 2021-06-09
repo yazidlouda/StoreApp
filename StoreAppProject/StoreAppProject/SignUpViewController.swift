@@ -11,10 +11,11 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,11 +23,12 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-
-        
+//        let numAsText : String = phoneNumber.text
+        let number : Int64 = Int64(phoneNumber.text!)!
+        print(number)
           if (username.text!.isEmpty == false && password.text!.isEmpty == false) {
 
-            DBHelper.inst.addCustomer(password: password.text!, withEmailID: username.text!)
+            DBHelper.inst.addCustomer( username: username.text!, password: password.text!, PhoneNumber: number)
               let alert = UIAlertController(title: "Signed Up", message: "Customer created.", preferredStyle: UIAlertController.Style.alert)
               
               // add an action (button)
@@ -54,7 +56,6 @@ class SignUpViewController: UIViewController {
           password.text = ""
         firstName.text = ""
         lastName.text = ""
-        email.text = ""
         phoneNumber.text = ""
 
     }

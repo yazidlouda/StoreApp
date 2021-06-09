@@ -36,6 +36,7 @@
 		5EAC6354266AC33900ED80F8 /* DBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */; };
 		5EAC6356266AD7C700ED80F8 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC6355266AD7C700ED80F8 /* ProfilePageViewController.swift */; };
 		5ED7063C266E74AF006CEECC /* Customer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7063B266E74AF006CEECC /* Customer+CoreDataProperties.swift */; };
+		5EE8A2B7267059CC0007C739 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8A2B6267059CC0007C739 /* ProfileTableViewCell.swift */; };
 		8445DD6826643F1600FBD1AC /* MethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445DD6726643F1600FBD1AC /* MethodType.swift */; };
 		845C7E34266E66230046E86C /* Wishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C7E33266E66230046E86C /* Wishlist.swift */; };
 		845C7E4C266E6CB70046E86C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C7E4B266E6CB70046E86C /* Order.swift */; };
@@ -152,6 +153,7 @@
 		5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBTestViewController.swift; sourceTree = "<group>"; };
 		5EAC6355266AD7C700ED80F8 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		5ED7063B266E74AF006CEECC /* Customer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Customer+CoreDataProperties.swift"; path = "StoreAppProject/Model/Customer+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5EE8A2B6267059CC0007C739 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		73DF1952154DC716E6C2304C /* Pods_StoreAppProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8445DD6726643F1600FBD1AC /* MethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodType.swift; sourceTree = "<group>"; };
 		845C7E33266E66230046E86C /* Wishlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishlist.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				5EAC6355266AD7C700ED80F8 /* ProfilePageViewController.swift */,
 				F495904F267071FD00FC28F2 /* ProfileTableViewCell.swift */,
 				5E039485265816DC009639B7 /* LandingPageViewController.swift */,
+				5EE8A2B6267059CC0007C739 /* ProfileTableViewCell.swift */,
 				5E03948226580F0A009639B7 /* LoginPageViewController.swift */,
 				5E03948D2658191D009639B7 /* CheckoutViewController.swift */,
 				5E5B88D2266ABE4200F1B805 /* Cart.swift */,
@@ -738,7 +741,9 @@
 				5E60BDD2265998A700874292 /* OrderStatusViewController.swift in Sources */,
 				F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */,
 				F491C87A266AAD0E003A7983 /* TabBarViewController.swift in Sources */,
+
 				F4959050267071FD00FC28F2 /* ProfileTableViewCell.swift in Sources */,
+
 				5ED7063C266E74AF006CEECC /* Customer+CoreDataProperties.swift in Sources */,
 				84D09565266938D100C72821 /* Department+CoreDataClass.swift in Sources */,
 				F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */,
