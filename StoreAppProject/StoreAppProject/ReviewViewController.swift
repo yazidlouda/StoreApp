@@ -29,6 +29,7 @@ class ReviewViewController: UIViewController {
     @IBAction func submitReview(_ sender: UIButton) {
         enteredComment = comment.text
         DBHelper.inst.addReview(enteredComment, date, rat1!, product)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

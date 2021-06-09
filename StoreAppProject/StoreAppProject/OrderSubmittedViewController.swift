@@ -55,4 +55,13 @@ class OrderSubmittedViewController: UIViewController {
             }, completion: {_ in boxAnimateUp()})
         }
     }
+    
+    @IBAction func returnClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+        tabBar.modalPresentationStyle = .fullScreen
+        self.present(tabBar, animated: true)
+    }
+    
+    
 }

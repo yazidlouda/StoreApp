@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoginPageViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var warningLabel: UILabel!
@@ -25,11 +26,6 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
-        
-        
-        
-        //animateRight()
-        
         
         func animateRight() {
             UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
@@ -137,4 +133,14 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     }
     
     
+
 }
+
+    
+    
+    
+    
+    
+
+    
+
