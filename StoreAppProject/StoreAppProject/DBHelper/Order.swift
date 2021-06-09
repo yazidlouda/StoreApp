@@ -9,10 +9,11 @@ import Foundation
 import CoreData
 
 extension DBHelper {
-    func checkout(paymentMethodID: UUID, forCustomerWithEmailID username: String) {
+    func checkout() {
         DBHelper.cartSet = []
         DBHelper.cartItemSubtotals = [:]
         DBHelper.cartItemQuantities = [:]
+        DBHelper.cartTotal = 0.0
         
         let order = Order(context: context!)
         order.date = Date()
@@ -20,60 +21,17 @@ extension DBHelper {
         order.id = UUID()
         var customer = Customer()
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Customer")
-        fetchReq.predicate = NSPredicate(format: "username == %@", username)
-        fetchReq.fetchLimit = 1
-        
-        do {
-            let res = try context?.fetch(fetchReq) as! [Customer]
-            if (res.count != 0) {
-                customer = res.first!
-            }
-            let paymentMethods = customer.paymentMethods as! Set<PaymentMethod>
-            for method in paymentMethods {
-                if (method.id == paymentMethodID) {
-                    order.paymentMethod = method
-                }
-            }
-            let cart = customer.cart! as NSSet
-            order.addToProducts(cart)
-            order.itemSubtotals = customer.cartItemSubtotals
-            order.itemQuantities = customer.cartItemQuantities
-            order.total = customer.cartTotal
-            order.customer = customer
-            customer.cart = DBHelper.cartSet
-            customer.cartItemQuantities = DBHelper.cartItemQuantities
-            customer.cartItemSubtotals = DBHelper.cartItemSubtotals
-            try context?.save()
-        } catch (let exception) {
-            print(exception.localizedDescription)
+        if (DBHelper.currentUser != "") {
+            fetchReq.predicate = NSPredicate(format: "username == %@", DBHelper.currentUser)
+        } else if (DBHelper.currentPhone != 0) {
+            fetchReq.predicate = NSPredicate(format: "phoneNumber == %@,", DBHelper.currentPhone)
         }
-        
-    }
-    
-    func checkout(paymentMethodID: UUID, forCustomerWithPhone number: Int64) {
-        DBHelper.cartSet = []
-        DBHelper.cartItemSubtotals = [:]
-        DBHelper.cartItemQuantities = [:]
-        
-        let order = Order(context: context!)
-        order.date = Date()
-        order.status = .placed
-        order.id = UUID()
-        var customer = Customer()
-        let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Customer")
-        fetchReq.predicate = NSPredicate(format: "phoneNumber == %@", number)
         fetchReq.fetchLimit = 1
         
         do {
             let res = try context?.fetch(fetchReq) as! [Customer]
             if (res.count != 0) {
                 customer = res.first!
-            }
-            let paymentMethods = customer.paymentMethods as! Set<PaymentMethod>
-            for method in paymentMethods {
-                if (method.id == paymentMethodID) {
-                    order.paymentMethod = method
-                }
             }
             let cart = customer.cart! as NSSet
             order.addToProducts(cart)
@@ -84,6 +42,7 @@ extension DBHelper {
             customer.cart = DBHelper.cartSet
             customer.cartItemQuantities = DBHelper.cartItemQuantities
             customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+            customer.cartTotal = 0.0
             try context?.save()
         } catch (let exception) {
             print(exception.localizedDescription)
