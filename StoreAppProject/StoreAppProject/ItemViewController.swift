@@ -57,14 +57,11 @@ class ItemViewController: UIViewController {
         //self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-  
-//        self.present(dashboard, animated: true, completion: nil)
-        
-
-        
-       // self.presentingViewController?.dismiss(animated: true, completion: nil)
+    @IBAction func addToWishlist(_ sender: Any) {
+        DBHelper.inst.addToWishlist(productID: (product?.id)!)
+    }
     
-  
+
 
 
 
