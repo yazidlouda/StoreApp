@@ -106,7 +106,7 @@ class AddPaymentOptionViewController: UIViewController, UITextFieldDelegate {
         for method in methods {
             print(method.firstName, method.lastName, method.accountNum, method.routingNum, method.cardNum, method.cvc, method.zip, method.expDate)
             */
-        print(DBHelper.inst.getCustomer(withEmailID: username).paymentMethods)
+        print(DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser).paymentMethods)
         self.presentingViewController?.dismiss(animated: true)
     }
     

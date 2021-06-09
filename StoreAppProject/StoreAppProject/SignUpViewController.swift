@@ -33,8 +33,11 @@ class SignUpViewController: UIViewController {
               alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
               
               // show the alert
-              self.present(alert, animated: true, completion: nil)
-                  
+//              self.present(alert, animated: true, completion: nil)
+            let mainBoard = UIStoryboard(name:"Main", bundle: nil)
+            let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+            loginPage.modalPresentationStyle = .fullScreen
+            self.present(loginPage, animated: true, completion: nil)
                   
           } else if (username.text!.isEmpty && password.text!.isEmpty) {
               let alert = UIAlertController(title: "Error.", message: "No account details provided. Account not created.", preferredStyle: UIAlertController.Style.alert)
