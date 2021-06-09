@@ -68,6 +68,7 @@ extension DBHelper {
         print(refetchedCustomer.orders)
         
     }
+
     
     func getAllUserOrders(username: String) -> Array<String> {
         let order : [Order]
@@ -80,4 +81,5 @@ extension DBHelper {
         return orderIDs
     }
     
+
 }

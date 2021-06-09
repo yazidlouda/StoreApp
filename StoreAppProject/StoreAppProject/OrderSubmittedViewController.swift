@@ -22,6 +22,7 @@ class OrderSubmittedViewController: UIViewController {
         orderNumber.text = String(order.prefix(upTo: index))
         
         boxAnimateUp()
+
         
         func boxAnimateUp() {
             UIView.animateKeyframes(withDuration: 0.7, delay: 0, animations: {

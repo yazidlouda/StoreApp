@@ -26,7 +26,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
         }
-        animateRight()
+        
         func animateRight() {
             UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
                 self.logo.transform = CGAffineTransform(rotationAngle: 170)
