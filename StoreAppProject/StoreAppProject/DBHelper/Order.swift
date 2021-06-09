@@ -65,4 +65,16 @@ extension DBHelper {
         
     }
     
+//    func getAllUserOrders(username: String) -> [Order] {\
+    func getAllUserOrders(username: String) -> Array<String> {
+        let order : [Order]
+        var orderIDs : [String] = []
+        let customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
+        order = customer.orders?.allObjects as! [Order]
+        for allOrders in order {
+            orderIDs.append(allOrders.id!.uuidString)
+        }
+        return orderIDs
+    }
+    
 }

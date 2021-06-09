@@ -11,11 +11,6 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var orderNumber: UILabel!
-    @IBOutlet weak var trackButton: UIButton!
-    @IBOutlet weak var refundButton: UIButton!
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

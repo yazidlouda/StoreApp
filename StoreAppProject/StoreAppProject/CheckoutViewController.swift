@@ -41,7 +41,7 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     @IBAction func submitOrder(_ sender: Any) {
         
-        //DBHelper.inst.checkout(paymentMethodID: cus.paymentMethods, forCustomerWithEmailID: DBHelper.currentUser)
+        DBHelper.inst.checkout()
     }
 }
 
