@@ -10,7 +10,8 @@ import CoreData
 
 extension DBHelper {
     
-    static var orderNum : UUID = UUID()
+//    static var orderNum : UUID = UUID()
+    static var orderNum : String = ""
     
     func checkout() {
         DBHelper.cartSet = []
@@ -46,7 +47,7 @@ extension DBHelper {
             customer.cartItemQuantities = DBHelper.cartItemQuantities
             customer.cartItemSubtotals = DBHelper.cartItemSubtotals
             customer.cartTotal = 0.0
-            DBHelper.orderNum = order.id!
+            DBHelper.orderNum = order.id!.uuidString
             try context?.save()
         } catch (let exception) {
             print(exception.localizedDescription)

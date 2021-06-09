@@ -9,7 +9,6 @@ import UIKit
 
 class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var shippingAddressEntry: UITextField!
-    
     @IBOutlet weak var paymentOptionPicker: UIPickerView!
     @IBOutlet weak var shippingOptionPicker: UIPickerView!
     let db = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
@@ -61,24 +60,24 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
        
         if pickerView.tag == 1 {
             
-            return shippingOptions[row]
-        } else {
             return paymentOptions[row]
+        } else {
+            return shippingOptions[row]
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
+        switch [row, pickerView.tag] {
+        case [0, 2]:
             if(db.cartTotal >= 50.00){
 
                 self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
             }
             if(db.cartTotal < 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 10.00).description
+                self.orderTotal.text = "$" + (db.cartTotal + 10).description
             }
             print("item one",row)
-        case 1:
+        case [1, 2]:
 
             if(db.cartTotal >= 50.00){
 
@@ -103,6 +102,10 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         }else{
             DBHelper.inst.checkout()
+            let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+            let orderSubmittedController = mainBoard.instantiateViewController(withIdentifier: "orderSubmittedController") as! OrderSubmittedViewController
+            orderSubmittedController.modalPresentationStyle = .fullScreen
+            self.present(orderSubmittedController, animated: true)
         }
         
     }

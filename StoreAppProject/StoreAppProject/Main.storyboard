@@ -665,7 +665,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$20.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aX-Ar-5UU">
-                                <rect key="frame" x="246" y="673" width="67" height="26"/>
+                                <rect key="frame" x="246" y="673" width="116" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
@@ -730,7 +730,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="submitOrder:" destination="ZXI-Qf-W5H" eventType="touchUpInside" id="1Xe-Sm-fyv"/>
-                                    <segue destination="LyB-VW-gqZ" kind="presentation" modalPresentationStyle="fullScreen" id="HWu-Tm-Jbo"/>
                                 </connections>
                             </button>
                             <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CM0-l3-veC">
@@ -769,7 +768,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrp-2j-PKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="788"/>
+            <point key="canvasLocation" x="2792.753623188406" y="787.5"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Q4b-30-CQx">
@@ -1014,7 +1013,7 @@
         <!--Order Submitted View Controller-->
         <scene sceneID="i2i-j5-VMJ">
             <objects>
-                <viewController id="LyB-VW-gqZ" customClass="OrderSubmittedViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderSubmittedController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LyB-VW-gqZ" customClass="OrderSubmittedViewController" customModule="StoreAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLD-5U-xth">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3595,8 +3594,8 @@
         <segue reference="3VI-bR-B62"/>
         <segue reference="ggX-p5-AV2"/>
         <segue reference="mYq-75-2HH"/>
-        <segue reference="Fq6-Zh-zOo"/>
-        <segue reference="MwO-tH-GR5"/>
+        <segue reference="nvO-OR-XHA"/>
+        <segue reference="ilT-Pq-sEb"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>

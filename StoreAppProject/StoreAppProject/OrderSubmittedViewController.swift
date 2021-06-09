@@ -11,15 +11,15 @@ class OrderSubmittedViewController: UIViewController {
     @IBOutlet weak var truck: UIImageView!
     @IBOutlet weak var box: UIImageView!
     @IBOutlet weak var orderNumber: UILabel!
-    
+    var orderNumberValue : String = DBHelper.orderNum
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let order = DBHelper.orderNum.uuidString
-        let index = order.index(order.startIndex, offsetBy: 8)
+//        let order = DBHelper.orderNum
+        let index = orderNumberValue.index(orderNumberValue.startIndex, offsetBy: 8)
         
-        orderNumber.text = String(order.prefix(upTo: index))
+        orderNumber.text = String(orderNumberValue.prefix(upTo: index))
         
         boxAnimateUp()
 
