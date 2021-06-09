@@ -52,17 +52,8 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     @IBAction func enter(_ sender: Any) {
         let mainBoard = UIStoryboard(name:"Main", bundle: nil)
         let tabBar = mainBoard.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-
-    @IBAction func login(_ sender: Any) {
-
-        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
-        let dashboard = mainBoard.instantiateViewController(withIdentifier: "dashboard") as! UserDashboardViewController
-        dashboard.modalPresentationStyle = .fullScreen
-        let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
-
-        tabBar.modalPresentationStyle = .fullScreen
-        present(tabBar, animated: true)
     }
+
     @IBAction func login(_ sender: Any) {
         var customer : Customer
         if let phone = Int(username.text!) {
@@ -103,7 +94,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         }
 
         
-
+    }
         
 //         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
 
@@ -128,7 +119,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
 //         }
 
 
-    }
+
     
     
     
