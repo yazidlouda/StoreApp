@@ -50,17 +50,6 @@ extension DBHelper {
                 let resC = try context?.fetch(fetchReqC) as! [Customer]
                 if (resC.count != 0) {
                     customer = resC.first!
-
-//             if (resC.count != 0){
-//                 customer = resC.first!
-//                 DBHelper.cartSet = customer.cart!
-
-//                 if (DBHelper.cartSet.contains(product)) {
-//                     print("product already in cart, updating quantity")
-//                     DBHelper.cartItemQuantities[product.id!]! += Int64(quantity)
-//                     DBHelper.cartItemSubtotals[product.id!]! += ( product.price * Double(quantity) )
-                    
-
                 } else {
                     print("customer not found")
                 }
