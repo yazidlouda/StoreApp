@@ -32,10 +32,12 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProfileTableViewCell
+        let order : String = ordersIDs[indexPath.row]
+               let index = order.index(order.startIndex, offsetBy: 8)
         
-        cell.orderNumber.text = ordersIDs[indexPath.row]
+        cell.orderNumber.text = String(order.prefix(upTo: index))
         
-        cell.textLabel!.text = ordersIDs[indexPath.row]
+        //cell.textLabel!.text = String(order.prefix(upTo: index))
         return cell
 
     }

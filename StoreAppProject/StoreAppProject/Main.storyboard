@@ -729,7 +729,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="submitOrder:" destination="ZXI-Qf-W5H" eventType="touchUpInside" id="1Xe-Sm-fyv"/>
+                                    <action selector="submitOrder:" destination="ZXI-Qf-W5H" eventType="touchUpInside" id="ogx-PA-g1F"/>
                                     <segue destination="LyB-VW-gqZ" kind="presentation" modalPresentationStyle="fullScreen" id="HWu-Tm-Jbo"/>
                                 </connections>
                             </button>

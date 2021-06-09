@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 extension DBHelper {
+    static var orderNum: UUID?
     func checkout() {
         DBHelper.cartSet = []
         DBHelper.cartItemSubtotals = [:]

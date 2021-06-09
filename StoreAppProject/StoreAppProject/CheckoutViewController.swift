@@ -96,14 +96,9 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     @IBAction func submitOrder(_ sender: Any) {
-        if shippingAddressEntry.text == nil{
-            let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        }else{
+        
             DBHelper.inst.checkout()
-        }
+        
         
     }
     
