@@ -124,18 +124,6 @@ extension CartViewController: UITableViewDataSource {
     }
     
     
-    @IBAction func checkout(_ sender: Any) {
-        let product = DBHelper.inst.getAllProducts()
-        for i in product {
-           
-//                orderInstance.orderItems.append(i)
-      
-                
-            }
-        
-       
-    }
-    
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
@@ -143,10 +131,10 @@ extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             
-            var array = Array(self.db.cart!)
+            //var array = Array(self.db.cart!)
             tableView.beginUpdates()
-            
-            array.remove(at: indexPath.row)
+            DBHelper.inst.deleteFromCart(productID: cartData[indexPath.row].id!)
+            cartData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             tableView.endUpdates()

@@ -8,11 +8,15 @@
 import UIKit
 
 class WishlistDetailsViewController: UIViewController {
+
     @IBOutlet weak var signInButton: UIButton!
     
     var wishListInstance = WishList.sharedInstance
     var products: [Product]?
     let db = DBHelper.inst.getCustomer(withEmailID: "y")
+
+    var wishlistData = Array(DBHelper.wishlistSet)
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,7 +28,7 @@ class WishlistDetailsViewController: UIViewController {
         }
         tableView.delegate = self
         tableView.dataSource = self
-        print(wishListInstance.wishListItems as Any)
+        //print(wishListInstance.wishListItems as Any)
         tableView.rowHeight = 150
         // Do any additional setup after loading the view.
         //CartTableViewCell().removeFromCart.isHidden = true
@@ -40,31 +44,34 @@ class WishlistDetailsViewController: UIViewController {
 }
 extension WishlistDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishListInstance.wishListItems.count
+        return wishlistData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "WishListTableViewCell", for: indexPath) as! WishListTableViewCell
-        var array = Array(db.cart!)
-            cell.itemImage.image = array[indexPath.row].image
-            cell.name.text = array[indexPath.row].name
-            cell.itemPrice.text = array[indexPath.row].price.description
-            cell.itemDescription.text = array[indexPath.row].info
-           
+        cell.itemImage.image = wishlistData[indexPath.row].image
+        cell.name.text = wishlistData[indexPath.row].name
+        cell.itemDescription.text = wishlistData[indexPath.row].description
+        cell.itemPrice.text = "$" + wishlistData[indexPath.row].price.description
+        //cell.index = indexPath.row
         return cell
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        DBHelper.inst.deleteFromWishlist(productID: wishlistData[indexPath.row].id!)
         if editingStyle == .delete{
             tableView.beginUpdates()
-            wishListInstance.wishListItems.remove(at: indexPath.row)
+            DBHelper.inst.deleteFromWishlist(productID: wishlistData[indexPath.row].id!)
+            wishlistData.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             tableView.endUpdates()
            
         }
+        
     }
     @IBAction func profileClicked(_ sender: UIButton) {
         let mainBoard = UIStoryboard(name: "Main", bundle: nil)

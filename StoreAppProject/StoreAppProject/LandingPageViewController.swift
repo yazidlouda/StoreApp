@@ -41,6 +41,8 @@ class LandingPageViewController: UIViewController {
         let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
         loginPage.modalPresentationStyle = .fullScreen
         
+        DBHelper.wishlistSet = []
+        
         if DBHelper.isLoggedIn == true {
             DBHelper.cartSet = []
             DBHelper.cartItemSubtotals = [:]
