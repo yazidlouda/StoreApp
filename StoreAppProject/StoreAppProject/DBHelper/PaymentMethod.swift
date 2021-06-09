@@ -151,4 +151,23 @@ extension DBHelper {
         let refetchedCustomer = DBHelper.inst.getCustomer(withEmailID: username)
         print(refetchedCustomer.paymentMethods)
     }
+    
+//    func getPaymentMethod(id: UUID) -> PaymentMethod {
+//        var pay = PaymentMethod()
+//        let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"PaymentMethod")
+//        fetchReq.predicate = NSPredicate(format: "id == %@", id.uuidString)
+//        fetchReq.fetchLimit = 1
+//
+//        do {
+//            let res = try context?.fetch(fetchReq) as! [PaymentMethod]
+//            if (res.count != 0){
+//                pay = res.first!
+//            } else {
+//                "no department found with that name"
+//            }
+//        } catch (let exception) {
+//            print(exception.localizedDescription)
+//        }
+//        return pay
+//    }
 }

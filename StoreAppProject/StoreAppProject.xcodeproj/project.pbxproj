@@ -81,6 +81,7 @@
 		F4583B6E265C84B40051D5D6 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4583B6C265C84B40051D5D6 /* CartTableViewCell.xib */; };
 		F491C87A266AAD0E003A7983 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C879266AAD0E003A7983 /* TabBarViewController.swift */; };
 		F4958FE6266E748100FC28F2 /* Customer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4958FE5266E748100FC28F2 /* Customer+CoreDataClass.swift */; };
+		F4959050267071FD00FC28F2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495904F267071FD00FC28F2 /* ProfileTableViewCell.swift */; };
 		F4B66F0E26601C1F0096BE05 /* ToysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F0D26601C1F0096BE05 /* ToysViewController.swift */; };
 		F4B66F1326601C700096BE05 /* ToysViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F1226601C700096BE05 /* ToysViewController+Extension.swift */; };
 		F4B66F18266021260096BE05 /* OutdoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B66F17266021260096BE05 /* OutdoorViewController.swift */; };
@@ -201,6 +202,7 @@
 		F491C879266AAD0E003A7983 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F491C89F266C6AF6003A7983 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		F4958FE5266E748100FC28F2 /* Customer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Customer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F495904F267071FD00FC28F2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F4B66F0D26601C1F0096BE05 /* ToysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToysViewController.swift; sourceTree = "<group>"; };
 		F4B66F1226601C700096BE05 /* ToysViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToysViewController+Extension.swift"; sourceTree = "<group>"; };
 		F4B66F17266021260096BE05 /* OutdoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorViewController.swift; sourceTree = "<group>"; };
@@ -296,9 +298,10 @@
 				5E03944E265801C5009639B7 /* ViewController.swift */,
 				5E039138266EA4D70043BE44 /* ReviewViewController.swift */,
 				5EAC6355266AD7C700ED80F8 /* ProfilePageViewController.swift */,
-				5E03948D2658191D009639B7 /* CheckoutViewController.swift */,
+				F495904F267071FD00FC28F2 /* ProfileTableViewCell.swift */,
 				5E039485265816DC009639B7 /* LandingPageViewController.swift */,
 				5E03948226580F0A009639B7 /* LoginPageViewController.swift */,
+				5E03948D2658191D009639B7 /* CheckoutViewController.swift */,
 				5E5B88D2266ABE4200F1B805 /* Cart.swift */,
 				5E03948126580F0A009639B7 /* SignUpViewController.swift */,
 				5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */,
@@ -735,6 +738,7 @@
 				5E60BDD2265998A700874292 /* OrderStatusViewController.swift in Sources */,
 				F4B66F22266023340096BE05 /* HomeGoodViewController.swift in Sources */,
 				F491C87A266AAD0E003A7983 /* TabBarViewController.swift in Sources */,
+				F4959050267071FD00FC28F2 /* ProfileTableViewCell.swift in Sources */,
 				5ED7063C266E74AF006CEECC /* Customer+CoreDataProperties.swift in Sources */,
 				84D09565266938D100C72821 /* Department+CoreDataClass.swift in Sources */,
 				F4B66F27266023810096BE05 /* HomeGoodViewController+Extension.swift in Sources */,

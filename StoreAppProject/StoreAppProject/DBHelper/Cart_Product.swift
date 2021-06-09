@@ -155,26 +155,7 @@ extension DBHelper {
                 } else {
                     print("product not found")
 
-//         do {
-//             let resC = try context?.fetch(fetchReqC) as! [Customer]
-//             let resP = try context?.fetch(fetchReqP) as! [Product]
-//             if (resP.count != 0){
-//                 product = resP.first!
-//                 print("product found: ", product)
-//             } else {
-//                 print("product not found")
-//             }
-            
-//             if (resC.count != 0) {
-//                 customer = resC.first!
-//                 DBHelper.cartItemQuantities = customer.cartItemQuantities!
-//                 DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
-//                 DBHelper.cartItemQuantities[productID] = Int64(quantity)
-//                 DBHelper.cartItemSubtotals[productID] = Double(quantity) * product.price
-//                 var updatedTotal = 0.0
-//                 for prod in customer.cart! {
-//                     let quantity = DBHelper.cartItemQuantities[prod.id!]!
-//                     updatedTotal += (Double(quantity) * prod.price)
+
 
                 }
             } catch (let exception) {

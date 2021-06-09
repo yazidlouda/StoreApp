@@ -39,4 +39,9 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             return paymentOptions[row]
         }
     }
+    @IBAction func submitOrder(_ sender: Any) {
+        
+        //DBHelper.inst.checkout(paymentMethodID: cus.paymentMethods, forCustomerWithEmailID: DBHelper.currentUser)
+    }
 }
+

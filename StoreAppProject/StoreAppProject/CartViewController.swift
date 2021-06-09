@@ -54,6 +54,7 @@ class CartViewController: UIViewController {
         }
     }
     
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,12 +84,6 @@ extension CartViewController: UITableViewDataSource {
         //let data = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
         return cartData.count
 
-//         let data = DBHelper.inst.getCustomer(withEmailID: "y")
-
-        
-//         return data.cart!.count
-        
-        
 
         
     }
@@ -109,30 +104,11 @@ extension CartViewController: UITableViewDataSource {
         }
 
 
-//         var array = Array(db.cart!)
-//         cell.itemImage1.image = array[indexPath.row].image
-//         cell.itemName1.text = array[indexPath.row].name
-//             cell.itemPrice.text = array[indexPath.row].price.description
-//             cell.itemDescription.text = array[indexPath.row].info
-           
-           
      
 
         return cell
     }
     
-    
-    @IBAction func checkout(_ sender: Any) {
-        let product = DBHelper.inst.getAllProducts()
-        for i in product {
-           
-//                orderInstance.orderItems.append(i)
-      
-                
-            }
-        
-       
-    }
     
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -141,26 +117,14 @@ extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             
-            var array = Array(self.db.cart!)
+            //var array = Array(self.db.cart!)
             tableView.beginUpdates()
-            
-            array.remove(at: indexPath.row)
+            DBHelper.inst.deleteFromCart(productID: cartData[indexPath.row].id!)
+            cartData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             tableView.endUpdates()
-//            totalNoShipp.text = "$" + cartInstance.getTotal().description
-//            if(cartInstance.getTotal() >= 50.00){
-//                shipping.text = "$" + 20.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 20.00).description
-//            }
-//            if(cartInstance.getTotal() < 50.00){
-//                shipping.text = "$" + 10.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 10.00).description
-//            }
-//            if(cartInstance.getTotal() == 0.00){
-//                shipping.text = "$" + 0.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 0.00).description
-//            }
+
         }
     }
 }
