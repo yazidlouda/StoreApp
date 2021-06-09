@@ -26,6 +26,7 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         if DBHelper.isLoggedIn == true {
             signInButton.setTitle("Sign Out", for: .normal)
         } else {
@@ -33,18 +34,14 @@ class CartViewController: UIViewController {
         }
    
 
+
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = 150
         tableView.reloadData()
-        //let p = parent as! TabBarViewController
-        //cartData = Array(DBHelper.cartSet)
-        //cartData = Array(DBHelper.cartSet)
+
         print("data: ", cartData)
-        //tableView.reloadData()
-        //print("DBHelper.cartSet: ", DBHelper.cartSet)
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func checkoutClicked(_ sender: UIButton) {
@@ -64,25 +61,27 @@ class CartViewController: UIViewController {
         }
     }
     
-    /*
+
+    
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           tableView.reloadData()
-        totalNoShipp.text = "$" + cartInstance.getTotal().description
-        if(cartInstance.getTotal() >= 50.00){
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        var total = DBHelper.cartTotal
+        totalNoShipp.text = "$" + total.description
+        if(total >= 50.00){
             shipping.text = "$" + 20.00.description
-            total.text = "$" + (cartInstance.getTotal() + 20.00).description
+            self.total.text = "$" + (total + 20.00).description
         }
-        if(cartInstance.getTotal() < 50.00){
+        if(total < 50.00){
             shipping.text = "$" + 10.00.description
-            total.text = "$" + (cartInstance.getTotal() + 10.00).description
+            self.total.text = "$" + (total + 10.00).description
         }
-        if(cartInstance.getTotal() == 0.00){
+        if(total == 0.00){
             shipping.text = "$" + 0.00.description
-            total.text = "$" + (cartInstance.getTotal() + 0.00).description
+            self.total.text = "$" + (total + 0.00).description
         }
         
-    }*/
+    }
 
 }
 extension CartViewController: UITableViewDataSource {
@@ -92,12 +91,6 @@ extension CartViewController: UITableViewDataSource {
         //let data = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
         return cartData.count
 
-//         let data = DBHelper.inst.getCustomer(withEmailID: "y")
-
-        
-//         return data.cart!.count
-        
-        
 
         
     }
@@ -107,17 +100,17 @@ extension CartViewController: UITableViewDataSource {
 
         cell.itemImage1.image = cartData[indexPath.row].image
         cell.itemName1.text = cartData[indexPath.row].name
-        cell.itemPrice.text = cartData[indexPath.row].price.description
         cell.itemDescription.text = cartData[indexPath.row].info
+        cell.quantity.text = String(DBHelper.cartItemQuantities[cartData[indexPath.row].id!]!)
+        
+        if (DBHelper.cartItemQuantities[cartData[indexPath.row].id!]! > 1) {
+            cell.itemPrice.text = String(DBHelper.cartItemSubtotals[cartData[indexPath.row].id!]!)
+        } else {
+            cell.itemPrice.text = cartData[indexPath.row].price.description
+            
+        }
 
 
-//         var array = Array(db.cart!)
-//         cell.itemImage1.image = array[indexPath.row].image
-//         cell.itemName1.text = array[indexPath.row].name
-//             cell.itemPrice.text = array[indexPath.row].price.description
-//             cell.itemDescription.text = array[indexPath.row].info
-           
-           
      
 
         return cell
@@ -138,19 +131,7 @@ extension CartViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             tableView.endUpdates()
-//            totalNoShipp.text = "$" + cartInstance.getTotal().description
-//            if(cartInstance.getTotal() >= 50.00){
-//                shipping.text = "$" + 20.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 20.00).description
-//            }
-//            if(cartInstance.getTotal() < 50.00){
-//                shipping.text = "$" + 10.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 10.00).description
-//            }
-//            if(cartInstance.getTotal() == 0.00){
-//                shipping.text = "$" + 0.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 0.00).description
-//            }
+
         }
     }
     

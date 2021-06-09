@@ -560,6 +560,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9l-ev-Xbb">
+                                                    <rect key="frame" x="336" y="78" width="18" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -567,6 +574,7 @@
                                             <outlet property="itemImage1" destination="HLO-Or-x2c" id="lq7-C7-QpD"/>
                                             <outlet property="itemName1" destination="eR2-pR-dnD" id="sDd-X5-nsS"/>
                                             <outlet property="itemPrice" destination="INq-2S-Ohp" id="fEk-if-VBM"/>
+                                            <outlet property="quantity" destination="Z9l-ev-Xbb" id="Y8r-9z-Fhv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -721,6 +729,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="submitOrder:" destination="ZXI-Qf-W5H" eventType="touchUpInside" id="1Xe-Sm-fyv"/>
                                     <segue destination="LyB-VW-gqZ" kind="presentation" modalPresentationStyle="fullScreen" id="HWu-Tm-Jbo"/>
                                 </connections>
                             </button>
@@ -2069,8 +2078,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
+
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="9kx-h9-M1K" customClass="ProfileTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9kx-h9-M1K" id="4Cv-NE-QVa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -2120,9 +2131,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+
                                             <outlet property="orderNumber" destination="mtF-Fi-5u6" id="EJQ-PF-NZY"/>
                                             <outlet property="refundButton" destination="YcG-Ob-8xU" id="MFz-Hz-20Y"/>
                                             <outlet property="trackButton" destination="GJG-TV-h2g" id="INz-B3-tLO"/>
+
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2183,10 +2196,14 @@
                     <tabBarItem key="tabBarItem" title="Dashboard" image="person" catalog="system" id="EN6-UJ-5li"/>
                     <navigationItem key="navigationItem" id="QpA-9C-WZ0"/>
                     <connections>
+
+                        <outlet property="tableView" destination="6nw-tc-22M" id="MTQ-Ad-2tt"/>
+
                         <outlet property="accountBalance" destination="cx8-Lx-ezJ" id="CU5-r5-LMt"/>
                         <outlet property="phoneNumber" destination="7VS-5N-OzQ" id="aor-OY-1rw"/>
                         <outlet property="refundButton" destination="6nw-tc-22M" id="WVP-vD-ezk"/>
                         <outlet property="trackButton" destination="6nw-tc-22M" id="w31-fa-0Fv"/>
+
                         <outlet property="usernameLabel" destination="Chv-1Y-bgQ" id="bU9-Z7-21I"/>
                     </connections>
                 </viewController>
@@ -3163,7 +3180,9 @@
         <segue reference="ggX-p5-AV2"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="Xsn-Fa-Ni1"/>
+
         <segue reference="MwO-tH-GR5"/>
+
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>
