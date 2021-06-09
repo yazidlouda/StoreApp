@@ -15,7 +15,7 @@ class RefundSuccessfulViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        moneyAnimateLeft()
         
         func moneyAnimateLeft() {
             UIView.animateKeyframes(withDuration: 0.85, delay: 0.5, animations: {

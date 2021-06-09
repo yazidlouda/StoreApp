@@ -22,6 +22,8 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         username.delegate = self
         password.delegate = self
         
+        animateRight()
+        
         if (sw.isOn) { // if the switch is on, remember the last username/password combo entered and automatically enter it for the user
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
