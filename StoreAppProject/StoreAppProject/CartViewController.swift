@@ -59,25 +59,7 @@ class CartViewController: UIViewController {
         }
     }
     
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           tableView.reloadData()
-        totalNoShipp.text = "$" + cartInstance.getTotal().description
-        if(cartInstance.getTotal() >= 50.00){
-            shipping.text = "$" + 20.00.description
-            total.text = "$" + (cartInstance.getTotal() + 20.00).description
-        }
-        if(cartInstance.getTotal() < 50.00){
-            shipping.text = "$" + 10.00.description
-            total.text = "$" + (cartInstance.getTotal() + 10.00).description
-        }
-        if(cartInstance.getTotal() == 0.00){
-            shipping.text = "$" + 0.00.description
-            total.text = "$" + (cartInstance.getTotal() + 0.00).description
-        }
-        
-    }*/
+  
 
 }
 extension CartViewController: UITableViewDataSource {
@@ -87,12 +69,6 @@ extension CartViewController: UITableViewDataSource {
         //let data = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
         return cartData.count
 
-//         let data = DBHelper.inst.getCustomer(withEmailID: "y")
-
-        
-//         return data.cart!.count
-        
-        
 
         
     }
@@ -106,13 +82,6 @@ extension CartViewController: UITableViewDataSource {
         cell.itemDescription.text = cartData[indexPath.row].info
 
 
-//         var array = Array(db.cart!)
-//         cell.itemImage1.image = array[indexPath.row].image
-//         cell.itemName1.text = array[indexPath.row].name
-//             cell.itemPrice.text = array[indexPath.row].price.description
-//             cell.itemDescription.text = array[indexPath.row].info
-           
-           
      
 
         return cell
@@ -133,19 +102,7 @@ extension CartViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             tableView.endUpdates()
-//            totalNoShipp.text = "$" + cartInstance.getTotal().description
-//            if(cartInstance.getTotal() >= 50.00){
-//                shipping.text = "$" + 20.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 20.00).description
-//            }
-//            if(cartInstance.getTotal() < 50.00){
-//                shipping.text = "$" + 10.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 10.00).description
-//            }
-//            if(cartInstance.getTotal() == 0.00){
-//                shipping.text = "$" + 0.00.description
-//                total.text = "$" + (cartInstance.getTotal() + 0.00).description
-//            }
+
         }
     }
 }

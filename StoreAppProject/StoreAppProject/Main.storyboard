@@ -692,6 +692,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="submitOrder:" destination="ZXI-Qf-W5H" eventType="touchUpInside" id="1Xe-Sm-fyv"/>
                                     <segue destination="LyB-VW-gqZ" kind="presentation" modalPresentationStyle="fullScreen" id="HWu-Tm-Jbo"/>
                                 </connections>
                             </button>
@@ -2031,7 +2032,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9kx-h9-M1K">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileTableViewCell" id="9kx-h9-M1K" customClass="ProfileTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9kx-h9-M1K" id="4Cv-NE-QVa">
@@ -2075,6 +2076,11 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="orderNumber" destination="mtF-Fi-5u6" id="Npf-3X-Aju"/>
+                                            <outlet property="refundButton" destination="YcG-Ob-8xU" id="hs2-56-JfM"/>
+                                            <outlet property="trackButton" destination="GJG-TV-h2g" id="0Gj-9r-emY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -2130,6 +2136,9 @@
                     <tabBarItem key="tabBarItem" title="Dashboard" image="person" catalog="system" id="EN6-UJ-5li"/>
                     <navigationItem key="navigationItem" id="QpA-9C-WZ0"/>
                     <connections>
+                        <outlet property="accountBalance" destination="Zke-Ss-B7L" id="KjX-iG-eKE"/>
+                        <outlet property="phoneNumber" destination="7VS-5N-OzQ" id="Xlr-GP-6WI"/>
+                        <outlet property="tableView" destination="6nw-tc-22M" id="MTQ-Ad-2tt"/>
                         <outlet property="usernameLabel" destination="Chv-1Y-bgQ" id="bU9-Z7-21I"/>
                     </connections>
                 </viewController>
@@ -3093,7 +3102,7 @@
         <segue reference="vTS-Il-9v6"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="Xsn-Fa-Ni1"/>
-        <segue reference="Qdf-et-bRH"/>
+        <segue reference="ilT-Pq-sEb"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>

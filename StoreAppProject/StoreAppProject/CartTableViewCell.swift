@@ -12,10 +12,6 @@ class CartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itemImage1: UIImageView!
     @IBOutlet weak var itemName1: UILabel!
-    
-    
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
     var index: Int?
