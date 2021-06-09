@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cJP-Dr-XFX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cJP-Dr-XFX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -529,7 +529,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="176" id="tsR-6B-eUu" customClass="CartTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="176"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="176"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tsR-6B-eUu" id="PnV-up-5Vb">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="176"/>
@@ -665,7 +665,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$20.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aX-Ar-5UU">
-                                <rect key="frame" x="246" y="673" width="67" height="26"/>
+                                <rect key="frame" x="246" y="673" width="148" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
@@ -678,15 +678,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Option:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iju-BF-j3y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shipping Option:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iju-BF-j3y">
                                 <rect key="frame" x="20" y="229" width="137" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shipping Option:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-5p-Q1H">
-                                <rect key="frame" x="20" y="319" width="137" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Option:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-5p-Q1H">
+                                <rect key="frame" x="20" y="319" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -761,6 +761,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dC4-JV-Jev"/>
                     <connections>
+                        <outlet property="orderTotal" destination="4aX-Ar-5UU" id="MYh-Yf-Chb"/>
                         <outlet property="paymentOptionPicker" destination="wXf-Cc-OWr" id="cu1-5b-2a5"/>
                         <outlet property="shippingAddressEntry" destination="sF5-0R-hlu" id="JL3-4a-9to"/>
                         <outlet property="shippingOptionPicker" destination="SYQ-Jv-8UT" id="IPP-ji-rak"/>
@@ -768,7 +769,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrp-2j-PKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="788"/>
+            <point key="canvasLocation" x="2792.753623188406" y="787.5"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Q4b-30-CQx">
@@ -1835,7 +1836,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -2078,10 +2079,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="9kx-h9-M1K" customClass="ProfileTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9kx-h9-M1K" id="4Cv-NE-QVa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -2131,11 +2130,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-
-                                            <outlet property="orderNumber" destination="mtF-Fi-5u6" id="EJQ-PF-NZY"/>
-                                            <outlet property="refundButton" destination="YcG-Ob-8xU" id="MFz-Hz-20Y"/>
-                                            <outlet property="trackButton" destination="GJG-TV-h2g" id="INz-B3-tLO"/>
-
+                                            <outlet property="orderNumber" destination="mtF-Fi-5u6" id="d2z-sT-4TB"/>
+                                            <outlet property="refundButton" destination="YcG-Ob-8xU" id="AGO-wl-uYg"/>
+                                            <outlet property="trackButton" destination="GJG-TV-h2g" id="0w5-G3-95L"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2196,14 +2193,9 @@
                     <tabBarItem key="tabBarItem" title="Dashboard" image="person" catalog="system" id="EN6-UJ-5li"/>
                     <navigationItem key="navigationItem" id="QpA-9C-WZ0"/>
                     <connections>
-
-                        <outlet property="tableView" destination="6nw-tc-22M" id="MTQ-Ad-2tt"/>
-
                         <outlet property="accountBalance" destination="cx8-Lx-ezJ" id="CU5-r5-LMt"/>
                         <outlet property="phoneNumber" destination="7VS-5N-OzQ" id="aor-OY-1rw"/>
-                        <outlet property="refundButton" destination="6nw-tc-22M" id="WVP-vD-ezk"/>
-                        <outlet property="trackButton" destination="6nw-tc-22M" id="w31-fa-0Fv"/>
-
+                        <outlet property="tableView" destination="6nw-tc-22M" id="xvu-rF-aRV"/>
                         <outlet property="usernameLabel" destination="Chv-1Y-bgQ" id="bU9-Z7-21I"/>
                     </connections>
                 </viewController>
@@ -2409,7 +2401,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishListTableViewCell" rowHeight="137" id="94C-Ct-Hc7" customClass="WishListTableViewCell" customModule="StoreAppProject" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="49.5" width="334" height="137"/>
+                                        <rect key="frame" x="20" y="55.5" width="334" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="94C-Ct-Hc7" id="qad-nm-Sy8">
                                             <rect key="frame" x="0.0" y="0.0" width="334" height="137"/>
@@ -3180,9 +3172,7 @@
         <segue reference="ggX-p5-AV2"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="Xsn-Fa-Ni1"/>
-
-        <segue reference="MwO-tH-GR5"/>
-
+        <segue reference="ilT-Pq-sEb"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>

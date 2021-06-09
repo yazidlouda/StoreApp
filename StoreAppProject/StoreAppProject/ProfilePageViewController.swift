@@ -2,59 +2,40 @@
 //  ProfilePageViewController.swift
 //  StoreAppProject
 //
-//  Created by Scott Benson on 6/4/21.
+//  Created by Home on 6/9/21.
 //
-
 import UIKit
 
 
 class ProfilePageViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
-               
-        cell.orderNumber.text = "1"
-               return cell
-    }
-    
-    @IBOutlet weak var phoneNumber: UILabel!
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
-    @IBOutlet weak var accountBalance: UILabel!
-    @IBOutlet weak var trackButton: UITableView!
-    @IBOutlet weak var refundButton: UITableView!
+    var ordersIDs : Array<String> = []
     
-    
+    @IBOutlet weak var tableView: UITableView!
     let userData : Customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
     
     @IBOutlet weak var accountBalance: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = DBHelper.currentUser
-
+        tableView.reloadData()
         phoneNumber.text = String(userData.phoneNumber)
         accountBalance.text = String("$\(userData.giftCardBalance)")
-//        print(DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser))
-        print(userData)
+        ordersIDs = DBHelper.inst.getAllUserOrders(username: DBHelper.currentUser)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        userData.orders?.count ?? 0
-        return 1
+        return ordersIDs.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProfileTableViewCell
         
-        cell.textLabel!.text = "textData[indexPath.row]"
+        cell.orderNumber.text = ordersIDs[indexPath.row]
+        
+        cell.textLabel!.text = ordersIDs[indexPath.row]
         return cell
 
     }

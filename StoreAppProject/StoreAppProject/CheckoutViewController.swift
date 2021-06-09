@@ -12,12 +12,34 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var paymentOptionPicker: UIPickerView!
     @IBOutlet weak var shippingOptionPicker: UIPickerView!
-    
+    let db = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
+    @IBOutlet weak var orderTotal: UILabel!
     var shippingOptions = ["Standard", "Expedited +$10.00"]
     var paymentOptions = ["Credit Card", "Bank Account"]
     
+    override func viewWillAppear(_ animated: Bool) {
+       
+        
+           
+            orderTotal.text = db.cartTotal.description
+            if(db.cartTotal >= 50.00){
+                
+                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+            }
+            if(db.cartTotal < 50.00){
+               
+                self.orderTotal.text = "$" + (db.cartTotal + 10.00).description
+            }
+            if(db.cartTotal == 0.00){
+                
+                self.orderTotal.text = "$" + (db.cartTotal + 0.00).description
+            }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -25,6 +47,8 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    
+       
         if pickerView.tag == 1 {
             return shippingOptions.count
         } else {
@@ -33,15 +57,56 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       
+       
         if pickerView.tag == 1 {
+            
             return shippingOptions[row]
         } else {
             return paymentOptions[row]
         }
     }
-    @IBAction func submitOrder(_ sender: Any) {
-        
-        //DBHelper.inst.checkout(paymentMethodID: cus.paymentMethods, forCustomerWithEmailID: DBHelper.currentUser)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch row {
+        case 0:
+            if(db.cartTotal >= 50.00){
+
+                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+            }
+            if(db.cartTotal < 50.00){
+
+                self.orderTotal.text = "$" + (db.cartTotal + 10.00).description
+            }
+            print("item one",row)
+        case 1:
+
+            if(db.cartTotal >= 50.00){
+
+                self.orderTotal.text = "$" + (db.cartTotal + 30.00).description
+            }
+            if(db.cartTotal < 50.00){
+
+                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+            }
+            
+            
+            print("item two",row)
+        default:
+            print("1")
+        }
     }
+    @IBAction func submitOrder(_ sender: Any) {
+        if shippingAddressEntry.text == nil{
+            let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        }else{
+            DBHelper.inst.checkout()
+        }
+        
+    }
+    
+  
 }
 

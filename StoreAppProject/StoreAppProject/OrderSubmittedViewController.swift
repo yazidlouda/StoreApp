@@ -15,7 +15,7 @@ class OrderSubmittedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        boxAnimateUp()
+       
         
         func boxAnimateUp() {
             UIView.animateKeyframes(withDuration: 0.7, delay: 0, animations: {
