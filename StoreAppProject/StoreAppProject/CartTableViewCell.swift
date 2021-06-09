@@ -15,6 +15,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
     var index: Int?
+    @IBOutlet weak var quantity: UILabel!
     
     var cartInstance = Cart.sharedInstance
     var WishListInst = WishList.sharedInstance
