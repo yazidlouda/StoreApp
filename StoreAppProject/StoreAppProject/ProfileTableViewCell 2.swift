@@ -10,7 +10,8 @@
 import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var orderNumber: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +22,13 @@ class ProfileTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func trackSelected(_ sender: UIButton) {
+    }
+    
+    @IBAction func refundSelected(_ sender: UIButton) {
+        
+    }
+    
 
 }

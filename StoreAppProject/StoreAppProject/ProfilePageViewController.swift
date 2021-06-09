@@ -26,6 +26,7 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
         phoneNumber.text = String(userData.phoneNumber)
         accountBalance.text = String("$\(userData.giftCardBalance)")
         ordersIDs = DBHelper.inst.getAllUserOrders(username: DBHelper.currentUser)
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,9 +36,10 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProfileTableViewCell
 
-        cell.orderNumber.text = ordersIDs[indexPath.row]
- 
-        cell.textLabel!.text = ordersIDs[indexPath.row]
+        let order : String = ordersIDs[indexPath.row]
+        let index = order.index(order.startIndex, offsetBy: 8)
+        
+        cell.textLabel!.text = String(order.prefix(upTo: index))
         return cell
 
     }

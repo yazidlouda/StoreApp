@@ -761,6 +761,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dC4-JV-Jev"/>
                     <connections>
+                        <outlet property="orderTotal" destination="4aX-Ar-5UU" id="PKr-yi-aXM"/>
                         <outlet property="paymentOptionPicker" destination="wXf-Cc-OWr" id="cu1-5b-2a5"/>
                         <outlet property="shippingAddressEntry" destination="sF5-0R-hlu" id="JL3-4a-9to"/>
                         <outlet property="shippingOptionPicker" destination="SYQ-Jv-8UT" id="IPP-ji-rak"/>
@@ -1938,7 +1939,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -2189,7 +2190,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtF-Fi-5u6">
-                                                    <rect key="frame" x="20" y="5" width="134" height="33"/>
+                                                    <rect key="frame" x="20" y="5" width="155" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2209,6 +2210,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
+                                                        <action selector="trackSelected:" destination="9kx-h9-M1K" eventType="touchUpInside" id="cm2-xY-ssF"/>
                                                         <segue destination="gGB-qB-3hx" kind="show" id="I4Y-Em-1rV"/>
                                                     </connections>
                                                 </button>
@@ -2226,12 +2228,15 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="refundSelected:" destination="HNo-BP-IHs1" eventType="touchUpInside" id="udo-pM-ONr"/>
+                                                        <action selector="refundSelected:" destination="9kx-h9-M1K" eventType="touchUpInside" id="Ch3-bI-IwX"/>
                                                         <segue destination="BrJ-2v-IMT" kind="show" id="I7x-11-3fh"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="orderNumber" destination="mtF-Fi-5u6" id="Tf8-DA-gYw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2293,6 +2298,7 @@
                     <connections>
                         <outlet property="accountBalance" destination="cx8-Lx-ezJ" id="CU5-r5-LMt"/>
                         <outlet property="phoneNumber" destination="7VS-5N-OzQ" id="aor-OY-1rw"/>
+                        <outlet property="tableView" destination="6nw-tc-22M" id="fgC-Jr-I91"/>
                         <outlet property="usernameLabel" destination="Chv-1Y-bgQ" id="bU9-Z7-21I"/>
                     </connections>
                 </viewController>
@@ -3584,14 +3590,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QTc-6K-0CZ"/>
         <segue reference="TNC-p0-Zue"/>
         <segue reference="TjK-Ub-UOf"/>
         <segue reference="3VI-bR-B62"/>
         <segue reference="ggX-p5-AV2"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="Fq6-Zh-zOo"/>
-        <segue reference="Bni-P3-HLW"/>
+        <segue reference="MwO-tH-GR5"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>
