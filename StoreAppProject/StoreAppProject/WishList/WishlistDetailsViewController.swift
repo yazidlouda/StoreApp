@@ -49,14 +49,18 @@ extension WishlistDetailsViewController: UITableViewDataSource {
         return .delete
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        DBHelper.inst.deleteFromWishlist(productID: wishlistData[indexPath.row].id!)
         if editingStyle == .delete{
             tableView.beginUpdates()
             DBHelper.inst.deleteFromWishlist(productID: wishlistData[indexPath.row].id!)
+            wishlistData.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             tableView.endUpdates()
            
         }
+        
     }
     
 }
