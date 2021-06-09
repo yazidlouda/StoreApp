@@ -36,33 +36,34 @@ class DBHelper {
     }
     
     //Adds a new customer to the database using emailID as identifier
-    func addCustomer(password: String, withEmailID username: String) {
+//    func addCustomer(password: String, withEmailID username: String) {
+//
+//        let customer = NSEntityDescription.insertNewObject(forEntityName: "Customer", into: context!) as! Customer
+//
+//        customer.username = username
+//        customer.password = password
+//        customer.cartItemQuantities = DBHelper.cartItemQuantities
+//        customer.cartItemSubtotals = DBHelper.cartItemSubtotals
+//        //var p = Product()
+//        //pro.append(p)
+//        //customer.cart = pro
+//        do {
+//            try context?.save()
+//        } catch(let exception) {
+//            print(exception.localizedDescription)
+//        }
+//
+//
+//    }
+//
+    //Adds a new customer to the database using phone number as identifier
+    func addCustomer(username: String, password: String, PhoneNumber: Int64) {
         
         let customer = NSEntityDescription.insertNewObject(forEntityName: "Customer", into: context!) as! Customer
         
         customer.username = username
         customer.password = password
-        customer.cartItemQuantities = DBHelper.cartItemQuantities
-        customer.cartItemSubtotals = DBHelper.cartItemSubtotals
-        //var p = Product()
-        //pro.append(p)
-        //customer.cart = pro
-        do {
-            try context?.save()
-        } catch(let exception) {
-            print(exception.localizedDescription)
-        }
-        
-        
-    }
-    
-    //Adds a new customer to the database using phone number as identifier
-    func addCustomer(password: String, withPhone number: Int64) {
-        
-        let customer = NSEntityDescription.insertNewObject(forEntityName: "Customer", into: context!) as! Customer
-        
-        customer.phoneNumber = number
-        customer.password = password
+        customer.phoneNumber = PhoneNumber
         customer.cartItemQuantities = DBHelper.cartItemQuantities
         customer.cartItemSubtotals = DBHelper.cartItemSubtotals
         

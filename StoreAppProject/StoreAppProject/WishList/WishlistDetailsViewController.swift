@@ -8,6 +8,8 @@
 import UIKit
 
 class WishlistDetailsViewController: UIViewController {
+    @IBOutlet weak var signInButton: UIButton!
+    
     var wishListInstance = WishList.sharedInstance
     var products: [Product]?
     let db = DBHelper.inst.getCustomer(withEmailID: "y")
@@ -15,7 +17,11 @@ class WishlistDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        if DBHelper.isLoggedIn == true {
+            signInButton.setTitle("Sign Out", for: .normal)
+        } else {
+            signInButton.setTitle("Sign In", for: .normal)
+        }
         tableView.delegate = self
         tableView.dataSource = self
         print(wishListInstance.wishListItems as Any)
@@ -60,7 +66,41 @@ extension WishlistDetailsViewController: UITableViewDataSource {
            
         }
     }
+    @IBAction func profileClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profilePage = mainBoard.instantiateViewController(withIdentifier: "profilePage") as! ProfilePageViewController
+        profilePage.modalPresentationStyle = .fullScreen
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            self.tabBarController?.present(profilePage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
     
+    @IBAction func signoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            DBHelper.cartSet = []
+            DBHelper.cartItemSubtotals = [:]
+            DBHelper.cartItemQuantities = [:]
+            DBHelper.currentUser = ""
+            DBHelper.found = 1
+            DBHelper.isLoggedIn = false
+            DBHelper.cartTotal = 0.0
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
 }
 
 extension WishlistDetailsViewController: UITableViewDelegate {

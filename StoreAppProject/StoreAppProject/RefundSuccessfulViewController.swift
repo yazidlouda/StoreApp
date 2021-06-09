@@ -10,11 +10,12 @@ import UIKit
 class RefundSuccessfulViewController: UIViewController {
     @IBOutlet weak var money: UIImageView!
     @IBOutlet weak var wallet: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //moneyAnimateLeft()
+        moneyAnimateLeft()
         
         func moneyAnimateLeft() {
             UIView.animateKeyframes(withDuration: 0.85, delay: 0.5, animations: {
@@ -36,4 +37,16 @@ class RefundSuccessfulViewController: UIViewController {
             }, completion: {_ in moneyAnimateLeft()})
         }
     }
+    
+    @IBAction func returnSelected(_ sender: UIButton) {
+        
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+
+        let profilePage = mainBoard.instantiateViewController(withIdentifier: "profilePage") as! ProfilePageViewController
+        profilePage.modalPresentationStyle = .fullScreen
+        self.present(profilePage, animated: true, completion: nil)
+        
+    }
+    
+    
 }
