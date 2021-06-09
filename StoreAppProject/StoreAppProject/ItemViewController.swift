@@ -34,7 +34,6 @@ class ItemViewController: UIViewController {
     var rat1: Double?
 //    var cartInstance = Cart.sharedInstance
 
-
     var WishListInst = WishList.sharedInstance
     static var dt: String?
     override func viewDidLoad() {
@@ -45,11 +44,15 @@ class ItemViewController: UIViewController {
         itemDescription.text = product?.info
         itemPrice.text = String(product!.price)
         
-
+        DBHelper.currentProduct = product!
+        print(DBHelper.inst.getReviewScore())
+        
+        rat.rating = Double(DBHelper.inst.getReviewScore())
    
     }
    
     @IBAction func addToCart(_ sender: Any) {
+
 
         //let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
         //dashboard.modalPresentationStyle = .fullScreen
