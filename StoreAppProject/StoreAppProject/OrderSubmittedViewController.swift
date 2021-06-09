@@ -10,10 +10,16 @@ import UIKit
 class OrderSubmittedViewController: UIViewController {
     @IBOutlet weak var truck: UIImageView!
     @IBOutlet weak var box: UIImageView!
+    @IBOutlet weak var orderNumber: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let order = DBHelper.orderNum.uuidString
+        let index = order.index(order.startIndex, offsetBy: 8)
+        
+        orderNumber.text = String(order.prefix(upTo: index))
         
         boxAnimateUp()
         

@@ -16,6 +16,8 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
     
     let userData : Customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
     
+    let refundSubmitVC = RefundSubmitViewController()
+    
     @IBOutlet weak var accountBalance: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
