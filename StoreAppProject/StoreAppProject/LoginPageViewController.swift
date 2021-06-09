@@ -24,9 +24,10 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         
         animateRight()
         
-        if (sw.isOn) { // if the switch is on, remember the last username/password combo entered and automatically enter it for the user
-            username.text = ud.string(forKey: "username")
-            password.text = ud.string(forKey: "username")
+        username.text = ud.string(forKey: "username")
+        password.text = ud.string(forKey: "password")
+        if ud.bool(forKey: "switchBool") {
+            sw.isOn = true
         }
         
         func animateRight() {
@@ -46,6 +47,16 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         }
     }
     
+    @IBAction func rememberMeState(_ sender: UISwitch) {
+        if sender.isOn {
+            ud.set(username.text, forKey: "username")
+            ud.set(password.text, forKey: "password")
+        } else {
+            ud.removeObject(forKey: "username")
+            ud.removeObject(forKey: "password")
+        }
+        ud.set(sw.isOn, forKey: "switchBool")
+    }
 
     @IBAction func enter(_ sender: Any) {
         let mainBoard = UIStoryboard(name:"Main", bundle: nil)

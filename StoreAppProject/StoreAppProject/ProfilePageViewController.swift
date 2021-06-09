@@ -24,7 +24,7 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
         usernameLabel.text = DBHelper.currentUser
         tableView.reloadData()
         phoneNumber.text = String(userData.phoneNumber)
-        accountBalance.text = String("$\(userData.giftCardBalance)")
+        accountBalance.text = String(format: "$%.2f", userData.giftCardBalance)
         ordersIDs = DBHelper.inst.getAllUserOrders(username: DBHelper.currentUser)
         
     }

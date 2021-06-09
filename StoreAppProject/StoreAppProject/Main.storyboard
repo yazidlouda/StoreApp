@@ -876,13 +876,16 @@
                                     <segue destination="zDH-IU-9VZ" kind="presentation" modalPresentationStyle="fullScreen" id="QTc-6K-0CZ"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TaY-SR-Xzc">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TaY-SR-Xzc">
                                 <rect key="frame" x="337" y="482" width="49" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="724-TM-PrL"/>
                                     <constraint firstAttribute="height" constant="31" id="NUj-bj-kf8"/>
                                 </constraints>
                                 <color key="onTintColor" red="0.13425554840000001" green="0.3252290209" blue="0.68127818939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="rememberMeState:" destination="yDh-nK-7Qi" eventType="valueChanged" id="cX1-Io-v8v"/>
+                                </connections>
                             </switch>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Hhy-Q9-yGG">
                                 <rect key="frame" x="87" y="126" width="240" height="172"/>
@@ -1938,7 +1941,7 @@
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="znq-77-exS">
-                                                                                        <rect key="frame" x="10" y="13.5" width="426" height="372"/>
+                                                                                        <rect key="frame" x="10" y="14" width="426" height="372"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nsC-Y2-JkD">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="426" height="372"/>
@@ -3589,13 +3592,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="hS7-Jm-uyM"/>
         <segue reference="TNC-p0-Zue"/>
         <segue reference="TjK-Ub-UOf"/>
         <segue reference="3VI-bR-B62"/>
         <segue reference="ggX-p5-AV2"/>
         <segue reference="mYq-75-2HH"/>
         <segue reference="nvO-OR-XHA"/>
-        <segue reference="ilT-Pq-sEb"/>
+        <segue reference="Bni-P3-HLW"/>
         <segue reference="JYb-IY-jaZ"/>
     </inferredMetricsTieBreakers>
     <resources>

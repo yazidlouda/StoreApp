@@ -23,15 +23,15 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             orderTotal.text = db.cartTotal.description
             if(db.cartTotal >= 50.00){
                 
-                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 20.00)
             }
             if(db.cartTotal < 50.00){
                
-                self.orderTotal.text = "$" + (db.cartTotal + 10.00).description
+                self.orderTotal.text = String(format: "$%.2f", 10.00)
             }
             if(db.cartTotal == 0.00){
                 
-                self.orderTotal.text = "$" + (db.cartTotal + 0.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 0.00)
             }
         
     }
@@ -70,22 +70,22 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         case [0, 2]:
             if(db.cartTotal >= 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 20.00)
             }
             if(db.cartTotal < 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 10).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 10)
             }
             print("item one",row)
         case [1, 2]:
 
             if(db.cartTotal >= 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 30.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 30.00)
             }
             if(db.cartTotal < 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 20.00)
             }
             
             
