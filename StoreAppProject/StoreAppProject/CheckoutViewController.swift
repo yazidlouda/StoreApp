@@ -8,7 +8,9 @@
 import UIKit
 
 class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    @IBOutlet weak var shippingAddressEntry: UITextField!
+    static var addressEntered : Bool = false
+    static var addressDisplayValue : String = "Not yet entered."
+    @IBOutlet weak var addressDisplayLabel: UILabel!
     @IBOutlet weak var paymentOptionPicker: UIPickerView!
     @IBOutlet weak var shippingOptionPicker: UIPickerView!
     let db = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
@@ -18,7 +20,7 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewWillAppear(_ animated: Bool) {
        
-        
+        addressDisplayLabel.text = CheckoutViewController.addressDisplayValue
            
             orderTotal.text = db.cartTotal.description
             if(db.cartTotal >= 50.00){
@@ -34,11 +36,6 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 0.00)
             }
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -95,12 +92,13 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     @IBAction func submitOrder(_ sender: Any) {
-        if shippingAddressEntry.text == nil{
+        if CheckoutViewController.addressEntered == false {
             let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        }else{
+            present(alert, animated: true)
+        } else {
             DBHelper.inst.checkout()
             let mainBoard = UIStoryboard(name: "Main", bundle: nil)
             let orderSubmittedController = mainBoard.instantiateViewController(withIdentifier: "orderSubmittedController") as! OrderSubmittedViewController

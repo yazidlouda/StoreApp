@@ -34,6 +34,7 @@
 		5E60BDD0265995C400874292 /* RefundSuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60BDCF265995C400874292 /* RefundSuccessfulViewController.swift */; };
 		5E60BDD2265998A700874292 /* OrderStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60BDD1265998A700874292 /* OrderStatusViewController.swift */; };
 		5EA3C6492671407000F9B5D5 /* ProfileTableViewCell 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA3C6482671407000F9B5D5 /* ProfileTableViewCell 2.swift */; };
+		5EA3C64B26719E5200F9B5D5 /* EnterAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA3C64A26719E5200F9B5D5 /* EnterAddressViewController.swift */; };
 		5EAC6354266AC33900ED80F8 /* DBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */; };
 		5ED7063C266E74AF006CEECC /* Customer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED7063B266E74AF006CEECC /* Customer+CoreDataProperties.swift */; };
 		8445DD6826643F1600FBD1AC /* MethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445DD6726643F1600FBD1AC /* MethodType.swift */; };
@@ -150,6 +151,7 @@
 		5E60BDCF265995C400874292 /* RefundSuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundSuccessfulViewController.swift; sourceTree = "<group>"; };
 		5E60BDD1265998A700874292 /* OrderStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewController.swift; sourceTree = "<group>"; };
 		5EA3C6482671407000F9B5D5 /* ProfileTableViewCell 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileTableViewCell 2.swift"; sourceTree = "<group>"; };
+		5EA3C64A26719E5200F9B5D5 /* EnterAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAddressViewController.swift; sourceTree = "<group>"; };
 		5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBTestViewController.swift; sourceTree = "<group>"; };
 		5ED7063B266E74AF006CEECC /* Customer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Customer+CoreDataProperties.swift"; path = "StoreAppProject/Model/Customer+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		73DF1952154DC716E6C2304C /* Pods_StoreAppProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 				F4371337265DD0C600F17811 /* WishList */,
 				5E03944A265801C5009639B7 /* AppDelegate.swift */,
 				5E03944C265801C5009639B7 /* SceneDelegate.swift */,
+				5EA3C64A26719E5200F9B5D5 /* EnterAddressViewController.swift */,
 				5E03944E265801C5009639B7 /* ViewController.swift */,
 				5E039138266EA4D70043BE44 /* ReviewViewController.swift */,
 				5E039485265816DC009639B7 /* LandingPageViewController.swift */,
@@ -758,6 +761,7 @@
 				8484F3FC266DD920000316DC /* Product+CoreDataProperties.swift in Sources */,
 				84D09567266938D100C72821 /* Product+CoreDataClass.swift in Sources */,
 				5E03948A2658184A009639B7 /* ItemViewController.swift in Sources */,
+				5EA3C64B26719E5200F9B5D5 /* EnterAddressViewController.swift in Sources */,
 				845C7E34266E66230046E86C /* Wishlist.swift in Sources */,
 				5E039137266E9C700043BE44 /* Review.swift in Sources */,
 				F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */,
