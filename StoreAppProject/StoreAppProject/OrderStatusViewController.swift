@@ -14,7 +14,7 @@ class OrderStatusViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getLocation()
-
+        orderNumber.text = OrderStatusViewController.order
     }
     
     let ann = MKPointAnnotation()

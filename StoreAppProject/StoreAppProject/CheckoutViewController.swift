@@ -94,21 +94,21 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func submitOrder(_ sender: Any) {
 
         
-        
+        DBHelper.inst.checkout()
 
-        if CheckoutViewController.addressEntered == false {
-            let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            present(alert, animated: true)
-        } else {
-            DBHelper.inst.checkout()
-            let mainBoard = UIStoryboard(name: "Main", bundle: nil)
-            let orderSubmittedController = mainBoard.instantiateViewController(withIdentifier: "orderSubmittedController") as! OrderSubmittedViewController
-            orderSubmittedController.modalPresentationStyle = .fullScreen
-            self.present(orderSubmittedController, animated: true)
-        }
+//        if CheckoutViewController.addressEntered == false {
+//            let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
+//
+//            // add an action (button)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//            present(alert, animated: true)
+//        } else {
+//            DBHelper.inst.checkout()
+//            let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+//            let orderSubmittedController = mainBoard.instantiateViewController(withIdentifier: "orderSubmittedController") as! OrderSubmittedViewController
+//            orderSubmittedController.modalPresentationStyle = .fullScreen
+//            self.present(orderSubmittedController, animated: true)
+//        }
 
         
     }

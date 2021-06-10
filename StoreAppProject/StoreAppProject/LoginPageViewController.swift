@@ -39,7 +39,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
             self.logo.transform = CGAffineTransform(rotationAngle: 170)
         }, completion: { [self]_ in animateLeft()})
-
+    }
     @IBAction func rememberMeState(_ sender: UISwitch) {
         if sender.isOn {
             ud.set(username.text, forKey: "username")

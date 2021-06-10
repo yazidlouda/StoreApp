@@ -101,14 +101,8 @@ extension CartViewController: UITableViewDataSource {
         cell.itemImage1.image = cartData[indexPath.row].image
         cell.itemName1.text = cartData[indexPath.row].name
         cell.itemDescription.text = cartData[indexPath.row].info
-        //cell.quantity.text = String(DBHelper.cartItemQuantities[cartData[indexPath.row].id!]!)
-        
-//        if (DBHelper.cartItemQuantities[cartData[indexPath.row].id!]! > 1) {
-//            cell.itemPrice.text = String(DBHelper.cartItemSubtotals[cartData[indexPath.row].id!]!)
-//        } else {
-            cell.itemPrice.text = cartData[indexPath.row].price.description
-//
-//        }
+        cell.itemPrice.text = cartData[indexPath.row].price.description
+
 
 
      

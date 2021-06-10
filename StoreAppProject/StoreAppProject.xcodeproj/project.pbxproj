@@ -305,6 +305,7 @@
 				5E03948D2658191D009639B7 /* CheckoutViewController.swift */,
 				5E5B88D2266ABE4200F1B805 /* Cart.swift */,
 				5EA3C6482671407000F9B5D5 /* ProfileTableViewCell 2.swift */,
+				F49590682670FFB000FC28F2 /* ProfilePageViewController.swift */,
 				5E03948126580F0A009639B7 /* SignUpViewController.swift */,
 				5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */,
 				F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */,
@@ -330,7 +331,6 @@
 				5E039453265801C5009639B7 /* StoreAppProject.xcdatamodeld */,
 				F491C879266AAD0E003A7983 /* TabBarViewController.swift */,
 				F491C89F266C6AF6003A7983 /* Cart.swift */,
-				F49590682670FFB000FC28F2 /* ProfilePageViewController.swift */,
 			);
 			path = StoreAppProject;
 			sourceTree = "<group>";

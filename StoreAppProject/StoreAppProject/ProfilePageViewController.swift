@@ -45,10 +45,6 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
         let order : String = ordersIDs[indexPath.row]
         let index = order.index(order.startIndex, offsetBy: 8)
 
-        
-        
-        let order : String = ordersIDs[indexPath.row]
-        let index = order.index(order.startIndex, offsetBy: 8)
         let a = String(order.prefix(upTo: index))
         
         

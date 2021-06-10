@@ -22,9 +22,9 @@ class OrderSubmittedViewController: UIViewController {
         
 
 //        let order = DBHelper.orderNum
-        let index = orderNumberValue.index(orderNumberValue.startIndex, offsetBy: 8)
+    //    let index = orderNumberValue.index(orderNumberValue.startIndex, offsetBy: 8)
         
-        orderNumber.text = String(orderNumberValue.prefix(upTo: index))
+      //  orderNumber.text = String(orderNumberValue.prefix(upTo: index))
         
         boxAnimateUp()
 
@@ -51,7 +51,7 @@ class OrderSubmittedViewController: UIViewController {
         func truckAnimateLeft() {
             UIView.animateKeyframes(withDuration: 1.25, delay: 0, animations: {
                 self.truck.transform = CGAffineTransform(translationX: 0, y: 0)
-            }, completion: {_ in boxAnimateLeft()})
+            }, completion: { [self]_ in boxAnimateLeft()})
         }
 
         

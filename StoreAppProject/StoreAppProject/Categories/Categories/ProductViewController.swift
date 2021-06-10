@@ -19,6 +19,10 @@ class ProductViewController: UIViewController ,UISearchBarDelegate{
         override func viewDidLoad() {
         super.viewDidLoad()
         products = DBHelper.inst.getProductsForDepartment(name: "clothing")
+            products?.append(contentsOf: DBHelper.inst.getProductsForDepartment(name: "kitchen"))
+            products?.append(contentsOf: DBHelper.inst.getProductsForDepartment(name: "toys"))
+            products?.append(contentsOf: DBHelper.inst.getProductsForDepartment(name: "outdoors"))
+            products?.append(contentsOf: DBHelper.inst.getProductsForDepartment(name: "home good"))
         setupUI()
         searchBar.delegate = self
         filteredData = products
