@@ -6,53 +6,75 @@
 //
 
 import UIKit
-
+import Cosmos
 class ItemViewController: UIViewController {
+    @IBOutlet weak var addReviewButton: UIButton!
+
+    var username : String?
+    var phone : Int64?
+    var product : Product?
 
     
+    @IBOutlet weak var rat: CosmosView!
+
+    @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemname: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
+
     var image: UIImage?
     var name: String?
     var itemInfo: String?
     var index: Int?
+    var price: Double?
     var cartInstance = Cart.sharedInstance
+
+    
+
+    var rat1: Double?
+//    var cartInstance = Cart.sharedInstance
+
     var WishListInst = WishList.sharedInstance
+    static var dt: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemname.text = name
-        itemImage.image = image
-        itemDescription.text = itemInfo
-        // Do any additional setup after loading the view.
+
+        itemname.text = product?.name
+        itemImage.image = product?.image
+        itemDescription.text = product?.info
+        itemPrice.text = String(product!.price)
+        
+        DBHelper.currentProduct = product!
+        
+        rat.rating = Double(DBHelper.inst.getReviewScore())
+   
     }
     
-    @IBAction func addToCart(_ sender: Any) {
-        let product = inventory[index!]
-        let haptic = UINotificationFeedbackGenerator()
-
-        if !cartInstance.cartItems.contains(where: {$0.name == product.name}) {
-        cartInstance.cartItems.append(product)
-            haptic.notificationOccurred(.success)
+    @IBAction func addReviewClicked(_ sender: UIButton) {
+        if DBHelper.isLoggedIn == true {
+            let reviewView = self.storyboard?.instantiateViewController(identifier: "Review") as! ReviewViewController
+            self.present(reviewView, animated: true, completion: nil)
         } else {
-            print("Product is already added to Cart")
-            haptic.notificationOccurred(.error)
+            let loginView = self.storyboard?.instantiateViewController(identifier: "loginPage") as! LoginPageViewController
+            loginView.modalPresentationStyle = .fullScreen
+            self.present(loginView, animated: true, completion: nil)
+                
         }
+    }
+    @IBAction func addToCart(_ sender: Any) {
+        DBHelper.inst.addToCart(productID: (product?.id)!, quantity: 1)
         
     }
+   
     
-    @IBAction func addToWishList(_ sender: Any) {
-        let product = inventory[index!]
-        let haptic = UINotificationFeedbackGenerator()
-
-        if !WishListInst.wishListItems.contains(where: {$0.name == product.name}) {
-            WishListInst.wishListItems.append(product)
-            haptic.notificationOccurred(.success)
-        } else {
-            print("Product is already added to Cart")
-            haptic.notificationOccurred(.error)
-        }
+    
+    @IBAction func addToWishlist(_ sender: Any) {
+        DBHelper.inst.addToWishlist(productID: (product?.id)!)
     }
     
+
+
+
+
 
 }

@@ -8,10 +8,11 @@
 import UIKit
 
 class OrderStatusViewController: UIViewController {
-
+    static var order = ""
+    @IBOutlet weak var orderNumber: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        orderNumber.text = OrderStatusViewController.order
         // Do any additional setup after loading the view.
     }
     

@@ -10,56 +10,69 @@ import UserNotifications
 
 
 class UserDashboardViewController: UIViewController {
-    @IBOutlet weak var clothingCollectionView: UICollectionView!
+    @IBOutlet weak var signInButton: UIButton!
     
+    var username : String?
+    var phone : Int64?
+    var clothingProducts : [Product]?
+    var kitchenProducts : [Product]?
+    var outdoorsProducts : [Product]?
+    
+    @IBOutlet weak var clothingCollectionView: UICollectionView!
     @IBOutlet weak var kitchenCollectionView: UICollectionView!
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if DBHelper.isLoggedIn == true {
+            signInButton.setTitle("Sign Out", for: .normal)
+        } else {
+            signInButton.setTitle("Sign In", for: .normal)
+        }
         setupUI()
         addLocalNotifaction()
+        clothingProducts = DBHelper.inst.getProductsForDepartment(name: "clothing")
+        kitchenProducts = DBHelper.inst.getProductsForDepartment(name: "kitchen")
+        outdoorsProducts = DBHelper.inst.getProductsForDepartment(name: "outdoors")
+       
         // Do any additional setup after loading the view.
     }
     
-    var clothing:[Item] = [
-        Item(name: "Elliot", price: 39.99, image: UIImage(named: "1")!, description: "The Elliot is a modern. "),
-        Item(name: "Bellona", price: 59.99, image: UIImage(named: "1")!, description: "The Bellona is a stylish ."),
-        Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "1")!, description: " Clubmaster is the iconic."),
-        Item(name: "Amelia", price: 29.99, image: UIImage(named: "1")!, description: "The Amelia E. Hepburn is a modern cat-eye "),
-        Item(name: "Ottoto", price: 49.99, image: UIImage(named: "1")!, description: "The Ottoto  is a full-rimmed."),
-        Item(name: "Andria", price: 69.99, image: UIImage(named: "1")!, description: "The Andria is a well-rounded frame ."),
-        Item(name: "Revel", price: 79.99, image: UIImage(named: "1")!, description: "The Revel  is a wrap-around ."),
-        Item(name: "Vogue", price: 39.99, image: UIImage(named: "1")!, description: "The Vogue VO5051S is a modern ."),
-        Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "1")!, description: "The Muse Ivor is a effortlessly cool ."),
-        Item(name: "Coach", price: 49.99, image: UIImage(named: "1")!, description: "The Coach HC8179 is an oversized square ."),
-    ]
+    @IBAction func profileClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profilePage = mainBoard.instantiateViewController(withIdentifier: "profilePage") as! ProfilePageViewController
+        profilePage.modalPresentationStyle = .fullScreen
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            self.tabBarController?.present(profilePage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
     
-   
-    var kitchen:[Item] = [
-        Item(name: "Elliot", price: 39.99, image: UIImage(named: "1")!, description: "The Elliot is a modern. "),
-        Item(name: "Bellona", price: 59.99, image: UIImage(named: "1")!, description: "The Bellona is a stylish ."),
-        Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "1")!, description: " Clubmaster is the iconic."),
-        Item(name: "Amelia", price: 29.99, image: UIImage(named: "1")!, description: "The Amelia E. Hepburn is a modern cat-eye "),
-        Item(name: "Ottoto", price: 49.99, image: UIImage(named: "1")!, description: "The Ottoto  is a full-rimmed."),
-        Item(name: "Andria", price: 69.99, image: UIImage(named: "1")!, description: "The Andria is a well-rounded frame ."),
-        Item(name: "Revel", price: 79.99, image: UIImage(named: "1")!, description: "The Revel  is a wrap-around ."),
-        Item(name: "Vogue", price: 39.99, image: UIImage(named: "1")!, description: "The Vogue VO5051S is a modern ."),
-        Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "1")!, description: "The Muse Ivor is a effortlessly cool ."),
-        Item(name: "Coach", price: 49.99, image: UIImage(named: "1")!, description: "The Coach HC8179 is an oversized square ."),
-    ]
-    var outdoor:[Item] = [
-        Item(name: "Elliot", price: 39.99, image: UIImage(named: "1")!, description: "The Elliot is a modern. "),
-        Item(name: "Bellona", price: 59.99, image: UIImage(named: "1")!, description: "The Bellona is a stylish ."),
-        Item(name: "Clubmaster", price: 99.99, image: UIImage(named: "1")!, description: " Clubmaster is the iconic."),
-        Item(name: "Amelia", price: 29.99, image: UIImage(named: "1")!, description: "The Amelia E. Hepburn is a modern cat-eye "),
-        Item(name: "Ottoto", price: 49.99, image: UIImage(named: "1")!, description: "The Ottoto  is a full-rimmed."),
-        Item(name: "Andria", price: 69.99, image: UIImage(named: "1")!, description: "The Andria is a well-rounded frame ."),
-        Item(name: "Revel", price: 79.99, image: UIImage(named: "1")!, description: "The Revel  is a wrap-around ."),
-        Item(name: "Vogue", price: 39.99, image: UIImage(named: "1")!, description: "The Vogue VO5051S is a modern ."),
-        Item(name: "Muse Ivor", price: 149.99, image: UIImage(named: "1")!, description: "The Muse Ivor is a effortlessly cool ."),
-        Item(name: "Coach", price: 49.99, image: UIImage(named: "1")!, description: "The Coach HC8179 is an oversized square ."),
-    ]
-    
+    @IBAction func signoutClicked(_ sender: UIButton) {
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+        loginPage.modalPresentationStyle = .fullScreen
+        
+        if DBHelper.isLoggedIn == true {
+            DBHelper.cartSet = []
+            DBHelper.cartItemSubtotals = [:]
+            DBHelper.cartItemQuantities = [:]
+            DBHelper.currentUser = ""
+            DBHelper.found = 1
+            DBHelper.isLoggedIn = false
+            DBHelper.cartTotal = 0.0
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        } else {
+            self.tabBarController?.present(loginPage, animated: true, completion: nil)
+        }
+    }
+
     //MARK: -> Class Methods
     
     func setupUI() {

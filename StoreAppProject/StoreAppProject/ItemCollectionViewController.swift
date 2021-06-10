@@ -12,16 +12,21 @@ import UIKit
 class ItemCollectionViewController: UICollectionViewController {
 
     @IBOutlet var collectView: UICollectionView!
+    var username : String?
+    var phone : Int64?
+    var products : [Product]?
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = DBHelper.inst.getProductsForDepartment(name: "clothing")
         collectView.dataSource = self
         collectView.delegate = self
+        username = "bcrits"
      
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return inventory.count
+        return products!.count
     }
    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,21 +34,20 @@ class ItemCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ItemCollectionViewCell
             
-        cell?.configure(with: inventory[indexPath.item])
+        cell?.configure(product: (products?[indexPath.item])!)
         
         return cell!
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewController =  storyboard?.instantiateViewController(identifier: "ItemViewController") as? ItemViewController
-    
-        viewController?.image = inventory[indexPath.item].image
-        viewController?.name = inventory[indexPath.item].name
-        viewController?.itemInfo = inventory[indexPath.item].description
-        viewController?.index  = indexPath.item
+        let viewController =  storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
+   
+        viewController.username = self.username
+        viewController.phone = self.phone
+        viewController.product = self.products?[indexPath.item]
         
         let haptic = UIImpactFeedbackGenerator(style: .soft)
         haptic.impactOccurred()
         
-        self.present(viewController!, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
 }

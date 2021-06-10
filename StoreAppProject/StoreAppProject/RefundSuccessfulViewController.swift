@@ -8,22 +8,46 @@
 import UIKit
 
 class RefundSuccessfulViewController: UIViewController {
+    @IBOutlet weak var money: UIImageView!
+    @IBOutlet weak var wallet: UIImageView!
+    static var order = ""
 
+    @IBOutlet weak var orderNumber: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        orderNumber.text = RefundSuccessfulViewController.order
+        moneyAnimateLeft()
+      
+    }
+    func moneyAnimateLeft() {
+        UIView.animateKeyframes(withDuration: 0.85, delay: 0.5, animations: {
+            self.money.transform = CGAffineTransform(translationX: -100, y: 0)
 
-        // Do any additional setup after loading the view.
+            self.money.transform = CGAffineTransform(translationX: -100, y: 100)
+
+            self.money.alpha = 0
+        }, completion: { [self]_ in moneyAnimateRight()})
     }
     
+    func moneyAnimateRight() {
+        UIView.animateKeyframes(withDuration: 0.78, delay: 0.25, animations: {
+            self.money.transform = CGAffineTransform(translationX: 0, y: 100)
+//                self.money.transform = CGAffineTransform(rotationAngle: 30)
+            self.money.transform = CGAffineTransform(translationX: 0, y: 0)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+            self.money.alpha = 1
+        }, completion: { [self]_ in moneyAnimateLeft()})
     }
-    */
+    @IBAction func returnSelected(_ sender: UIButton) {
+        
+        let mainBoard = UIStoryboard(name: "Main", bundle: nil)
 
+        let profilePage = mainBoard.instantiateViewController(withIdentifier: "profilePage") as! ProfilePageViewController
+        profilePage.modalPresentationStyle = .fullScreen
+        self.present(profilePage, animated: true, completion: nil)
+        
+    }
+    
+    
 }

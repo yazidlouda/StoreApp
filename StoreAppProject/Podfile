@@ -12,6 +12,7 @@ target 'StoreAppProject' do
     # Pods for testing
 pod 'SideMenu'
 pod 'FBSDKLoginKit'
+pod 'Cosmos'
   end
 
   target 'StoreAppProjectUITests' do

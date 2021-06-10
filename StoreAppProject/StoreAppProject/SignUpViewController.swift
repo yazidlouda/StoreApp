@@ -11,10 +11,11 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,19 +23,23 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-
-        
+//        let numAsText : String = phoneNumber.text
+        let number : Int64 = Int64(phoneNumber.text!)!
+        print(number)
           if (username.text!.isEmpty == false && password.text!.isEmpty == false) {
-              let dic = ["username" : username.text, "password" : password.text]
-//              DBHelper.inst.addCustomer(guestDataObject: dic as! [String:String])
+
+            DBHelper.inst.addCustomer( username: username.text!, password: password.text!, PhoneNumber: number)
               let alert = UIAlertController(title: "Signed Up", message: "Customer created.", preferredStyle: UIAlertController.Style.alert)
               
               // add an action (button)
               alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
               
               // show the alert
-              self.present(alert, animated: true, completion: nil)
-                  
+//              self.present(alert, animated: true, completion: nil)
+            let mainBoard = UIStoryboard(name:"Main", bundle: nil)
+            let loginPage = mainBoard.instantiateViewController(withIdentifier: "loginPage") as! LoginPageViewController
+            loginPage.modalPresentationStyle = .fullScreen
+            self.present(loginPage, animated: true, completion: nil)
                   
           } else if (username.text!.isEmpty && password.text!.isEmpty) {
               let alert = UIAlertController(title: "Error.", message: "No account details provided. Account not created.", preferredStyle: UIAlertController.Style.alert)
@@ -51,7 +56,6 @@ class SignUpViewController: UIViewController {
           password.text = ""
         firstName.text = ""
         lastName.text = ""
-        email.text = ""
         phoneNumber.text = ""
 
     }

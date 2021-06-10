@@ -9,8 +9,9 @@ import UIKit
 
 
 class LoginPageViewController: UIViewController , UITextFieldDelegate{
-
-
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var warningLabel: UILabel!
+    
     var ud = UserDefaults.standard
     
     @IBOutlet weak var sw: UISwitch!
@@ -20,41 +21,102 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
-
+        animateRight()
         if (sw.isOn) { // if the switch is on, remember the last username/password combo entered and automatically enter it for the user
             username.text = ud.string(forKey: "username")
             password.text = ud.string(forKey: "username")
-        }
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func login(_ sender: Any) {
-
-        let cus = DBHelper.inst.getCustomer(withEmailID: username.text!)
-        if (cus.username == nil || cus.password == nil){
-            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
-        if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
-           // let data = DBHelper.inst.getCustomer(withEmailID: username.text!)
-    
-            
-            let dashboard = self.storyboard?.instantiateViewController(identifier: "dashboard") as! UserDashboardViewController
-            dashboard.modalPresentationStyle = .fullScreen
-            self.present(dashboard, animated: true, completion: nil)
-        }
-        else{
-            let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
         }
         
+      
     }
+    
+    func animateRight() {
+        UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
+            self.logo.transform = CGAffineTransform(rotationAngle: 170)
+        }, completion: { [self]_ in animateLeft()})
+    }
+    func animateLeft() {
+        UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
+            self.logo.transform = CGAffineTransform(rotationAngle: 320)
+        }, completion: { [self]_ in animateCenter()})
+    }
+    func animateCenter() {
+        UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
+            self.logo.transform = CGAffineTransform(rotationAngle: 0)
+        }, completion: { [self]_ in animateRight()})
+    }
+   
+    @IBAction func login(_ sender: Any) {
+        var customer : Customer
+        if let phone = Int(username.text!) {
+            print(phone)
+            customer = DBHelper.inst.getCustomer(withPhone: phone)
+        } else {
+            customer = DBHelper.inst.getCustomer(withEmailID: username.text ?? "")
+        }
+        
+//        print("current phone: ", customer.phoneNumber)
+//        print("current username: ", customer.username)
+        let alert = UIAlertController(title: "Invalid Login", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+
+        if (DBHelper.found == 0) {
+            if (customer.password == password.text!) {
+                DBHelper.currentUser = username.text!
+                DBHelper.isLoggedIn = true
+                DBHelper.cartSet = customer.cart!
+                DBHelper.cartTotal = customer.cartTotal
+                print("customer's cart: ", customer.cart!)
+                print("DBHelper.cartSet: ", DBHelper.cartSet)
+                DBHelper.wishlistSet = customer.wishlist!
+                DBHelper.cartItemSubtotals = customer.cartItemSubtotals!
+                DBHelper.cartItemQuantities = customer.cartItemQuantities!
+                
+                let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBar = mainBoard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+                tabBar.modalPresentationStyle = .fullScreen
+                self.present(tabBar, animated: true)
+                
+            } else {
+                present(alert, animated: true)
+            }
+        } else {
+            present(alert, animated: true)
+        }
+
+        
+    }
+        
+//         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
+
+          
+//             print("account verified")
+            
+//             let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+//             dashboard.modalPresentationStyle = .fullScreen
+           
+//             self.present(dashboard, animated: true, completion: nil)
+
+//         }
+//          if (username.text != cus.username! && password.text != cus.password!){
+//             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+//             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+
+            
+            
+
+//             self.present(alert, animated: true, completion: nil)
+//         }
+
+
+
+    
+    
+    
+    
     
     @IBAction func rememberLogin(_ sender: UISwitch) {
         if (sw.isOn) {
@@ -65,8 +127,17 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
             ud.removeObject(forKey: "username")
             ud.removeObject(forKey: "password")
         }
-
     }
+    
     
 
 }
+
+    
+    
+    
+    
+    
+
+    
+
