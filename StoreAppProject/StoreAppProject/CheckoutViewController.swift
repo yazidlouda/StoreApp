@@ -8,8 +8,9 @@
 import UIKit
 
 class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    @IBOutlet weak var shippingAddressEntry: UITextField!
-    
+    static var addressEntered : Bool = false
+    static var addressDisplayValue : String = "Not yet entered."
+    @IBOutlet weak var addressDisplayLabel: UILabel!
     @IBOutlet weak var paymentOptionPicker: UIPickerView!
     @IBOutlet weak var shippingOptionPicker: UIPickerView!
     let db = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
@@ -19,27 +20,22 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewWillAppear(_ animated: Bool) {
        
-        
+        addressDisplayLabel.text = CheckoutViewController.addressDisplayValue
            
             orderTotal.text = db.cartTotal.description
             if(db.cartTotal >= 50.00){
                 
-                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 20.00)
             }
             if(db.cartTotal < 50.00){
                
-                self.orderTotal.text = "$" + (db.cartTotal + 10.00).description
+                self.orderTotal.text = String(format: "$%.2f", 10.00)
             }
             if(db.cartTotal == 0.00){
                 
-                self.orderTotal.text = "$" + (db.cartTotal + 0.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 0.00)
             }
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -61,32 +57,32 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
        
         if pickerView.tag == 1 {
             
-            return shippingOptions[row]
-        } else {
             return paymentOptions[row]
+        } else {
+            return shippingOptions[row]
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
+        switch [row, pickerView.tag] {
+        case [0, 2]:
             if(db.cartTotal >= 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 20.00)
             }
             if(db.cartTotal < 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 10.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 10)
             }
             print("item one",row)
-        case 1:
+        case [1, 2]:
 
             if(db.cartTotal >= 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 30.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 30.00)
             }
             if(db.cartTotal < 50.00){
 
-                self.orderTotal.text = "$" + (db.cartTotal + 20.00).description
+                self.orderTotal.text = String(format: "$%.2f", db.cartTotal + 20.00)
             }
             
             
@@ -96,9 +92,24 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     @IBAction func submitOrder(_ sender: Any) {
+
         
+        
+
+        if CheckoutViewController.addressEntered == false {
+            let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            present(alert, animated: true)
+        } else {
             DBHelper.inst.checkout()
-        
+            let mainBoard = UIStoryboard(name: "Main", bundle: nil)
+            let orderSubmittedController = mainBoard.instantiateViewController(withIdentifier: "orderSubmittedController") as! OrderSubmittedViewController
+            orderSubmittedController.modalPresentationStyle = .fullScreen
+            self.present(orderSubmittedController, animated: true)
+        }
+
         
     }
     
