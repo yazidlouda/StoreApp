@@ -75,4 +75,15 @@ extension DBHelper {
            }
            return orderIDs
        }
+    func getAllUserOrdersAmount(username: String) -> Array<Double> {
+           let order : [Order]
+           var orderAmounts : [Double] = []
+           let customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
+           order = customer.orders?.allObjects as! [Order]
+           for allOrders in order {
+            orderAmounts.append(allOrders.total)
+           }
+           return orderAmounts
+       }
+   
 }

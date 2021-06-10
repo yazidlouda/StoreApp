@@ -239,10 +239,10 @@ extension DBHelper {
             DBHelper.cartItemQuantities.removeValue(forKey: product.id!)
             DBHelper.cartItemSubtotals.removeValue(forKey: product.id!)
             var updatedTotal = 0.0
-            for prod in DBHelper.cartSet {
-                let quantity = DBHelper.cartItemQuantities[prod.id!]!
-                updatedTotal += (Double(quantity) * prod.price)
-            }
+//            for prod in DBHelper.cartSet {
+//                let quantity = DBHelper.cartItemQuantities[prod.id!]!
+//                updatedTotal += (Double(quantity) * prod.price)
+//            }
             DBHelper.cartTotal = updatedTotal
             
             print(DBHelper.cartSet)
