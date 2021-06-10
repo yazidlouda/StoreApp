@@ -145,6 +145,24 @@ class DBHelper {
         }
     }
     
+    func updateAccountBalance(_ username: String, _ amount: Double) {
+        
+        var customer = Customer()
+        
+        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Customer")
+        fetchReq.predicate = NSPredicate(format: "username == %@", username)
+        
+        do {
+            let res = try context?.fetch(fetchReq)
+            if (res?.count != 0) {
+                customer = res?.first as! Customer
+                customer.giftCardBalance += amount
+                try context?.save()
+            }
+        } catch {
+            print("error with fetching data or saving context")
+        }
+    }
 
     //Updates the password of an existing customer in the database using that customer's phone number
     func updatePasswordForCustomer(_ password: String, withPhone number: String) {

@@ -8,22 +8,19 @@
 import UIKit
 
 class RefundSubmitViewController: UIViewController {
-
+    var total : Double = 0.00
+    @IBOutlet weak var orderNumberLabel: UILabel!
+    @IBOutlet weak var refundTotal: UILabel!
+    var refundTotalAmount = ProfilePageViewController.refundAmount
     override func viewDidLoad() {
         super.viewDidLoad()
+        orderNumberLabel.text = ProfilePageViewController.selectedOrderNumber
+        refundTotal.text = String(format: "$%.2f", ProfilePageViewController.refundAmount)
+    }
 
-        // Do any additional setup after loading the view.
+    @IBAction func refundSubmitted(_ sender: Any) {
+        DBHelper.inst.updateAccountBalance(DBHelper.currentUser, refundTotalAmount)
+        DBHelper.inst.deleteOrder(ProfilePageViewController.fullOrderId!)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

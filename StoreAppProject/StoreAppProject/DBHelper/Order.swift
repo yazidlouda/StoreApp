@@ -69,8 +69,52 @@ extension DBHelper {
         print(refetchedCustomer.orders)
         
     }
-
     
+    func getSingleOrder(orderNumber: String) -> NSManagedObject {
+        let fetchReq = NSFetchRequest<NSManagedObject>(entityName:"Order")
+        fetchReq.predicate = NSPredicate(format: "id == %@", orderNumber)
+        fetchReq.fetchLimit = 1
+        
+        var order : NSManagedObject?
+        
+        do {
+            let res = try context?.fetch(fetchReq)
+            print("customer info: ", res!)
+            order = res?.first
+        } catch (let exception) {
+            print("catch block")
+            print(exception.localizedDescription)
+        }
+        
+        return order!
+    }
+    
+    func removeSingleOrder(_ orderNumber: Any) {
+        let order : [Order]
+        var orderIDs : [UUID] = []
+        let customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
+        order = customer.orders?.allObjects as! [Order]
+        for allOrders in order {
+            orderIDs.append(allOrders.id!)
+        }
+        
+    }
+    
+    func deleteOrder(_ orderNumber: Any) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Order")
+        fetchReq.returnsObjectsAsFaults = false
+        fetchReq.predicate = NSPredicate(format: "id == %@", orderNumber as! CVarArg)
+        
+        do {
+            let order = try context?.fetch(fetchReq)
+            context?.delete(order?.first as! Order)
+            try context?.save()
+        } catch {
+            print("Error while trying to delete user")
+        }
+    }
+    
+
     func getAllUserOrders(username: String) -> Array<String> {
         let order : [Order]
         var orderIDs : [String] = []

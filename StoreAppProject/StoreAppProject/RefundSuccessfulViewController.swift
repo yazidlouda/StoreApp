@@ -10,11 +10,12 @@ import UIKit
 class RefundSuccessfulViewController: UIViewController {
     @IBOutlet weak var money: UIImageView!
     @IBOutlet weak var wallet: UIImageView!
+    @IBOutlet weak var orderNumberLabel: UILabel!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        orderNumberLabel.text = ProfilePageViewController.selectedOrderNumber
         moneyAnimateLeft()
         
         func moneyAnimateLeft() {
