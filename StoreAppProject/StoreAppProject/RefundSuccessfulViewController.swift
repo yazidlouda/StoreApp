@@ -16,19 +16,13 @@ class RefundSuccessfulViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         orderNumber.text = RefundSuccessfulViewController.order
         moneyAnimateLeft()
       
     }
-    
-
-       
-        
-        func moneyAnimateLeft() {
-            UIView.animateKeyframes(withDuration: 0.85, delay: 0.5, animations: {
-                self.money.transform = CGAffineTransform(translationX: -100, y: 0)
-
+    func moneyAnimateLeft() {
+        UIView.animateKeyframes(withDuration: 0.85, delay: 0.5, animations: {
+            self.money.transform = CGAffineTransform(translationX: -100, y: 0)
 
             self.money.transform = CGAffineTransform(translationX: -100, y: 100)
 

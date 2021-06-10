@@ -67,18 +67,18 @@ class CartViewController: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         var total = DBHelper.cartTotal
-        totalNoShipp.text = String(format: "$%.2f", total)
+        totalNoShipp.text = "$" + total.description
         if(total >= 50.00){
-            shipping.text = String(format: "$%.2f", 20.00)
-            self.total.text = String(format: "$%.2f", total + 20.00)
+            shipping.text = "$" + 20.00.description
+            self.total.text = "$" + (total + 20.00).description
         }
         if(total < 50.00){
-            shipping.text = String(format: "$%.2f", 10.00)
-            self.total.text = String(format: "$%.2f", total + 10.00)
+            shipping.text = "$" + 10.00.description
+            self.total.text = "$" + (total + 10.00).description
         }
         if(total == 0.00){
-            shipping.text = String(format: "$%.2f", 0.00)
-            self.total.text = String(format: "$%.2f", total + 0.00)
+            shipping.text = "$" + 0.00.description
+            self.total.text = "$" + (total + 0.00).description
         }
         
     }
@@ -164,7 +164,7 @@ extension CartViewController: UITableViewDataSource {
             DBHelper.currentUser = ""
             DBHelper.found = 1
             DBHelper.isLoggedIn = false
-            DBHelper.cartTotal = 0.00
+            DBHelper.cartTotal = 0.0
             self.tabBarController?.present(loginPage, animated: true, completion: nil)
         } else {
             self.tabBarController?.present(loginPage, animated: true, completion: nil)

@@ -21,40 +21,20 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
-
-        
         animateRight()
-        
-        username.text = ud.string(forKey: "username")
-        password.text = ud.string(forKey: "password")
-        if ud.bool(forKey: "switchBool") {
-            sw.isOn = true
-
+        if (sw.isOn) { // if the switch is on, remember the last username/password combo entered and automatically enter it for the user
+            username.text = ud.string(forKey: "username")
+            password.text = ud.string(forKey: "username")
+            
         }
         
       
     }
-
+    
     func animateRight() {
         UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
             self.logo.transform = CGAffineTransform(rotationAngle: 170)
         }, completion: { [self]_ in animateLeft()})
-
-    @IBAction func rememberMeState(_ sender: UISwitch) {
-        if sender.isOn {
-            ud.set(username.text, forKey: "username")
-            ud.set(password.text, forKey: "password")
-        } else {
-            ud.removeObject(forKey: "username")
-            ud.removeObject(forKey: "password")
-        }
-        ud.set(sw.isOn, forKey: "switchBool")
-    }
-
-    @IBAction func enter(_ sender: Any) {
-        let mainBoard = UIStoryboard(name:"Main", bundle: nil)
-        let tabBar = mainBoard.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-
     }
     func animateLeft() {
         UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
@@ -109,6 +89,27 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         
     }
         
+//         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
+
+          
+//             print("account verified")
+            
+//             let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+//             dashboard.modalPresentationStyle = .fullScreen
+           
+//             self.present(dashboard, animated: true, completion: nil)
+
+//         }
+//          if (username.text != cus.username! && password.text != cus.password!){
+//             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
+//             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+
+            
+            
+
+//             self.present(alert, animated: true, completion: nil)
+//         }
 
 
 

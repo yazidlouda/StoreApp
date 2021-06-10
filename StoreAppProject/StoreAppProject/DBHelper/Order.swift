@@ -9,14 +9,7 @@ import Foundation
 import CoreData
 
 extension DBHelper {
-
- //   static var orderNum: UUID?
-
-    
-
-    static var orderNum : String = ""
-    
-
+    static var orderNum: UUID?
     func checkout() {
         DBHelper.cartSet = []
         DBHelper.cartItemSubtotals = [:]
@@ -51,7 +44,6 @@ extension DBHelper {
             customer.cartItemQuantities = DBHelper.cartItemQuantities
             customer.cartItemSubtotals = DBHelper.cartItemSubtotals
             customer.cartTotal = 0.0
-            DBHelper.orderNum = order.id!.uuidString
             try context?.save()
         } catch (let exception) {
             print(exception.localizedDescription)
@@ -73,10 +65,7 @@ extension DBHelper {
         print(refetchedCustomer.orders)
         
     }
-
-    
     func getAllUserOrders(username: String) -> Array<String> {
-
            let order : [Order]
            var orderIDs : [String] = []
            let customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
@@ -97,5 +86,4 @@ extension DBHelper {
            return orderAmounts
        }
    
-
 }

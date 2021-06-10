@@ -16,23 +16,17 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
     var orderPrices : Array<Double> = []
     @IBOutlet weak var tableView: UITableView!
     let userData : Customer = DBHelper.inst.getCustomer(withEmailID: DBHelper.currentUser)
-
-    
-    let refundSubmitVC = RefundSubmitViewController()
-    
-
+    let data = [1.0,2.4]
     @IBOutlet weak var accountBalance: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = DBHelper.currentUser
         tableView.reloadData()
         phoneNumber.text = String(userData.phoneNumber)
-        accountBalance.text = String(format: "$%.2f", userData.giftCardBalance)
+        accountBalance.text = String("$\(userData.giftCardBalance)")
         ordersIDs = DBHelper.inst.getAllUserOrders(username: DBHelper.currentUser)
-
         orderPrices = DBHelper.inst.getAllUserOrdersAmount(username: DBHelper.currentUser)
         accountBalance.text = ProfilePageViewController.balance
-
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,10 +35,7 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ProfileTableViewCell
-
-        let order : String = ordersIDs[indexPath.row]
-        let index = order.index(order.startIndex, offsetBy: 8)
-
+        
         
         
         let order : String = ordersIDs[indexPath.row]
@@ -56,9 +47,6 @@ class ProfilePageViewController: UIViewController , UITableViewDelegate, UITable
         cell.configurePrice(with: orderPrices[indexPath.row])
         cell.delegate = self
         
-
-
-        cell.textLabel!.text = String(order.prefix(upTo: index))
 
         return cell
 
