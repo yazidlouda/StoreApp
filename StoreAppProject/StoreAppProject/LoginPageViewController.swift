@@ -21,6 +21,7 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
+
         
         animateRight()
         
@@ -28,25 +29,17 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         password.text = ud.string(forKey: "password")
         if ud.bool(forKey: "switchBool") {
             sw.isOn = true
+
         }
         
-        func animateRight() {
-            UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
-                self.logo.transform = CGAffineTransform(rotationAngle: 170)
-            }, completion: {_ in animateLeft()})
-        }
-        func animateLeft() {
-            UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
-                self.logo.transform = CGAffineTransform(rotationAngle: 320)
-            }, completion: {_ in animateCenter()})
-        }
-        func animateCenter() {
-            UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
-                self.logo.transform = CGAffineTransform(rotationAngle: 0)
-            }, completion: {_ in animateRight()})
-        }
+      
     }
-    
+
+    func animateRight() {
+        UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
+            self.logo.transform = CGAffineTransform(rotationAngle: 170)
+        }, completion: { [self]_ in animateLeft()})
+
     @IBAction func rememberMeState(_ sender: UISwitch) {
         if sender.isOn {
             ud.set(username.text, forKey: "username")
@@ -61,8 +54,19 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
     @IBAction func enter(_ sender: Any) {
         let mainBoard = UIStoryboard(name:"Main", bundle: nil)
         let tabBar = mainBoard.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-    }
 
+    }
+    func animateLeft() {
+        UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
+            self.logo.transform = CGAffineTransform(rotationAngle: 320)
+        }, completion: { [self]_ in animateCenter()})
+    }
+    func animateCenter() {
+        UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {
+            self.logo.transform = CGAffineTransform(rotationAngle: 0)
+        }, completion: { [self]_ in animateRight()})
+    }
+   
     @IBAction func login(_ sender: Any) {
         var customer : Customer
         if let phone = Int(username.text!) {
@@ -105,27 +109,6 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         
     }
         
-//         if (username.text == cus.username! && password.text == cus.password!) { // Verifies that the user credentials are in the core data and lets the user login
-
-          
-//             print("account verified")
-            
-//             let dashboard = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
-//             dashboard.modalPresentationStyle = .fullScreen
-           
-//             self.present(dashboard, animated: true, completion: nil)
-
-//         }
-//          if (username.text != cus.username! && password.text != cus.password!){
-//             let alert = UIAlertController(title: "Wrong informations", message: "Enter a correct username or password", preferredStyle: UIAlertController.Style.alert)
-//             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-
-            
-            
-
-//             self.present(alert, animated: true, completion: nil)
-//         }
 
 
 

@@ -92,6 +92,10 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     @IBAction func submitOrder(_ sender: Any) {
+
+        
+        
+
         if CheckoutViewController.addressEntered == false {
             let alert = UIAlertController(title: "Shipping Address missing", message: "Enter a shipping adress.", preferredStyle: UIAlertController.Style.alert)
             
@@ -105,6 +109,7 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             orderSubmittedController.modalPresentationStyle = .fullScreen
             self.present(orderSubmittedController, animated: true)
         }
+
         
     }
     

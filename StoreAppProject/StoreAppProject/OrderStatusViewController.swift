@@ -9,10 +9,12 @@ import UIKit
 import MapKit
 
 class OrderStatusViewController: UIViewController, CLLocationManagerDelegate {
-
+ static var order = ""
+    @IBOutlet weak var orderNumber: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         getLocation()
+
     }
     
     let ann = MKPointAnnotation()
