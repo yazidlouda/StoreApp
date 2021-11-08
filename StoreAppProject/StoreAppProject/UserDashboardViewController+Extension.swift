@@ -18,13 +18,6 @@ extension UserDashboardViewController : UICollectionViewDelegate , UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case clothingCollectionView:
-
-//            return clothingProducts!.count
-//        case kitchenCollectionView:
-//            return kitchenProducts!.count
-//        case outdoorCollectionView:
-//            return outdoorsProducts!.count
-
             return clothing.count
         case kitchenCollectionView:
             return kitchen.count

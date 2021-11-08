@@ -22,14 +22,7 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
         
        
             let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCollectionViewCell
-            
-
             cell.setupProductCell(product: filteredData[indexPath.item])
-
-           
-        
-        //Method to display rating in product view
-         //   cell.setupRating(ratt: rating[indexPath.row])
             return cell
        
             
@@ -44,7 +37,7 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
             productCollectionView.reloadData()
         }else{
             for db in products! {
-                var name = db.name!
+                let name = db.name!
                 if (name.lowercased().contains(searchText.lowercased())){
                     filteredData.append(db)
                     numberOfItems.text = filteredData.count.description
@@ -68,26 +61,12 @@ extension ProductViewController : UICollectionViewDelegate , UICollectionViewDat
         guard let self = self else {return}
         cell?.alpha = 1
             
-         
-                
                 let viewController =  self.storyboard?.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
-                /*
-                viewController?.image = self.product[indexPath.item].image
-                viewController?.name = self.product[indexPath.item].name
-                viewController?.itemInfo = self.product[indexPath.item].description
-                viewController?.index  = indexPath.item
-
-                */
+               
                 viewController.username = self.username
                 viewController.phone = self.phone
                 viewController.product = self.products?[indexPath.item]
-
-
-                //viewController.price = self.product[indexPath.item].price
                 viewController.rat1 = self.rating[indexPath.row]
-
-
-            
                 let haptic = UIImpactFeedbackGenerator(style: .soft)
                 haptic.impactOccurred()
                 

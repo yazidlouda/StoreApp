@@ -16,6 +16,7 @@ class DBTestViewController: UIViewController {
     var homeGoodsDept : Department?
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         DBHelper.inst.addDepartment(name:"clothing")
         DBHelper.inst.addDepartment(name: "kitchen")
         DBHelper.inst.addDepartment(name: "outdoors")
