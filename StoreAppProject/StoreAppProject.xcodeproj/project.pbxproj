@@ -73,6 +73,7 @@
 		F457FE06265FF2E40080AFFC /* ClothingViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457FE05265FF2E40080AFFC /* ClothingViewController+Extension.swift */; };
 		F457FE0B265FFCC80080AFFC /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457FE0A265FFCC80080AFFC /* KitchenViewController.swift */; };
 		F457FE10265FFD4C0080AFFC /* KitchenViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457FE0F265FFD4C0080AFFC /* KitchenViewController+Extension.swift */; };
+		F4582E542737305B001FA919 /* HomaPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582E5327373059001FA919 /* HomaPageViewController.swift */; };
 		F4583B37265C34BE0051D5D6 /* ItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B36265C34BE0051D5D6 /* ItemCollectionViewController.swift */; };
 		F4583B3C265C35F50051D5D6 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B3B265C35F50051D5D6 /* ItemCollectionViewCell.swift */; };
 		F4583B62265C78BF0051D5D6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4583B61265C78BF0051D5D6 /* Item.swift */; };
@@ -193,6 +194,7 @@
 		F457FE05265FF2E40080AFFC /* ClothingViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClothingViewController+Extension.swift"; sourceTree = "<group>"; };
 		F457FE0A265FFCC80080AFFC /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
 		F457FE0F265FFD4C0080AFFC /* KitchenViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KitchenViewController+Extension.swift"; sourceTree = "<group>"; };
+		F4582E5327373059001FA919 /* HomaPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomaPageViewController.swift; sourceTree = "<group>"; };
 		F4583B36265C34BE0051D5D6 /* ItemCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewController.swift; sourceTree = "<group>"; };
 		F4583B3B265C35F50051D5D6 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4583B61265C78BF0051D5D6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -301,6 +303,10 @@
 				5E03948226580F0A009639B7 /* LoginPageViewController.swift */,
 				5E03948D2658191D009639B7 /* CheckoutViewController.swift */,
 				5E5B88D2266ABE4200F1B805 /* Cart.swift */,
+
+				5EA3C6482671407000F9B5D5 /* ProfileTableViewCell 2.swift */,
+				F49590682670FFB000FC28F2 /* ProfilePageViewController.swift */,
+
 				5E03948126580F0A009639B7 /* SignUpViewController.swift */,
 				5EAC6353266AC33800ED80F8 /* DBTestViewController.swift */,
 				F4E6596926582E8E0086BA6E /* ForgotPasswordViewController.swift */,
@@ -326,8 +332,12 @@
 				5E039453265801C5009639B7 /* StoreAppProject.xcdatamodeld */,
 				F491C879266AAD0E003A7983 /* TabBarViewController.swift */,
 				F491C89F266C6AF6003A7983 /* Cart.swift */,
+
 				F49590682670FFB000FC28F2 /* ProfilePageViewController.swift */,
 				F495905D2670FD9C00FC28F2 /* ProfileTableViewCell.swift */,
+
+				F4582E5327373059001FA919 /* HomaPageViewController.swift */,
+
 			);
 			path = StoreAppProject;
 			sourceTree = "<group>";
@@ -711,6 +721,7 @@
 				8483F1C1265EB2BE00A5ABB9 /* CardViewController.swift in Sources */,
 				5E039486265816DC009639B7 /* LandingPageViewController.swift in Sources */,
 				F4371339265DD0FB00F17811 /* WishList.swift in Sources */,
+				F4582E542737305B001FA919 /* HomaPageViewController.swift in Sources */,
 				5E03944B265801C5009639B7 /* AppDelegate.swift in Sources */,
 				8483F1CC265EB59D00A5ABB9 /* BankViewController.swift in Sources */,
 				F4371352265DE21200F17811 /* UserDashboardViewController+Extension.swift in Sources */,

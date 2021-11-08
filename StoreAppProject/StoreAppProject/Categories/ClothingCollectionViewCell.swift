@@ -16,11 +16,7 @@ class ClothingCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    /*func setupClothingCell(item:Item)  {
-        name.text = item.name
-        image.image = item.image
-        price.text = "$" + item.price.description
-    }*/
+    
     func setupClothingCell(product : Product)  {
         name.text = product.name
         image.image = product.image!

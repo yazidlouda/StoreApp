@@ -35,6 +35,24 @@ class LoginPageViewController: UIViewController , UITextFieldDelegate{
         UIView.animateKeyframes(withDuration: 0.1, delay: 3, animations: {
             self.logo.transform = CGAffineTransform(rotationAngle: 170)
         }, completion: { [self]_ in animateLeft()})
+
+    }
+    @IBAction func rememberMeState(_ sender: UISwitch) {
+        if sender.isOn {
+            ud.set(username.text, forKey: "username")
+            ud.set(password.text, forKey: "password")
+        } else {
+            ud.removeObject(forKey: "username")
+            ud.removeObject(forKey: "password")
+        }
+        ud.set(sw.isOn, forKey: "switchBool")
+    }
+
+    @IBAction func enter(_ sender: Any) {
+        let mainBoard = UIStoryboard(name:"Main", bundle: nil)
+        let tabBar = mainBoard.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+
+
     }
     func animateLeft() {
         UIView.animateKeyframes(withDuration: 0.1, delay: 0, animations: {

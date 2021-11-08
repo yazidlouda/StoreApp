@@ -17,9 +17,10 @@ class RefundSubmitViewController: UIViewController {
         orderNumber.text = RefundSubmitViewController.order
         // Do any additional setup after loading the view.
         if (RefundSubmitViewController.refund < 50.00){
-            refundAmount.text = "$" + (RefundSubmitViewController.refund + 10).description
+           
+            refundAmount.text =  String(format: "$%.2f", RefundSubmitViewController.refund + 10)
         }else if (RefundSubmitViewController.refund > 50.00){
-            refundAmount.text = "$" + (RefundSubmitViewController.refund + 20).description
+            refundAmount.text =  String(format: "$%.2f", RefundSubmitViewController.refund + 20)
         }
         
     }
@@ -28,9 +29,9 @@ class RefundSubmitViewController: UIViewController {
         ProfilePageViewController.delete = RefundSubmitViewController.order
         
         if (RefundSubmitViewController.refund < 50.00){
-            ProfilePageViewController.balance = "$" + (RefundSubmitViewController.refund + 10).description
+            ProfilePageViewController.balance =  String(format: "$%.2f", RefundSubmitViewController.refund + 10)
         }else if (RefundSubmitViewController.refund > 50.00){
-            ProfilePageViewController.balance = "$" + (RefundSubmitViewController.refund + 20).description
+            ProfilePageViewController.balance =  String(format: "$%.2f", RefundSubmitViewController.refund + 20)
         }
         
     }

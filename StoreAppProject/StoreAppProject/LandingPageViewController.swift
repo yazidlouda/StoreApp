@@ -10,13 +10,20 @@ import UIKit
 class LandingPageViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         if DBHelper.isLoggedIn == true {
             signInButton.setTitle("Sign Out", for: .normal)
         } else {
             signInButton.setTitle("Sign In", for: .normal)
         }
+        
+        
+       
+       
+       
     }
     
     @IBAction func profileClicked(_ sender: UIButton) {

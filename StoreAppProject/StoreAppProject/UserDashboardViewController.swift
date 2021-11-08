@@ -23,6 +23,7 @@ class UserDashboardViewController: UIViewController {
     @IBOutlet weak var outdoorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if DBHelper.isLoggedIn == true {
             signInButton.setTitle("Sign Out", for: .normal)
         } else {

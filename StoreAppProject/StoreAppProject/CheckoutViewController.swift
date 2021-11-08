@@ -96,9 +96,11 @@ class CheckoutViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     @IBAction func submitOrder(_ sender: Any) {
+
         
             DBHelper.inst.checkout()
         
+
         
     }
     
